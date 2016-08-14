@@ -188,16 +188,98 @@ git status
 - 「nothing to commit, ...」との表示から
   コミットすべきものがない（＝過去の変更はコミットされた）ことが
   わかる
-    
-*** リポジトリへの変更内容の確認
-- 次のコマンドで現在のディレクトリで行った変更内容が確認できる
-  - これを差分ともいう
+- この表示がでたら（無事コミットできたので）一安心してよい
+
+** 変更履歴の作成
+*** 更なるコミットを作成する
+- リポジトリで変更作業を行い，新しいコミットを追加する
+  - READMEファイルに新しい行を追加する
+- 次の$NAMEをあなたの名前に変更して実行しなさい
+
+#+BEGIN_SRC bash
+echo $NAME >> README
+#+END_SRC
+
+- 既存のファイルへの追加なので「>>」を用いていることに注意
+
+*** 変更後の状態の確認
+- リポジトリの状態をここでも確認する
+
+#+BEGIN_SRC bash
+git status
+#+END_SRC
+
+- コミットのためにステージされていない変更（Changes not staged for commit:）の
+  欄に，変更された（modified）ファイルとしてREADMEが表示される
+
+*** 差分の確認
+- トラックされているファイルの変更箇所を確認する
 
 #+BEGIN_SRC bash
 git diff
 #+END_SRC
 
-*** ステージングはコミットの一歩手前
+- 頭に「+」のある（緑色で表示された）行が新たに追加された内容を示す
+  - 削除した場合は「-」がつく
+
+*** 新たな差分をステージングする
+- 作成した差分をコミットできるようにするために，ステージング段階に上げる
+
+#+BEGIN_SRC bash
+git add .
+#+END_SRC
+
+- git statusを行い，READMEファイルが「Changed to be commited:」の欄に
+  （緑色で）表示されていることを確認する
+- ステージさせるとgit diffの結果が空になる
+  - この場合，「git diff --staged」で確認可能
+
+*** ステージングされた新しい差分のコミット
+- 変更内容を示すメッセージとともにコミットする
+
+#+BEGIN_SRC bash
+git commit -m 'Add my name'
+#+END_SRC
+
+** 履歴の確認
+*** バージョン履歴の確認
+- これまでの変更作業の履歴を確認
+  - 2つのコミットが存在する
+
+#+BEGIN_SRC bash
+git log
+#+END_SRC
+
+- 各コミットごとに表示される内容
+  - コミットのID（commit に続く英文字と数字の列）
+  - AuthorとDate
+  - コミットメッセージ
+
+*** 一つのファイルの履歴
+- 将来，複数のファイルを履歴管理するようになったら特定のファイルの
+  履歴のみ確認したい
+- その場合，次のとおりにする
+
+#+BEGIN_SRC bash
+git log --follow README
+#+END_SRC
+
+*** 2つのコミットの比較
+- 異なる２つのコミットの変更差分は次のコマンドで確認できる
+  - コミットのIDはlogで確認できる（概ね先頭4文字でよい）
+  - ブランチごとの比較もできる（後述）
+
+#+BEGIN_SRC bash
+git diff $COMMIT_ID_1 $COMMIT_ID_2 
+#+END_SRC
+
+*** コミットの情報確認
+- 次のコマンドでコミットで行った変更内容が確認できる
+
+#+BEGIN_SRC bash
+git show $COMMIT_ID
+#+END_SRC
+
 
 ** ブランチの使い方
 *** ブランチとは
@@ -220,7 +302,7 @@ git diff
 git checkout -b new_branch
 #+END_SRC
 
-- 本来，にブランチは「これから行う作業の内容」が分かるような名前を付ける
+- 本来，ブランチには「これから行う作業の内容」が分かるような名前を付ける
 
 *** ブランチの確認
 - ブランチの一覧と現在のブランチを確認する
@@ -253,6 +335,26 @@ git branch -d new_branch
 git branch -vv
 #+END_SRC
 
+
+** その他のコマンド
+*** ステージング/コミットの修正
+ファイルのステージングを取り消す
+
+#+BEGIN_SRC bash
+git reset $FILE
+#+END_SRC
+
+$COMMITより後のコミットの取り消し（ローカルは保存）
+
+#+BEGIN_SRC bash
+git reset $COMMIT
+#+END_SRC
+
+$COMMITより後のコミットの取り消し（ローカルの変更も破棄）
+
+#+BEGIN_SRC bash
+git reset --hard $COMMIT
+#+END_SRC
 
 * 未整理
 ** Gitリポジトリ

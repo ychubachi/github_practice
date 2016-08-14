@@ -1,4 +1,4 @@
-% Created 2016-08-14 日 21:40
+% Created 2016-08-14 日 22:20
 \documentclass[a4paper,twoside,twocolumn]{bxjsarticle}
 \usepackage{zxjatype}
 \usepackage[ipa]{zxjafont}
@@ -313,28 +313,145 @@ git status
 \item 「nothing to commit, \ldots{}」との表示から
 コミットすべきものがない（＝過去の変更はコミットされた）ことが
 わかる
+\item この表示がでたら（無事コミットできたので）一安心してよい
 \end{itemize}
 
-\subsubsection{リポジトリへの変更内容の確認}
-\label{sec-1-3-9}
+\subsection{変更履歴の作成}
+\label{sec-1-4}
+\subsubsection{更なるコミットを作成する}
+\label{sec-1-4-1}
 \begin{itemize}
-\item 次のコマンドで現在のディレクトリで行った変更内容が確認できる
+\item リポジトリで変更作業を行い，新しいコミットを追加する
 \begin{itemize}
-\item これを差分ともいう
+\item READMEファイルに新しい行を追加する
 \end{itemize}
+\item 次の\$NAMEをあなたの名前に変更して実行しなさい
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+echo $NAME >> README
+\end{minted}
+
+\begin{itemize}
+\item 既存のファイルへの追加なので「>>」を用いていることに注意
+\end{itemize}
+
+\subsubsection{変更後の状態の確認}
+\label{sec-1-4-2}
+\begin{itemize}
+\item リポジトリの状態をここでも確認する
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git status
+\end{minted}
+
+\begin{itemize}
+\item コミットのためにステージされていない変更（Changes not staged for commit:）の
+欄に，変更された（modified）ファイルとしてREADMEが表示される
+\end{itemize}
+
+\subsubsection{差分の確認}
+\label{sec-1-4-3}
+\begin{itemize}
+\item トラックされているファイルの変更箇所を確認する
 \end{itemize}
 
 \begin{minted}[frame=single,linenos=true]{bash}
 git diff
 \end{minted}
 
-\subsubsection{ステージングはコミットの一歩手前}
-\label{sec-1-3-10}
+\begin{itemize}
+\item 頭に「+」のある（緑色で表示された）行が新たに追加された内容を示す
+\begin{itemize}
+\item 削除した場合は「-」がつく
+\end{itemize}
+\end{itemize}
+
+\subsubsection{新たな差分をステージングする}
+\label{sec-1-4-4}
+\begin{itemize}
+\item 作成した差分をコミットできるようにするために，ステージング段階に上げる
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git add .
+\end{minted}
+
+\begin{itemize}
+\item git statusを行い，READMEファイルが「Changed to be commited:」の欄に
+（緑色で）表示されていることを確認する
+\item ステージさせるとgit diffの結果が空になる
+\begin{itemize}
+\item この場合，「git diff --staged」で確認可能
+\end{itemize}
+\end{itemize}
+
+\subsubsection{ステージングされた新しい差分のコミット}
+\label{sec-1-4-5}
+\begin{itemize}
+\item 変更内容を示すメッセージとともにコミットする
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git commit -m 'Add my name'
+\end{minted}
+
+\subsection{履歴の確認}
+\label{sec-1-5}
+\subsubsection{バージョン履歴の確認}
+\label{sec-1-5-1}
+\begin{itemize}
+\item これまでの変更作業の履歴を確認
+\begin{itemize}
+\item 2つのコミットが存在する
+\end{itemize}
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git log
+\end{minted}
+
+\begin{itemize}
+\item 各コミットごとに表示される内容
+\begin{itemize}
+\item コミットのID（commit に続く英文字と数字の列）
+\item AuthorとDate
+\item コミットメッセージ
+\end{itemize}
+\end{itemize}
+
+\subsubsection{一つのファイルの履歴}
+\label{sec-1-5-2}
+\begin{itemize}
+\item 将来，複数のファイルを履歴管理するようになったら特定のファイルの
+履歴のみ確認したい
+\item その場合，次のとおりにする
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git log --follow README
+\end{minted}
+
+\subsubsection{2つのコミットの比較}
+\label{sec-1-5-3}
+\begin{itemize}
+\item 異なる２つのコミットの変更差分は次のコマンドで確認できる
+\begin{itemize}
+\item コミットのIDはlogで確認できる（概ね先頭4文字でよい）
+\item ブランチごとの比較もできる（後述）
+\end{itemize}
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git diff $COMMIT_ID_1 $COMMIT_ID_2
+\end{minted}
+
 
 \subsection{ブランチの使い方}
-\label{sec-1-4}
+\label{sec-1-6}
 \subsubsection{ブランチとは}
-\label{sec-1-4-1}
+\label{sec-1-6-1}
 \begin{itemize}
 \item 「ひとまとまりの作業」を行う場所
 \item ソースコードなどの編集作業を始める際には
@@ -342,7 +459,7 @@ git diff
 \end{itemize}
 
 \subsubsection{masterは大事なブランチ}
-\label{sec-1-4-2}
+\label{sec-1-6-2}
 \begin{itemize}
 \item Gitリポジトリの初期化後，最初のコミットを行うとmasterブランチができる
 \item 非常に重要なブランチであり，
@@ -353,7 +470,7 @@ git diff
 \end{itemize}
 
 \subsubsection{ブランチの作成}
-\label{sec-1-4-3}
+\label{sec-1-6-3}
 \begin{itemize}
 \item 新しいブランチ「new\_branch」を作成して，なおかつ，そのブランチに移動する
 \begin{itemize}
@@ -367,11 +484,11 @@ git checkout -b new_branch
 \end{minted}
 
 \begin{itemize}
-\item 本来，にブランチは「これから行う作業の内容」が分かるような名前を付ける
+\item 本来，ブランチには「これから行う作業の内容」が分かるような名前を付ける
 \end{itemize}
 
 \subsubsection{ブランチの確認}
-\label{sec-1-4-4}
+\label{sec-1-6-4}
 \begin{itemize}
 \item ブランチの一覧と現在のブランチを確認する
 \begin{itemize}
@@ -385,7 +502,7 @@ git branch -vv
 \end{minted}
 
 \subsubsection{ブランチの移動}
-\label{sec-1-4-5}
+\label{sec-1-6-5}
 
 \begin{itemize}
 \item ブランチ「new\_branch」に移動する
@@ -401,7 +518,7 @@ git checkout new_branch
 \end{itemize}
 
 \subsubsection{ブランチの削除}
-\label{sec-1-4-6}
+\label{sec-1-6-6}
 
 \begin{itemize}
 \item 作成したブランチを削除する
@@ -416,6 +533,28 @@ git branch -d new_branch
 git branch -vv
 \end{minted}
 
+
+\subsection{その他のコマンド}
+\label{sec-1-7}
+\subsubsection{ステージング/コミットの修正}
+\label{sec-1-7-1}
+ファイルのステージングを取り消す
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git reset $FILE
+\end{minted}
+
+\$COMMITより後のコミットの取り消し（ローカルは保存）
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git reset $COMMIT
+\end{minted}
+
+\$COMMITより後のコミットの取り消し（ローカルの変更も破棄）
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git reset --hard $COMMIT
+\end{minted}
 
 \section{未整理}
 \label{sec-2}
