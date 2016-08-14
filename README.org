@@ -1,27 +1,59 @@
 #+OPTIONS: ^:{}
+#+OPTIONS: toc:nil
+
+#+LaTeX_CLASS_OPTIONS: [a4paper,twoside,twocolumn]
 
 #+TITLE: GitHub入門
-#+AUTHOR: 中鉢 欣秀
+#+AUTHOR: 産業技術大学院大学\\ 中鉢 欣秀
 #+DATE: 2016-08-14
 
-* COMMENT 方針
-- 第1章はGit初心者（初めてさわる者）を対象にする
-- 第2章は個人によるGitHubの初歩的な使い方
-- 第3章はチームによるGitHubの使い方
+#+BEGIN_abstract
+これはGitの初心者が，基礎的なGitコマンドの利用方法から，
+GitHubフローに基づく協同開発の方法までを学ぶ演習である．
 
-* 序章
-** GitHub入門
-この演習ではGitの初心者が，基礎的なGitコマンドの利用方法から，
-GitHubフローに基づく協同開発の方法までを学ぶためのものです．
+事前に gitコマンドが利用できる環境を用意しておくこと．
+またCUI端末でのshellによる基本的な操作を知っていると
+スムーズに演習ができる．
 
-[[http://www.cs.tsukuba.ac.jp/enPiT/summercamp2016/][短期集中合宿 2016 | enPiT BizApp × 筑波大学]] で実施する
-[[http://www.cs.tsukuba.ac.jp/enPiT/summercamp2016/#818][8/18:GitHub入門]] のために作成した資料です．
+第1章はGit初心者（初めてさわる者）を対象に基礎を学ぶ．
+第2章は個人によるGitHubの初歩的な使い方を取り扱う．
+第3章ではチームによるGitHubの使い方を知ろう．
 
-** 前提条件
-- gitコマンドが利用できる環境
-- CUI端末でのshellによる基本的な操作
+#+END_abstract
 
-* 第1章 Git入門
+* Git入門
+** Gitの設定
+*** Gitコマンドの実行確認
+- 端末を操作してGitコマンドを起動してみよう．
+- 次のとおり操作することでGitのバージョン番号が確認できる．
+
+#+BEGIN_SRC bash
+git --version
+#+END_SRC
+
+*** 名前とメールアドレスの登録
+- 名前とメールアドレスを登録しておく
+- 次のコマンドの$NAMEと$EMAILを各自の名前とメールアドレスに置き換えて実行せよ
+  - 名前はローマ字で設定すること
+
+#+BEGIN_SRC bash
+git config --global user.name $NAME
+git config --global user.email $EMAIL
+#+END_SRC
+
+*** その他の設定と確認方法
+- 次のとおり，設定を行っておく
+
+#+BEGIN_SRC bash
+git config --global color.ui auto
+git config --global push.default simple
+#+END_SRC
+
+- ここまでの設定を確認する
+
+#+BEGIN_SRC bash
+git config -l
+#+END_SRC
 ** Gitのリポジトリ
 *** プロジェクト用のディレクトリ
 - プロジェクト用のディレクトリ
@@ -35,8 +67,8 @@ GitHubフローに基づく協同開発の方法までを学ぶためのもの�
 - 本章では1.について解説する．次章からは2.で行う．
 
 *** Gitリポジトリの初期化方法
-- my_projectディレクトリを作成し，Gitリポジトリとして初期化する
-- コマンド
+- my_projectディレクトリを作成し，
+  Gitリポジトリとして初期化するコマンドは次のとおり．
 
 #+begin_src bash
 mkdir ~/my_project
@@ -44,6 +76,19 @@ cd ~/my_project
 git init # Gitリポジトリとして初期化する
 #+end_src
 
+*** リポジトリの状態を確認する方法
+- 現在のリポジトリの状態を確認するコマンドは次のとおり．
+
+#+begin_src bash
+git status 
+#+end_src
+
+- このコマンドは頻繁に使用する
+- 何かうまく行かないことがあったら，このコマンドで状態を確認する癖を
+  つけるとよい
+** ブランチの使い方
+*** ブランチとは
+- 
 
 * 未整理
 ** Gitリポジトリ
