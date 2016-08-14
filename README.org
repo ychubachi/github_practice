@@ -5,10 +5,32 @@
 * 事前準備
 - git コマンドが利用できる環境
 
+* Git解説
+** 解説
+- gitにはブランチ（branch）の概念がある
+- 最初にあるのはmasterブランチ
+- masterは一番大切なブランチであり，常に正常に動作する状態にする
+- 新しい作業を開始するときは必ず新しいbranchを作る
+- 後に，作業内容をmasterに取り込む（merge）
 * Git演習
-TODO
+** ブランチの作成
+*** 課題
 
-* GitHub演習
-** 課題
+「new_feature」ブランチを作成せよ
+
+#+begin_src bash
+git checkout -b new_feature
+#+end_src
+
+*** 確認
+- 方法1) git status の結果の一行目が「On brunch new_feature」になっていること
+- 方法2) git status の一行目が「On brunch new_feature」になっていること
+
+
+* GitHub演習（個人）
+** アカウントの作成
+*** 課題
 [[https://github.com/][GitHub]] にアカウントを作成せよ
-** 提出
+*** 提出
+TODO: Google form
+
