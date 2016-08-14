@@ -1,9 +1,187 @@
-* GitHub入門
-[[http://www.cs.tsukuba.ac.jp/enPiT/summercamp2016/][短期集中合宿 2016 | enPiT BizApp × 筑波大学]] で実施する
-[[http://www.cs.tsukuba.ac.jp/enPiT/summercamp2016/#818][8/18:GitHub入門]] の資料です．
+#+TITLE: GitHub入門
+#+AUTHOR: 中鉢 欣秀
+#+DATE: 2016-08-14
 
-* 事前準備
-- git コマンドが利用できる環境
+* COMMENT 方針
+- 第1章はGit初心者（初めてさわる者）を対象にする
+- 第2章は個人によるGitHubの初歩的な使い方
+- 第3章はチームによるGitHubの使い方
+
+* 序章
+** GitHub入門
+この演習ではGitの初心者が，基礎的なGitコマンドの利用方法から，
+GitHubフローに基づく協同開発の方法までを学ぶためのものです．
+
+[[http://www.cs.tsukuba.ac.jp/enPiT/summercamp2016/][短期集中合宿 2016 | enPiT BizApp × 筑波大学]] で実施する
+[[http://www.cs.tsukuba.ac.jp/enPiT/summercamp2016/#818][8/18:GitHub入門]] のために作成した資料です．
+
+** 前提条件
+- gitコマンドが利用できる環境
+- CUI端末でのshellによる基本的な操作
+
+* 第1章 Git入門
+** Gitのリポジトリ
+*** プロジェクト用のディレクトリ
+- プロジェクト用のディレクトリ
+- ソースコードなどのバージョン管理ができるようになる
+- GitHubと連携させることで共同作業ができる
+
+*** Gitリポジトリを利用するには
+- リポジトリを利用する方法には主に2種類ある
+  1. git initコマンドで初期化する方法
+  2. git cloneコマンドでGitHubから入手する方法
+- 本章では1.について解説する
+
+*** Gitリポジトリの初期化方法
+- my_projectディレクトリを作成し，Gitリポジトリとして初期化する
+
+#+begin_src bash
+mkdir ~/my_project
+cd ~/my_project
+git init # Gitリポジトリとして初期化する
+#+end_src
+
+
+* 未整理
+** Gitリポジトリ
+*** 基本的な git コマンド
+新しくブランチを作成してチェックアウトする
+
+#+begin_src bash
+git checkout -b some_new_feature
+#+end_src
+
+ブランチをGitHubにpushする
+
+#+begin_src bash
+git add .
+git commit -m '（作業内容）'
+git push -u origin some_new_feature
+#+end_src
+
+
+** GitHubとは
+*** TODO Gitとは
+*** GitHubについて
+    - ソーシャルコーディングのためのクラウド環境
+      - [[https://github.com/][GitHub]]
+      - [[http://github.co.jp/][GitHub Japan]]
+    - GitHubが提供する主な機能
+      - GitHub flowによる協同開発
+      - Pull requests
+      - Issue / Wiki
+      - コード解析
+
+*** GitHub Flow
+    - Git-flow
+      - GitHub が登場する以前、 Git-flow が提唱された
+      - [[http://nvie.com/posts/a-successful-git-branching-model/][A successful Git branching model » nvie.com]]
+    - GitHub flow
+      - GitHub により、よりシンプルで強力なワークフローが可能に
+      - [[http://scottchacon.com/2011/08/31/github-flow.html][GitHub Flow – Scott Chacon]]
+      - [[https://gist.github.com/Gab-km/3705015][GitHub Flow (Japanese translation)]]
+
+*** TODO [後ろへ] GitHub flow におけるコンフリクトについて
+    - マージのコンフリクト
+      - GitHub に提出した Pull requests が自動的にマージできないこと
+    - 基本的な対処法
+      - コンフリクトは、コードの同じ箇所を複数の人が別々に編集すると発生
+      - 初心者は、演習の最初の方では「他人と同じファイルを編集しない」こと
+	にして、操作になれる
+      - 上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ
+      - Pull requests でコンフリクトが発生し、自動的にマージできない状態に
+	なったら、 その PR を送った人がコンフリクトを自分で解消する
+*** コラボレーターの追加
+
+- GitHubのリポジトリをブラウザで開く．
+- Settings -> Collaborators を選ぶ
+- メンバーを招待する
+- 招待されたメンバーには確認のメールが届くので，リンクをクリックする
+
+*** コラボレーターがソースコードを入手する方法
+
+下記の「ychubachi」の部分を代表者のアカウント名にする．
+#+begin_src bash
+git clone ychubachi/ychubachi_2016_gem
+#+end_src
+
+**** プルリクエストとマージ
+
+- ブランチがGitHubに登録されたことを確認し，Pull requestを作成する
+- Pull requestのレビューが済んだらマージする
+
+**** ローカルのmaster を最新版にする
+
+- GitHubで行ったマージをローカルに反映させる
+
+#+begin_src bash
+git checkout master
+git pull
+#+end_src
+
+*** GitHubでのコンフリクトの解消方法
+**** 前提
+     - new_feature ブランチで作業中であり、最新の更新は commit 済
+
+**** 操作（一例）
+
+#+begin_src bash
+git checkout master         # master をチェックアウト
+git pull origin master      # 手元の master を最新版にする
+git checkout new_feature    # 作業中のブランチに戻る
+git merge master            # この後、コンフリクトを修正する
+git push origin new_feature # 作業中のブランチを再度、push
+#+end_src
+
+
+*** Gemの作成からGitHubへの登録まで
+
+#+begin_src bash
+bundle gem ychubachi_2016_gem
+cd ychubachi_2016_gem/
+git commit -m 'Initial commit'
+git create
+git push -u origin master
+#+end_src
+
+* 演習
+** ペアで行う GitHub
+*** ペアで GitHub を使ってみよう
+    1. 隣同士でペアを組む
+    2. レポジトリを作成する（どちらか一方）
+       - =bundle gem= でひな形を作る（初心者は Gem でなくても良い）
+    3. レポジトリの Collaborators に登録する
+    4. レポジトリに対して、次のことを行う
+       - Pull requests を利用してみる
+       - Issue を利用してみる
+       - Wiki を利用してみる
+*** 課題1
+    1. Pull request & merge の作業を各自5回以上行う
+       - ディスカッションやコードレビューもやってみる
+    2. Issue を5個以上登録する
+       - Pull request による Issue の close なども試す
+    3. Wiki でページを作成する
+       - ページを5つ程度作成して、リンクも貼る
+    4. 以上が終わったペアはグループでの演習に進む
+       - 講師に申告すること
+	 
+** グループで行う GitHub
+*** 課題：グループで GitHub (1)
+    1. ペアを2つ組み合わせて4人グループを作成する
+       - 課題1が終わったペアから順番にグループ編成
+    2. 作りたい Gem について相談して仕様を決める
+       - テーマはなんでも良い
+         - Web API を利用したコマンドラインツールなど
+       - ある程度の役割分担も決めておく
+    3. レポジトリを作成する（代表者1名）
+       - コラボレーターを追加する
+    4. 今まで学んだ知識を活用して Gem を開発する
+*** 課題：グループで GitHub (2)
+    1. グルーブメンバーでGemを共同で作成する
+    2. GitHub Flow の実践
+    3. Travis CI によるテストの自動化
+    4. RubyGems.org への自動ディプロイ
+    5. その他、GitHub の各種機能の活用
 
 * Git解説
 ** 解説
@@ -33,4 +211,5 @@ git checkout -b new_feature
 [[https://github.com/][GitHub]] にアカウントを作成せよ
 *** 提出
 TODO: Google form
+
 
