@@ -1,3 +1,5 @@
+#+OPTIONS: ^:{}
+
 #+TITLE: GitHub入門
 #+AUTHOR: 中鉢 欣秀
 #+DATE: 2016-08-14
@@ -33,7 +35,7 @@ GitHubフローに基づく協同開発の方法までを学ぶためのもの�
 - 本章では1.について解説する．次章からは2.で行う．
 
 *** Gitリポジトリの初期化方法
-- my_projectディレクトリを作成し，Gitリポジトリとして初期化する
+- my\_projectディレクトリを作成し，Gitリポジトリとして初期化する
 
 #+begin_src bash
 mkdir ~/my_project
