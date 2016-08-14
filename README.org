@@ -280,7 +280,6 @@ git diff $COMMIT_ID_1 $COMMIT_ID_2
 git show $COMMIT_ID
 #+END_SRC
 
-
 ** ブランチの使い方
 *** ブランチとは
 - 「ひとまとまりの作業」を行う場所
@@ -293,7 +292,7 @@ git show $COMMIT_ID
   ここで _直接編集作業を行ってはならない_
   - ただし，本演習や，個人でGitを利用する場合はこの限りではない
 
-*** ブランチの作成
+*** ブランチの作成と移動
 - 新しいブランチ「new_branch」を作成して，なおかつ，そのブランチに移動する
   - 「-b」オプションで新規作成
   - オプションがなければ単なる移動（後述）
@@ -307,36 +306,60 @@ git checkout -b new_branch
 *** ブランチの確認
 - ブランチの一覧と現在のブランチを確認する
   - もともとあるmasterと，新しく作成したnew_branchが表示される
-  - 
 
 #+BEGIN_SRC bash
 git branch -vv
 #+END_SRC
 
-*** ブランチの移動
-
-- ブランチ「new_branch」に移動する
-
-#+BEGIN_SRC bash
-git checkout new_branch
-#+END_SRC
-
-- git branch -vvで現在のブランチを確認してみよう
+- ブランチに紐づくコミットのIDが同じことも確認
 - git statusの一行目にも現在のブランチが表示される
 
-*** ブランチの削除
+*** ブランチでのコミット作成
+- READMEに現在の日時を追加
 
-- 作成したブランチを削除する
-  - 1行目：一度masterブランチに移動する
+#+BEGIN_SRC bash
+date >> README
+git add .
+git commit -m 'Add date'
+#+END_SRC
+
+- 新しいコミットが追加できたことをgit logで確認
+- git branch -vvでコミットのIDが変化したことも確認
+
+*** ブランチの移動
+- new_branchブランチでコミットした内容をmasterに反映させる
+  - まずはmasterに移動する
 
 #+BEGIN_SRC bash
 git checkout master
-git branch -d new_branch
-git branch -vv
 #+END_SRC
 
+- git status，git branch -vvで現在のブランチを確認すること
+- この段階では，READMEファイルに行った変更が _反映されてない_ ことを
+  確認すること
 
-** その他のコマンド
+*** 変更をmasterにマージ
+- new_branchで行ったコミットをmasterに反映させる
+
+#+BEGIN_SRC bash
+git merge new_branch
+#+END_SRC
+
+- READMEに更新が反映されたことを確認
+- git branch -vvにより両ブランチのコミットIDが同じになったことも確認
+- git logも確認しておきたい
+
+*** マージ済みブランチの削除
+
+- マージしたブランチはもはや不要なので削除して良い
+
+#+BEGIN_SRC bash
+git branch -d new_branch
+#+END_SRC
+
+- git branch -vvコマンドで削除を確認
+
+** 操作を取り消すコマンド
 *** ステージング/コミットの修正
 ファイルのステージングを取り消す
 
@@ -344,28 +367,45 @@ git branch -vv
 git reset $FILE
 #+END_SRC
 
-$COMMITより後のコミットの取り消し（ローカルは保存）
+$COMMIT_IDより後のコミットの取り消し（ローカルは保存）
 
 #+BEGIN_SRC bash
-git reset $COMMIT
+git reset $COMMIT_ID
 #+END_SRC
 
-$COMMITより後のコミットの取り消し（ローカルの変更も破棄）
+$COMMIT_IDより後のコミットの取り消し（ローカルの変更も破棄）
 
 #+BEGIN_SRC bash
-git reset --hard $COMMIT
+git reset --hard $COMMIT_ID
 #+END_SRC
+
+* GitHub入門
+** GitHubとは
+*** GitHubでソーシャルコーディング
+- ソーシャルコーディングのためのクラウド環境
+  - [[https://github.com/][GitHub]]
+  - [[http://github.co.jp/][GitHub Japan]]
+- GitHubが提供する主な機能
+  - GitHub flowによる協同開発
+  - Pull requests
+  - Issue / Wiki
+
+*** GitHub Flowで協同開発
+- Git-flow
+  - GitHub が登場する以前、 Git-flow が提唱された
+  - [[http://nvie.com/posts/a-successful-git-branching-model/][A successful Git branching model » nvie.com]]
+- GitHub flow
+  - GitHub により、よりシンプルで強力なワークフローが可能に
+  - [[http://scottchacon.com/2011/08/31/github-flow.html][GitHub Flow – Scott Chacon]]
+  - [[https://gist.github.com/Gab-km/3705015][GitHub Flow (Japanese translation)]]
+
+** リモートリポジトリ
+*** TODO 作成
+TODO
 
 * 未整理
 ** Gitリポジトリ
 *** 基本的な git コマンド
-新しくブランチを作成してチェックアウトする
-
-#+begin_src bash
-git checkout -b some_new_feature
-#+end_src
-
-ブランチをGitHubにpushする
 
 #+begin_src bash
 git add .
@@ -374,37 +414,6 @@ git push -u origin some_new_feature
 #+end_src
 
 
-** GitHubとは
-*** TODO Gitとは
-*** GitHubについて
-    - ソーシャルコーディングのためのクラウド環境
-      - [[https://github.com/][GitHub]]
-      - [[http://github.co.jp/][GitHub Japan]]
-    - GitHubが提供する主な機能
-      - GitHub flowによる協同開発
-      - Pull requests
-      - Issue / Wiki
-      - コード解析
-
-*** GitHub Flow
-    - Git-flow
-      - GitHub が登場する以前、 Git-flow が提唱された
-      - [[http://nvie.com/posts/a-successful-git-branching-model/][A successful Git branching model » nvie.com]]
-    - GitHub flow
-      - GitHub により、よりシンプルで強力なワークフローが可能に
-      - [[http://scottchacon.com/2011/08/31/github-flow.html][GitHub Flow – Scott Chacon]]
-      - [[https://gist.github.com/Gab-km/3705015][GitHub Flow (Japanese translation)]]
-
-*** TODO [後ろへ] GitHub flow におけるコンフリクトについて
-    - マージのコンフリクト
-      - GitHub に提出した Pull requests が自動的にマージできないこと
-    - 基本的な対処法
-      - コンフリクトは、コードの同じ箇所を複数の人が別々に編集すると発生
-      - 初心者は、演習の最初の方では「他人と同じファイルを編集しない」こと
-	にして、操作になれる
-      - 上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ
-      - Pull requests でコンフリクトが発生し、自動的にマージできない状態に
-	なったら、 その PR を送った人がコンフリクトを自分で解消する
 *** コラボレーターの追加
 
 - GitHubのリポジトリをブラウザで開く．
@@ -419,12 +428,12 @@ git push -u origin some_new_feature
 git clone ychubachi/ychubachi_2016_gem
 #+end_src
 
-**** プルリクエストとマージ
+*** プルリクエストとマージ
 
 - ブランチがGitHubに登録されたことを確認し，Pull requestを作成する
 - Pull requestのレビューが済んだらマージする
 
-**** ローカルのmaster を最新版にする
+*** ローカルのmaster を最新版にする
 
 - GitHubで行ったマージをローカルに反映させる
 
@@ -433,6 +442,16 @@ git checkout master
 git pull
 #+end_src
 
+*** TODO [後ろへ] GitHub flow におけるコンフリクトについて
+    - マージのコンフリクト
+      - GitHub に提出した Pull requests が自動的にマージできないこと
+    - 基本的な対処法
+      - コンフリクトは、コードの同じ箇所を複数の人が別々に編集すると発生
+      - 初心者は、演習の最初の方では「他人と同じファイルを編集しない」こと
+	にして、操作になれる
+      - 上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ
+      - Pull requests でコンフリクトが発生し、自動的にマージできない状態に
+	なったら、 その PR を送った人がコンフリクトを自分で解消する
 *** GitHubでのコンフリクトの解消方法
 **** 前提
      - new_feature ブランチで作業中であり、最新の更新は commit 済
