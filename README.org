@@ -1,4 +1,4 @@
-# GitHub入門
+* GitHub入門
 [[http://www.cs.tsukuba.ac.jp/enPiT/summercamp2016/][短期集中合宿 2016 | enPiT BizApp × 筑波大学]] で実施する
 [[http://www.cs.tsukuba.ac.jp/enPiT/summercamp2016/#818][8/18:GitHub入門]] の資料です．
 
