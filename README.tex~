@@ -1,21 +1,28 @@
-% Created 2016-08-14 日 17:20
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{fixltx2e}
-\usepackage{graphicx}
-\usepackage{longtable}
-\usepackage{float}
-\usepackage{wrapfig}
-\usepackage{rotating}
-\usepackage[normalem]{ulem}
+% Created 2016-08-14 日 17:16
+\documentclass{bxjsarticle}
+\usepackage{zxjatype}
+\usepackage[ipa]{zxjafont}
+\usepackage{xltxtra}
 \usepackage{amsmath}
-\usepackage{textcomp}
-\usepackage{marvosym}
-\usepackage{wasysym}
-\usepackage{amssymb}
+\usepackage{newtxtext,newtxmath}
+\usepackage{graphicx}
 \usepackage{hyperref}
-\tolerance=1000
+\ifdefined\kanjiskip
+\usepackage{pxjahyper}
+\hypersetup{colorlinks=true}
+\else
+\ifdefined\XeTeXversion
+\hypersetup{colorlinks=true}
+\else
+\ifdefined\directlua
+\hypersetup{pdfencoding=auto,colorlinks=true}
+\else
+\hypersetup{unicode,colorlinks=true}
+\fi
+\fi
+\fi
+
+\usepackage{minted}
 \author{中鉢 欣秀}
 \date{2016-08-14}
 \title{GitHub入門}
@@ -76,11 +83,11 @@ GitHubフローに基づく協同開発の方法までを学ぶためのもの�
 \item コマンド
 \end{itemize}
 
-\begin{verbatim}
+\begin{minted}[frame=lines,linenos=true]{bash}
 mkdir ~/my_project
 cd ~/my_project
 git init # Gitリポジトリとして初期化する
-\end{verbatim}
+\end{minted}
 
 
 \section{未整理}
@@ -91,17 +98,17 @@ git init # Gitリポジトリとして初期化する
 \label{sec-3-1-1}
 新しくブランチを作成してチェックアウトする
 
-\begin{verbatim}
+\begin{minted}[frame=lines,linenos=true]{bash}
 git checkout -b some_new_feature
-\end{verbatim}
+\end{minted}
 
 ブランチをGitHubにpushする
 
-\begin{verbatim}
+\begin{minted}[frame=lines,linenos=true]{bash}
 git add .
 git commit -m '（作業内容）'
 git push -u origin some_new_feature
-\end{verbatim}
+\end{minted}
 
 
 \subsection{GitHubとは}
@@ -172,9 +179,9 @@ git push -u origin some_new_feature
 \label{sec-3-2-6}
 
 下記の「ychubachi」の部分を代表者のアカウント名にする．
-\begin{verbatim}
+\begin{minted}[frame=lines,linenos=true]{bash}
 git clone ychubachi/ychubachi_2016_gem
-\end{verbatim}
+\end{minted}
 
 \begin{enumerate}
 \item プルリクエストとマージ
@@ -192,10 +199,10 @@ git clone ychubachi/ychubachi_2016_gem
 \item GitHubで行ったマージをローカルに反映させる
 \end{itemize}
 
-\begin{verbatim}
+\begin{minted}[frame=lines,linenos=true]{bash}
 git checkout master
 git pull
-\end{verbatim}
+\end{minted}
 \end{enumerate}
 
 \subsubsection{GitHubでのコンフリクトの解消方法}
@@ -210,26 +217,26 @@ git pull
 \item 操作（一例）
 \label{sec-3-2-7-2}
 
-\begin{verbatim}
+\begin{minted}[frame=lines,linenos=true]{bash}
 git checkout master         # master をチェックアウト
 git pull origin master      # 手元の master を最新版にする
 git checkout new_feature    # 作業中のブランチに戻る
 git merge master            # この後、コンフリクトを修正する
 git push origin new_feature # 作業中のブランチを再度、push
-\end{verbatim}
+\end{minted}
 \end{enumerate}
 
 
 \subsubsection{Gemの作成からGitHubへの登録まで}
 \label{sec-3-2-8}
 
-\begin{verbatim}
+\begin{minted}[frame=lines,linenos=true]{bash}
 bundle gem ychubachi_2016_gem
 cd ychubachi_2016_gem/
 git commit -m 'Initial commit'
 git create
 git push -u origin master
-\end{verbatim}
+\end{minted}
 
 \section{演習}
 \label{sec-4}
@@ -325,9 +332,9 @@ git push -u origin master
 
 「new\_feature」ブランチを作成せよ
 
-\begin{verbatim}
+\begin{minted}[frame=lines,linenos=true]{bash}
 git checkout -b new_feature
-\end{verbatim}
+\end{minted}
 
 \subsubsection{確認}
 \label{sec-6-1-2}
