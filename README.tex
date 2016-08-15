@@ -1,4 +1,4 @@
-% Created 2016-08-14 日 22:47
+% Created 2016-08-15 月 09:15
 \documentclass[a4paper,twoside,twocolumn]{bxjsarticle}
 \usepackage{zxjatype}
 \usepackage[ipa]{zxjafont}
@@ -581,7 +581,7 @@ git branch -d new_branch
 \item git branch -vvコマンドで削除を確認
 \end{itemize}
 
-\subsection{操作を取り消すコマンド}
+\subsection{{\bfseries\sffamily TODO} 操作を取り消すコマンド}
 \label{sec-1-7}
 \subsubsection{ステージング/コミットの修正}
 \label{sec-1-7-1}
@@ -623,8 +623,58 @@ git reset --hard $COMMIT_ID
 \end{itemize}
 \end{itemize}
 
-\subsubsection{GitHub Flowで協同開発}
+\subsubsection{{\bfseries\sffamily TODO} GitHubアカウントの作成}
 \label{sec-2-1-2}
+\begin{itemize}
+\item こちらのURLからアカウントを作成する
+\end{itemize}
+
+\subsubsection{{\bfseries\sffamily TODO} SSH}
+\label{sec-2-1-3}
+
+\subsection{リモートリポジトリ}
+\label{sec-2-2}
+\subsubsection{リモート VS ローカルリポジトリ}
+\label{sec-2-2-1}
+\begin{itemize}
+\item ローカルリポジトリ
+\begin{itemize}
+\item git initコマンドを用いて作成したリポジトリを「ローカルリポジトリ」という
+\end{itemize}
+\item リポートリポジトリ
+\begin{itemize}
+\item リポートリポジトリとは，サーバ上にあるリポジトリであり，
+ローカルのリポジトリと連携させることができる
+\end{itemize}
+\item リポートリポジトリの利点
+\begin{itemize}
+\item ネットワークを経由してどこからでも利用することができる
+\item 複数人のチームで協同作業をするときに活用できる
+\end{itemize}
+\end{itemize}
+\subsubsection{{\bfseries\sffamily TODO} リモートリポジトリの作成}
+\label{sec-2-2-2}
+TODO
+
+
+\subsection{GitHub flow}
+\label{sec-2-3}
+
+\subsubsection{{\bfseries\sffamily TODO} GitHub Flowで協同開発}
+\label{sec-2-3-1}
+\begin{enumerate}
+\item ローカルのmasterを最新にする
+\item masterから新しいブランチを作成
+\item ブランチで編集作業
+\item ブランチでコミットの作成
+\item ブランチをpush
+\item プルリクエストを作成
+\item レビュー＆自動テスト
+\item リポートでブランチをマージ
+\end{enumerate}
+
+\subsubsection{{\bfseries\sffamily TODO} 参考}
+\label{sec-2-3-2}
 \begin{itemize}
 \item Git-flow
 \begin{itemize}
@@ -638,7 +688,6 @@ git reset --hard $COMMIT_ID
 \item \href{https://gist.github.com/Gab-km/3705015}{GitHub Flow (Japanese translation)}
 \end{itemize}
 \end{itemize}
-
 
 \section{未整理}
 \label{sec-3}
@@ -672,17 +721,16 @@ git push -u origin some_new_feature
 git clone ychubachi/ychubachi_2016_gem
 \end{minted}
 
-\begin{enumerate}
-\item プルリクエストとマージ
-\label{sec-3-1-3-1}
+\subsubsection{プルリクエストとマージ}
+\label{sec-3-1-4}
 
 \begin{itemize}
 \item ブランチがGitHubに登録されたことを確認し，Pull requestを作成する
 \item Pull requestのレビューが済んだらマージする
 \end{itemize}
 
-\item ローカルのmaster を最新版にする
-\label{sec-3-1-3-2}
+\subsubsection{ローカルのmaster を最新版にする}
+\label{sec-3-1-5}
 
 \begin{itemize}
 \item GitHubで行ったマージをローカルに反映させる
@@ -692,10 +740,9 @@ git clone ychubachi/ychubachi_2016_gem
 git checkout master
 git pull
 \end{minted}
-\end{enumerate}
 
 \subsubsection{{\bfseries\sffamily TODO} [後ろへ] GitHub flow におけるコンフリクトについて}
-\label{sec-3-1-4}
+\label{sec-3-1-6}
 \begin{itemize}
 \item マージのコンフリクト
 \begin{itemize}
@@ -712,16 +759,16 @@ git pull
 \end{itemize}
 \end{itemize}
 \subsubsection{GitHubでのコンフリクトの解消方法}
-\label{sec-3-1-5}
+\label{sec-3-1-7}
 \begin{enumerate}
 \item 前提
-\label{sec-3-1-5-1}
+\label{sec-3-1-7-1}
 \begin{itemize}
 \item new\_feature ブランチで作業中であり、最新の更新は commit 済
 \end{itemize}
 
 \item 操作（一例）
-\label{sec-3-1-5-2}
+\label{sec-3-1-7-2}
 
 \begin{minted}[frame=single,linenos=true]{bash}
 git checkout master         # master をチェックアウト
@@ -734,7 +781,7 @@ git push origin new_feature # 作業中のブランチを再度、push
 
 
 \subsubsection{Gemの作成からGitHubへの登録まで}
-\label{sec-3-1-6}
+\label{sec-3-1-8}
 
 \begin{minted}[frame=single,linenos=true]{bash}
 bundle gem ychubachi_2016_gem

@@ -359,7 +359,7 @@ git branch -d new_branch
 
 - git branch -vvコマンドで削除を確認
 
-** 操作を取り消すコマンド
+** TODO 操作を取り消すコマンド
 *** ステージング/コミットの修正
 ファイルのステージングを取り消す
 
@@ -390,7 +390,38 @@ git reset --hard $COMMIT_ID
   - Pull requests
   - Issue / Wiki
 
-*** GitHub Flowで協同開発
+*** TODO GitHubアカウントの作成
+- こちらのURLからアカウントを作成する
+
+*** TODO SSH
+
+** リモートリポジトリ
+*** リモート VS ローカルリポジトリ
+- ローカルリポジトリ
+  - git initコマンドを用いて作成したリポジトリを「ローカルリポジトリ」という
+- リポートリポジトリ
+  - リポートリポジトリとは，サーバ上にあるリポジトリであり，
+    ローカルのリポジトリと連携させることができる
+- リポートリポジトリの利点
+  - ネットワークを経由してどこからでも利用することができる
+  - 複数人のチームで協同作業をするときに活用できる
+*** TODO リモートリポジトリの作成
+TODO
+
+
+** GitHub flow
+
+*** TODO GitHub Flowで協同開発
+1. ローカルのmasterを最新にする
+2. masterから新しいブランチを作成
+2. ブランチで編集作業
+3. ブランチでコミットの作成
+4. ブランチをpush
+5. プルリクエストを作成
+6. レビュー＆自動テスト
+7. リポートでブランチをマージ
+
+*** TODO 参考
 - Git-flow
   - GitHub が登場する以前、 Git-flow が提唱された
   - [[http://nvie.com/posts/a-successful-git-branching-model/][A successful Git branching model » nvie.com]]
@@ -398,10 +429,6 @@ git reset --hard $COMMIT_ID
   - GitHub により、よりシンプルで強力なワークフローが可能に
   - [[http://scottchacon.com/2011/08/31/github-flow.html][GitHub Flow – Scott Chacon]]
   - [[https://gist.github.com/Gab-km/3705015][GitHub Flow (Japanese translation)]]
-
-** リモートリポジトリ
-*** TODO 作成
-TODO
 
 * 未整理
 ** Gitリポジトリ
