@@ -23,7 +23,12 @@ GitHubフローに基づく協同開発の方法までを学ぶ演習である�
 #+END_abstract
 
 * Git入門
-** Gitの設定
+** Gitの操作方法と初期設定
+*** はじめに：Gitチートシート（カンニング表）
+- 主なGitコマンドの一覧表
+  - [[https://services.github.com/kit/downloads/ja/github-git-cheat-sheet.pdf][Gitチートシート（日本語版）]]
+- 必要に応じて印刷しておくとよい
+
 *** Gitコマンドの実行確認
 - 端末を操作してGitコマンドを起動してみよう．
 - 次のとおり操作することでGitのバージョン番号が確認できる．
@@ -390,8 +395,14 @@ git reset --hard $COMMIT_ID
   - Pull requests
   - Issue / Wiki
 
-*** TODO GitHubアカウントの作成
-- こちらのURLからアカウントを作成する
+*** GitHubアカウントの作成
+- まず，次のURLの指示に従いアカウントを作成
+  - [[https://help.github.com/articles/signing-up-for-a-new-github-account/][Signing up for a new GitHub account - User Documentation]]
+- アカウントの種類
+  - 無料版で作成する場合「Join GitHub for Free」を選択する
+  - 学生の場合「Student Developer Pack」にアップグレードすることもできる
+- その後，確認メールが届くので，必要に応じて残りの手順を実施せよ
+  - [[https://help.github.com/categories/setup/][GitHub Help]]
 
 *** TODO SSH
 
@@ -411,17 +422,7 @@ TODO
 
 ** GitHub flow
 
-*** TODO GitHub Flowで協同開発
-1. ローカルのmasterを最新にする
-2. masterから新しいブランチを作成
-2. ブランチで編集作業
-3. ブランチでコミットの作成
-4. ブランチをpush
-5. プルリクエストを作成
-6. レビュー＆自動テスト
-7. リポートでブランチをマージ
-
-*** TODO 参考
+*** TODO Gitを用いた開発の流れ
 - Git-flow
   - GitHub が登場する以前、 Git-flow が提唱された
   - [[http://nvie.com/posts/a-successful-git-branching-model/][A successful Git branching model » nvie.com]]
@@ -429,6 +430,17 @@ TODO
   - GitHub により、よりシンプルで強力なワークフローが可能に
   - [[http://scottchacon.com/2011/08/31/github-flow.html][GitHub Flow – Scott Chacon]]
   - [[https://gist.github.com/Gab-km/3705015][GitHub Flow (Japanese translation)]]
+
+*** GitHub Flowによる協同開発
+1. ローカルのmasterを最新にする
+2. masterから新しいブランチを作成
+3. ブランチで編集作業
+4. ブランチでコミットの作成
+5. ブランチをpush
+6. GitHubでプルリクエストを作成
+7. レビュー＆自動テスト
+8. GitHubでブランチをmasterマージ
+9. ローカルでmasterを最新にする（2.に戻る）
 
 * 未整理
 ** Gitリポジトリ
@@ -573,3 +585,5 @@ git checkout -b new_feature
 TODO: Google form
 
 
+* COMMENT TODO
+- 行番号の位置

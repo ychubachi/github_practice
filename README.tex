@@ -1,4 +1,4 @@
-% Created 2016-08-15 月 09:15
+% Created 2016-08-15 月 13:04
 \documentclass[a4paper,twoside,twocolumn]{bxjsarticle}
 \usepackage{zxjatype}
 \usepackage[ipa]{zxjafont}
@@ -49,10 +49,20 @@ GitHubフローに基づく協同開発の方法までを学ぶ演習である�
 
 \section{Git入門}
 \label{sec-1}
-\subsection{Gitの設定}
+\subsection{Gitの操作方法と初期設定}
 \label{sec-1-1}
-\subsubsection{Gitコマンドの実行確認}
+\subsubsection{はじめに：Gitチートシート（カンニング表）}
 \label{sec-1-1-1}
+\begin{itemize}
+\item 主なGitコマンドの一覧表
+\begin{itemize}
+\item \href{https://services.github.com/kit/downloads/ja/github-git-cheat-sheet.pdf}{Gitチートシート（日本語版）}
+\end{itemize}
+\item 必要に応じて印刷しておくとよい
+\end{itemize}
+
+\subsubsection{Gitコマンドの実行確認}
+\label{sec-1-1-2}
 \begin{itemize}
 \item 端末を操作してGitコマンドを起動してみよう．
 \item 次のとおり操作することでGitのバージョン番号が確認できる．
@@ -63,7 +73,7 @@ git --version
 \end{minted}
 
 \subsubsection{名前とメールアドレスの登録}
-\label{sec-1-1-2}
+\label{sec-1-1-3}
 \begin{itemize}
 \item 名前とメールアドレスを登録しておく
 \item 次のコマンドの\$NAMEと\$EMAILを各自の名前とメールアドレスに置き換えて実行せよ
@@ -78,7 +88,7 @@ git config --global user.email $EMAIL
 \end{minted}
 
 \subsubsection{その他の設定}
-\label{sec-1-1-3}
+\label{sec-1-1-4}
 \begin{itemize}
 \item 次のとおり，設定を行っておく
 \begin{itemize}
@@ -93,7 +103,7 @@ git config --global push.default simple
 \end{minted}
 
 \subsubsection{設定の確認方法}
-\label{sec-1-1-4}
+\label{sec-1-1-5}
 \begin{itemize}
 \item ここまでの設定を確認する
 \end{itemize}
@@ -623,10 +633,22 @@ git reset --hard $COMMIT_ID
 \end{itemize}
 \end{itemize}
 
-\subsubsection{{\bfseries\sffamily TODO} GitHubアカウントの作成}
+\subsubsection{GitHubアカウントの作成}
 \label{sec-2-1-2}
 \begin{itemize}
-\item こちらのURLからアカウントを作成する
+\item まず，次のURLの指示に従いアカウントを作成
+\begin{itemize}
+\item \href{https://help.github.com/articles/signing-up-for-a-new-github-account/}{Signing up for a new GitHub account - User Documentation}
+\end{itemize}
+\item アカウントの種類
+\begin{itemize}
+\item 無料版で作成する場合「Join GitHub for Free」を選択する
+\item 学生の場合「Student Developer Pack」にアップグレードすることもできる
+\end{itemize}
+\item その後，確認メールが届くので，必要に応じて残りの手順を実施せよ
+\begin{itemize}
+\item \href{https://help.github.com/categories/setup/}{GitHub Help}
+\end{itemize}
 \end{itemize}
 
 \subsubsection{{\bfseries\sffamily TODO} SSH}
@@ -660,21 +682,8 @@ TODO
 \subsection{GitHub flow}
 \label{sec-2-3}
 
-\subsubsection{{\bfseries\sffamily TODO} GitHub Flowで協同開発}
+\subsubsection{{\bfseries\sffamily TODO} Gitを用いた開発の流れ}
 \label{sec-2-3-1}
-\begin{enumerate}
-\item ローカルのmasterを最新にする
-\item masterから新しいブランチを作成
-\item ブランチで編集作業
-\item ブランチでコミットの作成
-\item ブランチをpush
-\item プルリクエストを作成
-\item レビュー＆自動テスト
-\item リポートでブランチをマージ
-\end{enumerate}
-
-\subsubsection{{\bfseries\sffamily TODO} 参考}
-\label{sec-2-3-2}
 \begin{itemize}
 \item Git-flow
 \begin{itemize}
@@ -688,6 +697,20 @@ TODO
 \item \href{https://gist.github.com/Gab-km/3705015}{GitHub Flow (Japanese translation)}
 \end{itemize}
 \end{itemize}
+
+\subsubsection{GitHub Flowによる協同開発}
+\label{sec-2-3-2}
+\begin{enumerate}
+\item ローカルのmasterを最新にする
+\item masterから新しいブランチを作成
+\item ブランチで編集作業
+\item ブランチでコミットの作成
+\item ブランチをpush
+\item GitHubでプルリクエストを作成
+\item レビュー＆自動テスト
+\item GitHubでブランチをmasterマージ
+\item ローカルでmasterを最新にする（2.に戻る）
+\end{enumerate}
 
 \section{未整理}
 \label{sec-3}
