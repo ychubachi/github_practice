@@ -1,4 +1,4 @@
-% Created 2016-08-15 月 13:04
+% Created 2016-08-15 月 14:42
 \documentclass[a4paper,twoside,twocolumn]{bxjsarticle}
 \usepackage{zxjatype}
 \usepackage[ipa]{zxjafont}
@@ -651,8 +651,21 @@ git reset --hard $COMMIT_ID
 \end{itemize}
 \end{itemize}
 
-\subsubsection{{\bfseries\sffamily TODO} SSH}
+\subsubsection{SSHによるGitHubアクセス}
 \label{sec-2-1-3}
+\begin{itemize}
+\item GitHubへのアクセスはSSHを用いた公開鍵暗号方式の認証を用いる
+\begin{itemize}
+\item SSH公開鍵の設定を行えば以降のパスワード認証が不要になる
+\end{itemize}
+\item SSHを生成してGitHubに登録しなさい
+\begin{itemize}
+\item 鍵を生成するとき「passphrases」が聞かれるが，この演習では何も入力しなくてよい
+\item \href{https://help.github.com/articles/generating-an-ssh-key/}{Generating an SSH key - User Documentation}
+\end{itemize}
+\item もしSSHの登録がうまく行かなかったら，HTTPSを用いて接続し，GitHubのユーザ名と
+パスワードでアクセスできる
+\end{itemize}
 
 \subsection{リモートリポジトリ}
 \label{sec-2-2}
@@ -663,162 +676,273 @@ git reset --hard $COMMIT_ID
 \begin{itemize}
 \item git initコマンドを用いて作成したリポジトリを「ローカルリポジトリ」という
 \end{itemize}
-\item リポートリポジトリ
+\item リモートリポジトリ
 \begin{itemize}
-\item リポートリポジトリとは，サーバ上にあるリポジトリであり，
+\item 「リモートリポジトリ」とは，サーバ上にあるリポジトリであり，
 ローカルのリポジトリと連携させることができる
 \end{itemize}
-\item リポートリポジトリの利点
+\item リモートリポジトリの利点
 \begin{itemize}
 \item ネットワークを経由してどこからでも利用することができる
 \item 複数人のチームで協同作業をするときに活用できる
 \end{itemize}
 \end{itemize}
-\subsubsection{{\bfseries\sffamily TODO} リモートリポジトリの作成}
+\subsubsection{リモートリポジトリの作成}
 \label{sec-2-2-2}
-TODO
-
+\begin{itemize}
+\item リモートリポジトリをGitHubで作成する
+\item 名前は「our\_project」とする
+\item 次の手順で作成する
+\begin{itemize}
+\item \href{https://help.github.com/articles/creating-a-new-repository/}{Creating a new repository - User Documentation}
+\end{itemize}
+\end{itemize}
 
 \subsection{GitHub flow}
 \label{sec-2-3}
-
-\subsubsection{{\bfseries\sffamily TODO} Gitを用いた開発の流れ}
+\subsubsection{GitHub flowwによる開発の流れ}
 \label{sec-2-3-1}
 \begin{itemize}
-\item Git-flow
-\begin{itemize}
-\item GitHub が登場する以前、 Git-flow が提唱された
-\item \href{http://nvie.com/posts/a-successful-git-branching-model/}{A successful Git branching model » nvie.com}
-\end{itemize}
 \item GitHub flow
 \begin{itemize}
-\item GitHub により、よりシンプルで強力なワークフローが可能に
-\item \href{http://scottchacon.com/2011/08/31/github-flow.html}{GitHub Flow – Scott Chacon}
-\item \href{https://gist.github.com/Gab-km/3705015}{GitHub Flow (Japanese translation)}
+\item \href{https://guides.github.com/introduction/flow/}{Understanding the GitHub Flow · GitHub Guides}
 \end{itemize}
-\end{itemize}
-
-\subsubsection{GitHub Flowによる協同開発}
-\label{sec-2-3-2}
+\item 言葉による説明
 \begin{enumerate}
-\item ローカルのmasterを最新にする
-\item masterから新しいブランチを作成
+\item リモートリポジトリをローカルに複製
+\item masterから作業用ブランチを作成
 \item ブランチで編集作業
 \item ブランチでコミットの作成
-\item ブランチをpush
+\item ブランチをリモートに送る
 \item GitHubでプルリクエストを作成
-\item レビュー＆自動テスト
-\item GitHubでブランチをmasterマージ
-\item ローカルでmasterを最新にする（2.に戻る）
+\item GitHubでレビュー（＋自動テスト）
+\item GitHubでプルリクエストをマージ
+\item ローカルのmasterを最新にする（2.に戻る）
 \end{enumerate}
+\end{itemize}
 
-\section{未整理}
-\label{sec-3}
-\subsection{Gitリポジトリ}
-\label{sec-3-1}
-\subsubsection{基本的な git コマンド}
-\label{sec-3-1-1}
+\subsubsection{1: リモートリポジトリをローカルに複製}
+\label{sec-2-3-2}
+\begin{itemize}
+\item リモートにあるリポジトリをローカルに複製することをcloneという
+\begin{itemize}
+\item \href{https://help.github.com/articles/cloning-a-repository/}{Cloning a repository - User Documentation}
+\end{itemize}
+\item 下記の「\$GITHUB\_URL」の部分をGitHubにあるour\_projectリポジトリのURLにして実行
+\begin{itemize}
+\item リモートのURLはブラウザで確認する
+\item ssh接続の場合，URLは「git@\ldots{}」（HTTPSの場合「https:\ldots{}」
+\end{itemize}
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+cd ~
+git clone $GITHUB_URL
+cd our_project
+\end{minted}
+
+\begin{itemize}
+\item この作業は基本的にはプロジェクトに対して一度だけ行うこと
+\begin{itemize}
+\item 別なマシンで作業したいときなどは話は別
+\end{itemize}
+\end{itemize}
+
+\subsubsection{2: masterから作業用ブランチを作成}
+\label{sec-2-3-3}
+\begin{itemize}
+\item 作業用のブランチを作成して移動する
+\begin{itemize}
+\item ブランチの名前は「greeting」とする
+\end{itemize}
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git checkout -b greeting
+\end{minted}
+
+\subsubsection{3: ブランチで編集作業を行う}
+\label{sec-2-3-4}
+\begin{itemize}
+\item ここでは，hello.txtという名前のファイルを作成する
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+echo 'Hello GitHub' > hello.txt
+\end{minted}
+
+\subsubsection{4: ブランチでコミットを作成}
+\label{sec-2-3-5}
+\begin{itemize}
+\item 変更した内容をステージングしてからコミットする
+\end{itemize}
 
 \begin{minted}[frame=single,linenos=true]{bash}
 git add .
-git commit -m '（作業内容）'
-git push -u origin some_new_feature
+git commit -m 'Create hello.txt'
 \end{minted}
 
+\begin{itemize}
+\item この編集，add，commitの作業は作業が一区切りつくまで何回も繰り返してよい…
+\begin{itemize}
+\item が，こまめにpushするのが良いとされる
+\end{itemize}
+\end{itemize}
+
+\subsubsection{5: ブランチをリモートに送る}
+\label{sec-2-3-6}
+\begin{itemize}
+\item ブランチで作成したコミットをリモートに送る（push）
+\begin{itemize}
+\item 下記のoriginはリポジトリのURLの別名として自動で設定されているもの
+\item greetingは作業しているブランチ名
+\end{itemize}
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git push -u origin greeting
+\end{minted}
+
+\subsubsection{6. GitHubでプルリクエストを送る}
+\label{sec-2-3-7}
+\begin{itemize}
+\item ブランチがGitHubに登録されたことを確認し，Pull requestを作成する
+\item 手順は次のとおり
+\begin{itemize}
+\item \href{https://help.github.com/articles/using-pull-requests/}{Using pull requests - User Documentation} の前半
+\item \href{https://help.github.com/articles/creating-a-pull-request/}{Creating a pull request - User Documentation}
+\end{itemize}
+\end{itemize}
+
+\subsubsection{7. GitHubでレビュー（＋自動テスト）}
+\label{sec-2-3-8}
+\begin{itemize}
+\item プルリクエストを用いたレビューの方法は下記参照
+\begin{itemize}
+\item \href{https://help.github.com/articles/using-pull-requests/}{Using pull requests - User Documentation} の後半
+\end{itemize}
+\item 人手によるレビューの他，自動的なテストも行うのが望ましい
+\begin{itemize}
+\item 説明は省略
+\end{itemize}
+\end{itemize}
+
+\subsubsection{8. GitHubでプルリクエストをマージ}
+\label{sec-2-3-9}
+\begin{itemize}
+\item Pull requestのレビューが済んだらマージする
+\begin{itemize}
+\item \href{https://help.github.com/articles/merging-a-pull-request/}{Merging a pull request - User Documentation}
+\end{itemize}
+\item マージが完了したら，ローカル・リモート共に，マージ済みのブランチは削除してよい
+\end{itemize}
+
+\subsubsection{9. ローカルのmaster を最新版にする}
+\label{sec-2-3-10}
+
+\begin{itemize}
+\item GitHubで行ったマージをローカルに反映させる
+\begin{itemize}
+\item masterブランチに移動してgit pull
+\item 不要になった作業用ブランチは削除
+\end{itemize}
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git checkout master
+git pull
+git branch -d greeting
+\end{minted}
+
+\begin{itemize}
+\item 練習のため，ここで手順2:に戻り，一連の作業を複数回繰り返すこと
+\begin{itemize}
+\item \uline{体に叩き込む！}
+\end{itemize}
+\end{itemize}
+
+\subsection{コンフリクトについて}
+\label{sec-2-4}
+\subsubsection{GitHub flow におけるコンフリクトについて}
+\label{sec-2-4-1}
+\begin{itemize}
+\item コンフリクトとは？
+\begin{itemize}
+\item コンフリクトは、コードの同じ箇所を複数の人が別々に編集すると発生
+\end{itemize}
+\item コンフリクトが起きると？
+\begin{itemize}
+\item GitHub に提出した Pull requests が自動的にマージできない
+\end{itemize}
+\item 基本的な対処法
+\begin{itemize}
+\item 初心者は、演習の最初の方では「他人と同じファイルを編集しない」こと
+にして、操作になれる
+（上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ）
+\item コミットはできるだけ細かく作成すると良い
+（その分，他の人とかち合う可能性が減る）
+\item Pull requests でコンフリクトが発生し、自動的にマージできない状態に
+なったら、 その PR を送った人がコンフリクトを自分で解消する
+（あるいは解消方法をメンバーに聞く）
+\end{itemize}
+\end{itemize}
+\subsubsection{GitHubでのコンフリクトの解消方法}
+\label{sec-2-4-2}
+\begin{itemize}
+\item new\_feature ブランチで作業中であり、最新の更新は commit 済とする
+
+\item 解消するための操作は次のとおり
+\begin{itemize}
+\item 1:一度masterブランチに移動．2:手元のmasterを最新版に．3:作業中のブランチへ．
+4:ここでmasterを手動でマージ．コンフリクトが発生するので解消する．
+5:このブランチを再度push
+\end{itemize}
+\item これにより，プルリクエストがマージ可能になれば成功
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git checkout master
+git pull origin master
+git checkout new_feature
+git merge master
+git push origin new_feature
+\end{minted}
+
+\subsubsection{コンフリクト解消の練習}
+\label{sec-2-4-3}
+TODO
+\section{{\bfseries\sffamily TODO} GitHubによるチーム開発}
+\label{sec-3}
+\subsection{{\bfseries\sffamily TODO} チーム開発}
+\label{sec-3-1}
+\subsubsection{チーム編成}
+\label{sec-3-1-1}
+\begin{itemize}
+\item ここまでの演習内容が終わったものは教員かTAに教えること
+\item 終わったものから順番にチームを編成する
+\item チームができたら代表者1名がGitHubでリポジトリを作成する
+\begin{itemize}
+\item 名前は「team\_project」とする
+\end{itemize}
+\end{itemize}
 
 \subsubsection{コラボレーターの追加}
 \label{sec-3-1-2}
-
+\begin{itemize}
+\item 代表者は残りのメンバーを協同作業者（コラボレータ）として追加する
 \begin{itemize}
 \item GitHubのリポジトリをブラウザで開く．
 \item Settings -> Collaborators を選ぶ
 \item メンバーを招待する
 \item 招待されたメンバーには確認のメールが届くので，リンクをクリックする
 \end{itemize}
-
-\subsubsection{コラボレーターがソースコードを入手する方法}
-\label{sec-3-1-3}
-
-下記の「ychubachi」の部分を代表者のアカウント名にする．
-\begin{minted}[frame=single,linenos=true]{bash}
-git clone ychubachi/ychubachi_2016_gem
-\end{minted}
-
-\subsubsection{プルリクエストとマージ}
-\label{sec-3-1-4}
-
-\begin{itemize}
-\item ブランチがGitHubに登録されたことを確認し，Pull requestを作成する
-\item Pull requestのレビューが済んだらマージする
 \end{itemize}
 
-\subsubsection{ローカルのmaster を最新版にする}
-\label{sec-3-1-5}
-
-\begin{itemize}
-\item GitHubで行ったマージをローカルに反映させる
-\end{itemize}
-
-\begin{minted}[frame=single,linenos=true]{bash}
-git checkout master
-git pull
-\end{minted}
-
-\subsubsection{{\bfseries\sffamily TODO} [後ろへ] GitHub flow におけるコンフリクトについて}
-\label{sec-3-1-6}
-\begin{itemize}
-\item マージのコンフリクト
-\begin{itemize}
-\item GitHub に提出した Pull requests が自動的にマージできないこと
-\end{itemize}
-\item 基本的な対処法
-\begin{itemize}
-\item コンフリクトは、コードの同じ箇所を複数の人が別々に編集すると発生
-\item 初心者は、演習の最初の方では「他人と同じファイルを編集しない」こと
-にして、操作になれる
-\item 上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ
-\item Pull requests でコンフリクトが発生し、自動的にマージできない状態に
-なったら、 その PR を送った人がコンフリクトを自分で解消する
-\end{itemize}
-\end{itemize}
-\subsubsection{GitHubでのコンフリクトの解消方法}
-\label{sec-3-1-7}
-\begin{enumerate}
-\item 前提
-\label{sec-3-1-7-1}
-\begin{itemize}
-\item new\_feature ブランチで作業中であり、最新の更新は commit 済
-\end{itemize}
-
-\item 操作（一例）
-\label{sec-3-1-7-2}
-
-\begin{minted}[frame=single,linenos=true]{bash}
-git checkout master         # master をチェックアウト
-git pull origin master      # 手元の master を最新版にする
-git checkout new_feature    # 作業中のブランチに戻る
-git merge master            # この後、コンフリクトを修正する
-git push origin new_feature # 作業中のブランチを再度、push
-\end{minted}
-\end{enumerate}
-
-
-\subsubsection{Gemの作成からGitHubへの登録まで}
-\label{sec-3-1-8}
-
-\begin{minted}[frame=single,linenos=true]{bash}
-bundle gem ychubachi_2016_gem
-cd ychubachi_2016_gem/
-git commit -m 'Initial commit'
-git create
-git push -u origin master
-\end{minted}
-
-\section{演習}
+\section{{\bfseries\sffamily TODO} 演習課題}
 \label{sec-4}
 \subsection{ペアで行う GitHub}
 \label{sec-4-1}
-\subsubsection{ペアで GitHub を使ってみよう}
+\subsubsection{課題1：ペアで GitHub を使ってみよう}
 \label{sec-4-1-1}
 \begin{enumerate}
 \item 隣同士でペアを組む
@@ -834,7 +958,8 @@ git push -u origin master
 \item Wiki を利用してみる
 \end{itemize}
 \end{enumerate}
-\subsubsection{課題1}
+
+\subsubsection{課題1の続き}
 \label{sec-4-1-2}
 \begin{enumerate}
 \item Pull request \& merge の作業を各自5回以上行う
@@ -848,10 +973,6 @@ git push -u origin master
 \item Wiki でページを作成する
 \begin{itemize}
 \item ページを5つ程度作成して、リンクも貼る
-\end{itemize}
-\item 以上が終わったペアはグループでの演習に進む
-\begin{itemize}
-\item 講師に申告すること
 \end{itemize}
 \end{enumerate}
 
@@ -878,6 +999,7 @@ git push -u origin master
 \end{itemize}
 \item 今まで学んだ知識を活用して Gem を開発する
 \end{enumerate}
+
 \subsubsection{課題：グループで GitHub (2)}
 \label{sec-4-2-2}
 \begin{enumerate}
@@ -888,47 +1010,15 @@ git push -u origin master
 \item その他、GitHub の各種機能の活用
 \end{enumerate}
 
-\section{Git解説}
+\section{{\bfseries\sffamily TODO} 演習の成果物の提出}
 \label{sec-5}
-\subsection{解説}
+\subsection{{\bfseries\sffamily TODO} アカウントの作成}
 \label{sec-5-1}
-\begin{itemize}
-\item gitにはブランチ（branch）の概念がある
-\item 最初にあるのはmasterブランチ
-\item masterは一番大切なブランチであり，常に正常に動作する状態にする
-\item 新しい作業を開始するときは必ず新しいbranchを作る
-\item 後に，作業内容をmasterに取り込む（merge）
-\end{itemize}
-\section{Git演習}
-\label{sec-6}
-\subsection{ブランチの作成}
-\label{sec-6-1}
 \subsubsection{課題}
-\label{sec-6-1-1}
-
-「new\_feature」ブランチを作成せよ
-
-\begin{minted}[frame=single,linenos=true]{bash}
-git checkout -b new_feature
-\end{minted}
-
-\subsubsection{確認}
-\label{sec-6-1-2}
-\begin{itemize}
-\item 方法1) git status の結果の一行目が「On brunch new\_feature」になっていること
-\item 方法2) git status の一行目が「On brunch new\_feature」になっていること
-\end{itemize}
-
-
-\section{GitHub演習（個人）}
-\label{sec-7}
-\subsection{アカウントの作成}
-\label{sec-7-1}
-\subsubsection{課題}
-\label{sec-7-1-1}
+\label{sec-5-1-1}
 \href{https://github.com/}{GitHub} にアカウントを作成せよ
 \subsubsection{提出}
-\label{sec-7-1-2}
+\label{sec-5-1-2}
 TODO: Google form
 % Emacs 24.5.1 (Org mode 8.2.10)
 \end{document}

@@ -404,121 +404,181 @@ git reset --hard $COMMIT_ID
 - その後，確認メールが届くので，必要に応じて残りの手順を実施せよ
   - [[https://help.github.com/categories/setup/][GitHub Help]]
 
-*** TODO SSH
+*** SSHによるGitHubアクセス
+- GitHubへのアクセスはSSHを用いた公開鍵暗号方式の認証を用いる
+  - SSH公開鍵の設定を行えば以降のパスワード認証が不要になる
+- SSHを生成してGitHubに登録しなさい
+  - 鍵を生成するとき「passphrases」が聞かれるが，この演習では何も入力しなくてよい
+  - [[https://help.github.com/articles/generating-an-ssh-key/][Generating an SSH key - User Documentation]]
+- もしSSHの登録がうまく行かなかったら，HTTPSを用いて接続し，GitHubのユーザ名と
+  パスワードでアクセスできる
 
 ** リモートリポジトリ
 *** リモート VS ローカルリポジトリ
 - ローカルリポジトリ
   - git initコマンドを用いて作成したリポジトリを「ローカルリポジトリ」という
-- リポートリポジトリ
-  - リポートリポジトリとは，サーバ上にあるリポジトリであり，
+- リモートリポジトリ
+  - 「リモートリポジトリ」とは，サーバ上にあるリポジトリであり，
     ローカルのリポジトリと連携させることができる
-- リポートリポジトリの利点
+- リモートリポジトリの利点
   - ネットワークを経由してどこからでも利用することができる
   - 複数人のチームで協同作業をするときに活用できる
-*** TODO リモートリポジトリの作成
-TODO
-
+*** リモートリポジトリの作成
+- リモートリポジトリをGitHubで作成する
+- 名前は「our_project」とする
+- 次の手順で作成する
+  - [[https://help.github.com/articles/creating-a-new-repository/][Creating a new repository - User Documentation]]
 
 ** GitHub flow
-
-*** TODO Gitを用いた開発の流れ
-- Git-flow
-  - GitHub が登場する以前、 Git-flow が提唱された
-  - [[http://nvie.com/posts/a-successful-git-branching-model/][A successful Git branching model » nvie.com]]
+*** GitHub flowwによる開発の流れ
 - GitHub flow
-  - GitHub により、よりシンプルで強力なワークフローが可能に
-  - [[http://scottchacon.com/2011/08/31/github-flow.html][GitHub Flow – Scott Chacon]]
-  - [[https://gist.github.com/Gab-km/3705015][GitHub Flow (Japanese translation)]]
+  - [[https://guides.github.com/introduction/flow/][Understanding the GitHub Flow · GitHub Guides]]
+- 言葉による説明
+  1. リモートリポジトリをローカルに複製
+  2. masterから作業用ブランチを作成
+  3. ブランチで編集作業
+  4. ブランチでコミットの作成
+  5. ブランチをリモートに送る
+  6. GitHubでプルリクエストを作成
+  7. GitHubでレビュー（＋自動テスト）
+  8. GitHubでプルリクエストをマージ
+  9. ローカルのmasterを最新にする（2.に戻る）
 
-*** GitHub Flowによる協同開発
-1. ローカルのmasterを最新にする
-2. masterから新しいブランチを作成
-3. ブランチで編集作業
-4. ブランチでコミットの作成
-5. ブランチをpush
-6. GitHubでプルリクエストを作成
-7. レビュー＆自動テスト
-8. GitHubでブランチをmasterマージ
-9. ローカルでmasterを最新にする（2.に戻る）
-
-* 未整理
-** Gitリポジトリ
-*** 基本的な git コマンド
+*** 1: リモートリポジトリをローカルに複製
+- リモートにあるリポジトリをローカルに複製することをcloneという
+  - [[https://help.github.com/articles/cloning-a-repository/][Cloning a repository - User Documentation]]
+- 下記の「$GITHUB_URL」の部分をGitHubにあるour_projectリポジトリのURLにして実行
+  - リモートのURLはブラウザで確認する
+  - ssh接続の場合，URLは「git@...」（HTTPSの場合「https:...」
 
 #+begin_src bash
+cd ~
+git clone $GITHUB_URL
+cd our_project
+#+end_src
+
+- この作業は基本的にはプロジェクトに対して一度だけ行うこと
+  - 別なマシンで作業したいときなどは話は別
+
+*** 2: masterから作業用ブランチを作成
+- 作業用のブランチを作成して移動する
+  - ブランチの名前は「greeting」とする
+
+#+BEGIN_SRC bash
+git checkout -b greeting
+#+END_SRC
+
+*** 3: ブランチで編集作業を行う
+- ここでは，hello.txtという名前のファイルを作成する
+
+#+BEGIN_SRC bash
+echo 'Hello GitHub' > hello.txt
+#+END_SRC
+
+*** 4: ブランチでコミットを作成
+- 変更した内容をステージングしてからコミットする
+
+#+BEGIN_SRC bash
 git add .
-git commit -m '（作業内容）'
-git push -u origin some_new_feature
-#+end_src
+git commit -m 'Create hello.txt'
+#+END_SRC
 
+- この編集，add，commitの作業は作業が一区切りつくまで何回も繰り返してよい…
+  - が，こまめにpushするのが良いとされる
 
-*** コラボレーターの追加
+*** 5: ブランチをリモートに送る
+- ブランチで作成したコミットをリモートに送る（push）
+  - 下記のoriginはリポジトリのURLの別名として自動で設定されているもの
+  - greetingは作業しているブランチ名
 
-- GitHubのリポジトリをブラウザで開く．
-- Settings -> Collaborators を選ぶ
-- メンバーを招待する
-- 招待されたメンバーには確認のメールが届くので，リンクをクリックする
-
-*** コラボレーターがソースコードを入手する方法
-
-下記の「ychubachi」の部分を代表者のアカウント名にする．
 #+begin_src bash
-git clone ychubachi/ychubachi_2016_gem
+git push -u origin greeting
 #+end_src
 
-*** プルリクエストとマージ
-
+*** 6. GitHubでプルリクエストを送る
 - ブランチがGitHubに登録されたことを確認し，Pull requestを作成する
-- Pull requestのレビューが済んだらマージする
+- 手順は次のとおり
+  - [[https://help.github.com/articles/using-pull-requests/][Using pull requests - User Documentation]] の前半
+  - [[https://help.github.com/articles/creating-a-pull-request/][Creating a pull request - User Documentation]]
 
-*** ローカルのmaster を最新版にする
+*** 7. GitHubでレビュー（＋自動テスト）
+- プルリクエストを用いたレビューの方法は下記参照
+  - [[https://help.github.com/articles/using-pull-requests/][Using pull requests - User Documentation]] の後半
+- 人手によるレビューの他，自動的なテストも行うのが望ましい
+  - 説明は省略
+
+*** 8. GitHubでプルリクエストをマージ
+- Pull requestのレビューが済んだらマージする
+  - [[https://help.github.com/articles/merging-a-pull-request/][Merging a pull request - User Documentation]]
+- マージが完了したら，ローカル・リモート共に，マージ済みのブランチは削除してよい
+
+*** 9. ローカルのmaster を最新版にする
 
 - GitHubで行ったマージをローカルに反映させる
+  - masterブランチに移動してgit pull
+  - 不要になった作業用ブランチは削除
 
 #+begin_src bash
 git checkout master
 git pull
+git branch -d greeting
 #+end_src
 
-*** TODO [後ろへ] GitHub flow におけるコンフリクトについて
-    - マージのコンフリクト
-      - GitHub に提出した Pull requests が自動的にマージできないこと
-    - 基本的な対処法
+- 練習のため，ここで手順2:に戻り，一連の作業を複数回繰り返すこと
+  - _体に叩き込む！_
+
+** コンフリクトについて
+*** GitHub flow におけるコンフリクトについて
+    - コンフリクトとは？
       - コンフリクトは、コードの同じ箇所を複数の人が別々に編集すると発生
+    - コンフリクトが起きると？
+      - GitHub に提出した Pull requests が自動的にマージできない
+    - 基本的な対処法
       - 初心者は、演習の最初の方では「他人と同じファイルを編集しない」こと
 	にして、操作になれる
-      - 上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ
+	（上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ）
+      - コミットはできるだけ細かく作成すると良い
+	（その分，他の人とかち合う可能性が減る）
       - Pull requests でコンフリクトが発生し、自動的にマージできない状態に
 	なったら、 その PR を送った人がコンフリクトを自分で解消する
+	（あるいは解消方法をメンバーに聞く）
 *** GitHubでのコンフリクトの解消方法
-**** 前提
-     - new_feature ブランチで作業中であり、最新の更新は commit 済
+- new_feature ブランチで作業中であり、最新の更新は commit 済とする
 
-**** 操作（一例）
-
-#+begin_src bash
-git checkout master         # master をチェックアウト
-git pull origin master      # 手元の master を最新版にする
-git checkout new_feature    # 作業中のブランチに戻る
-git merge master            # この後、コンフリクトを修正する
-git push origin new_feature # 作業中のブランチを再度、push
-#+end_src
-
-
-*** Gemの作成からGitHubへの登録まで
+- 解消するための操作は次のとおり
+  - 1:一度masterブランチに移動．2:手元のmasterを最新版に．3:作業中のブランチへ．
+    4:ここでmasterを手動でマージ．コンフリクトが発生するので解消する．
+    5:このブランチを再度push
+- これにより，プルリクエストがマージ可能になれば成功
 
 #+begin_src bash
-bundle gem ychubachi_2016_gem
-cd ychubachi_2016_gem/
-git commit -m 'Initial commit'
-git create
-git push -u origin master
+git checkout master
+git pull origin master
+git checkout new_feature
+git merge master
+git push origin new_feature
 #+end_src
 
-* 演習
+*** コンフリクト解消の練習
+TODO
+* TODO GitHubによるチーム開発
+** TODO チーム開発
+*** チーム編成
+- ここまでの演習内容が終わったものは教員かTAに教えること
+- 終わったものから順番にチームを編成する
+- チームができたら代表者1名がGitHubでリポジトリを作成する
+  - 名前は「team_project」とする
+
+*** コラボレーターの追加
+- 代表者は残りのメンバーを協同作業者（コラボレータ）として追加する
+  - GitHubのリポジトリをブラウザで開く．
+  - Settings -> Collaborators を選ぶ
+  - メンバーを招待する
+  - 招待されたメンバーには確認のメールが届くので，リンクをクリックする
+
+* TODO 演習課題
 ** ペアで行う GitHub
-*** ペアで GitHub を使ってみよう
+*** 課題1：ペアで GitHub を使ってみよう
     1. 隣同士でペアを組む
     2. レポジトリを作成する（どちらか一方）
        - =bundle gem= でひな形を作る（初心者は Gem でなくても良い）
@@ -527,15 +587,14 @@ git push -u origin master
        - Pull requests を利用してみる
        - Issue を利用してみる
        - Wiki を利用してみる
-*** 課題1
+
+*** 課題1の続き
     1. Pull request & merge の作業を各自5回以上行う
        - ディスカッションやコードレビューもやってみる
     2. Issue を5個以上登録する
        - Pull request による Issue の close なども試す
     3. Wiki でページを作成する
        - ページを5つ程度作成して、リンクも貼る
-    4. 以上が終わったペアはグループでの演習に進む
-       - 講師に申告すること
 	 
 ** グループで行う GitHub
 *** 課題：グループで GitHub (1)
@@ -548,6 +607,7 @@ git push -u origin master
     3. レポジトリを作成する（代表者1名）
        - コラボレーターを追加する
     4. 今まで学んだ知識を活用して Gem を開発する
+
 *** 課題：グループで GitHub (2)
     1. グルーブメンバーでGemを共同で作成する
     2. GitHub Flow の実践
@@ -555,35 +615,16 @@ git push -u origin master
     4. RubyGems.org への自動ディプロイ
     5. その他、GitHub の各種機能の活用
 
-* Git解説
-** 解説
-- gitにはブランチ（branch）の概念がある
-- 最初にあるのはmasterブランチ
-- masterは一番大切なブランチであり，常に正常に動作する状態にする
-- 新しい作業を開始するときは必ず新しいbranchを作る
-- 後に，作業内容をmasterに取り込む（merge）
-* Git演習
-** ブランチの作成
-*** 課題
-
-「new_feature」ブランチを作成せよ
-
-#+begin_src bash
-git checkout -b new_feature
-#+end_src
-
-*** 確認
-- 方法1) git status の結果の一行目が「On brunch new_feature」になっていること
-- 方法2) git status の一行目が「On brunch new_feature」になっていること
-
-
-* GitHub演習（個人）
-** アカウントの作成
+* TODO 演習の成果物の提出
+** TODO アカウントの作成
 *** 課題
 [[https://github.com/][GitHub]] にアカウントを作成せよ
 *** 提出
 TODO: Google form
 
-
 * COMMENT TODO
 - 行番号の位置
+- working directory
+- ignore files
+- issueのURL
+- 作業が終わった人からグループを組む
