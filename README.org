@@ -5,6 +5,6 @@
 
 ** テキスト
 - [[./github_practice-handout.org][Webページ]]
-- [[./github_practice-handout.pdf][PDFダウンロード]]
+- [[./github_practice-handout.pdf][ハンドアウト（PDF）]]
 
 ** 提出物
