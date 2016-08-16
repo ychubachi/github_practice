@@ -1,4 +1,4 @@
-% Created 2016-08-16 火 16:50
+% Created 2016-08-16 火 18:06
 \documentclass[a4paper,twoside,twocolumn]{bxjsarticle}
 \usepackage{zxjatype}
 \usepackage[ipa]{zxjafont}
@@ -615,10 +615,116 @@ git branch -d new_branch
 \item git branch -vvコマンドで削除を確認
 \end{itemize}
 
-\subsection{（参考）操作を取り消すコマンド}
+\subsection{コンフリクト}
 \label{sec-1-7}
-\subsubsection{Gitで行った操作の取り消し}
+\subsubsection{コンフリクトとは}
 \label{sec-1-7-1}
+\begin{itemize}
+\item ファイルの同じ箇所を，異なる内容に編集すると発生する
+\item Gitはどちらの内容が正しいのかわからない
+\item 次のシナリオに従い，コンフリクトを発生させてみよう
+\end{itemize}
+
+\subsubsection{コンフリクトのシナリオ}
+\label{sec-1-7-2}
+\begin{itemize}
+\item 「のび太」の作業
+\begin{itemize}
+\item nobitaブランチを作成する
+\item READMEファイルの \uline{一行目} を「Nobita's README.」に変更する
+\item 変更をaddしてcommitする
+\end{itemize}
+\item 一度，masterブランチにもどる
+\begin{itemize}
+\item READMEは変わってない
+\end{itemize}
+\item 「しずか」の作業
+\begin{itemize}
+\item shizukaブランチを作成する
+\item READMEファイルの \uline{一行目} を「Shizuka's file.」に変更する
+\item 変更をaddしてcommitする
+\end{itemize}
+\end{itemize}
+
+\subsubsection{マージとコンフリクト発生}
+\label{sec-1-7-3}
+\begin{itemize}
+\item masterブランチに移動
+\item まず，nobitaブランチをマージ
+\begin{itemize}
+\item 問題なくマージできる
+\end{itemize}
+\item 次に，shizukaブランチをマージ
+\begin{itemize}
+\item ここでコンフリクトが発生する
+\end{itemize}
+\end{itemize}
+
+\subsubsection{コンフリクト時のメッセージ}
+\label{sec-1-7-4}
+\begin{itemize}
+\item mergeに失敗するとようなメッセージが出る（長いので改行を加えた）
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{text}
+Auto-merging README
+CONFLICT (content):
+  Merge conflict in README
+Automatic merge failed; fix conflicts
+  and then commit the result.
+\end{minted}
+
+\begin{itemize}
+\item また，git statusするとUnmerged pathes:の欄に，「both modified: README」
+と表示される
+\end{itemize}
+
+\subsubsection{READMEファイルの内容}
+\label{sec-1-7-5}
+\begin{itemize}
+\item READMEを開くとコンフリクトが起きた箇所がわかる
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{text}
+<<<<<<< HEAD
+Nobita's README.
+=======
+Shizuka's file.
+>>>>>>> shizuka
+（以下略）
+\end{minted}
+
+\begin{itemize}
+\item =======の上がマージ前のmasterブランチ，
+下がマージしようとしたshizukaブランチの内容
+\end{itemize}
+
+\subsubsection{コンフリクトの解消}
+\label{sec-1-7-6}
+\begin{itemize}
+\item テキストエディタで修正し，手動でコンフリクトを解消する
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{text}
+Nobita & Shizuka's READMEfile.
+（以下略）
+\end{minted}
+
+\subsubsection{解消した結果をコミットする}
+\label{sec-1-7-7}
+\begin{itemize}
+\item その後はいつもどおり，addしてcommitすれば作業が継続できる
+\begin{itemize}
+\item マージ済みのmasterから新しくブランチを作成すること
+\end{itemize}
+\item なお， \uline{テキストエディタを用い，手動で正しくコンフリクトを解消する前でも
+commitできてしまう} ので，この点には注意する
+\end{itemize}
+
+\subsection{（参考）操作を取り消すコマンド}
+\label{sec-1-8}
+\subsubsection{Gitで行った操作の取り消し}
+\label{sec-1-8-1}
 \begin{itemize}
 \item まちがって
 \begin{itemize}
@@ -632,7 +738,7 @@ git branch -d new_branch
 \end{itemize}
 
 \subsubsection{ステージング/コミットの修正}
-\label{sec-1-7-2}
+\label{sec-1-8-2}
 ファイルのステージングを取り消す
 
 \begin{minted}[frame=single,linenos=true]{bash}
@@ -652,7 +758,7 @@ git reset --hard $COMMIT_ID
 \end{minted}
 
 \subsubsection{誤って編集や削除や修正したファイルの回復}
-\label{sec-1-7-3}
+\label{sec-1-8-3}
 \begin{itemize}
 \item file.txtを誤って編集や削除した場合
 \item addする前
@@ -677,9 +783,9 @@ git checkout HEAD file.txt
 \end{minted}
 
 \subsection{（参考）ファイルの削除と名前の変更}
-\label{sec-1-8}
+\label{sec-1-9}
 \subsubsection{Gitが追跡するファイルの削除と名前の変更}
-\label{sec-1-8-1}
+\label{sec-1-9-1}
 \begin{itemize}
 \item Gitが追跡しているファイルであっても，
 シェルのrmコマンドやmvコマンドで削除や名前の変更をしてよい
@@ -691,19 +797,18 @@ git checkout HEAD file.txt
 \end{itemize}
 \end{itemize}
 \subsubsection{Gitに無視させたいファイル}
-\label{sec-1-8-2}
+\label{sec-1-9-2}
 \begin{itemize}
 \item ツールが生成する中間ファイルなど，Gitで管理させたくないファイルは
-「.gitignore」ファイルに記述しておく
-\item そこに記述されたファイルは，Gitは追跡しない（git add .でも追加されない）
+予め「.gitignore」ファイルに記述しておく
 \item なお，「.gitignore」ファイル自体はGitがトラッキングするファイルに含める
 \item .gitignoreの書き方については各自で調べよ
 \end{itemize}
 
 \subsection{（参考）作業の一度中断と再開}
-\label{sec-1-9}
+\label{sec-1-10}
 \subsubsection{やりかけの作業のstash}
-\label{sec-1-9-1}
+\label{sec-1-10-1}
 \begin{itemize}
 \item あるブランチで作業中に他のブランチに
 一時的に移動したいことがある
@@ -968,11 +1073,11 @@ git branch -d greeting
 \begin{itemize}
 \item git fetchはリモートにあるブランチの最新情報を
 ローカルに取ってくるコマンド
-\item git pullは次の２つの命令を実行することと同じ意味
+\item git pullはmasterブランチで次の２つを実行することと同じ意味
 \end{itemize}
 
 \begin{minted}[frame=single,linenos=true]{bash}
-git fetch
+git fetch origin
 git merge origin/master
 \end{minted}
 
@@ -1011,21 +1116,21 @@ git merge origin/master
 
 \item 解消するための操作は次のとおり
 \begin{itemize}
-\item 1行目:一度masterブランチに移動．2行目:手元のmasterを最新版に．
-3行目:作業中のブランチへ．
-4行目:ここでmasterを手動でマージ．コンフリクトが発生するので解消する．
-5行目:このブランチを再度push
+\item 1行目:リモート（origin）から最新版を取得．
+2行目:リモートのmasterをshizukaにマージ．
+3行目:コンフリクトを解消する．
+4〜6行目:このブランチを再度push
 \end{itemize}
 \item これにより，プルリクエストがマージ可能になれば成功
 \end{itemize}
 
 \begin{minted}[frame=single,linenos=true]{bash}
-git checkout master
-git pull origin master
-git checkout new_feature
-git merge master
-# ここでコンフリクトを解消させる
-git push origin new_feature
+git fetch origin
+git merge origin/master
+# コンフリクトの起きたファイルを編集
+git add .
+git commit -m 'Merge'
+git push
 \end{minted}
 
 \subsubsection{（参考）push済みのコミットの取り消し}

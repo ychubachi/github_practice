@@ -371,6 +371,74 @@ git branch -d new_branch
 
 - git branch -vvコマンドで削除を確認
 
+** コンフリクト
+*** コンフリクトとは
+- ファイルの同じ箇所を，異なる内容に編集すると発生する
+- Gitはどちらの内容が正しいのかわからない
+- 次のシナリオに従い，コンフリクトを発生させてみよう
+
+*** コンフリクトのシナリオ
+- 「のび太」の作業
+  - nobitaブランチを作成する
+  - READMEファイルの _一行目_ を「Nobita's README.」に変更する
+  - 変更をaddしてcommitする
+- 一度，masterブランチにもどる
+  - READMEは変わってない
+- 「しずか」の作業
+  - shizukaブランチを作成する
+  - READMEファイルの _一行目_ を「Shizuka's file.」に変更する
+  - 変更をaddしてcommitする
+
+*** マージとコンフリクト発生
+- masterブランチに移動
+- まず，nobitaブランチをマージ
+  - 問題なくマージできる
+- 次に，shizukaブランチをマージ
+  - ここでコンフリクトが発生する
+
+*** コンフリクト時のメッセージ
+- mergeに失敗するとようなメッセージが出る（長いので改行を加えた）
+
+#+BEGIN_SRC text
+Auto-merging README
+CONFLICT (content):
+  Merge conflict in README
+Automatic merge failed; fix conflicts
+  and then commit the result.
+#+END_SRC
+
+- また，git statusするとUnmerged pathes:の欄に，「both modified: README」
+  と表示される
+
+*** READMEファイルの内容
+- READMEを開くとコンフリクトが起きた箇所がわかる
+
+#+BEGIN_SRC text
+<<<<<<< HEAD
+Nobita's README.
+=======
+Shizuka's file.
+>>>>>>> shizuka
+（以下略）
+#+END_SRC
+
+- =======の上がマージ前のmasterブランチ，
+  下がマージしようとしたshizukaブランチの内容
+
+*** コンフリクトの解消
+- テキストエディタで修正し，手動でコンフリクトを解消する
+
+#+BEGIN_SRC text
+Nobita & Shizuka's READMEfile.
+（以下略）
+#+END_SRC
+
+*** 解消した結果をコミットする
+- その後はいつもどおり，addしてcommitすれば作業が継続できる
+  - マージ済みのmasterから新しくブランチを作成すること
+- なお， _テキストエディタを用い，手動で正しくコンフリクトを解消する前でも
+  commitできてしまう_ ので，この点には注意する
+
 ** （参考）操作を取り消すコマンド
 *** Gitで行った操作の取り消し
 - まちがって
@@ -424,8 +492,7 @@ git checkout HEAD file.txt
     必要があった
 *** Gitに無視させたいファイル
 - ツールが生成する中間ファイルなど，Gitで管理させたくないファイルは
-  「.gitignore」ファイルに記述しておく
-- そこに記述されたファイルは，Gitは追跡しない（git add .でも追加されない）
+  予め「.gitignore」ファイルに記述しておく
 - なお，「.gitignore」ファイル自体はGitがトラッキングするファイルに含める
 - .gitignoreの書き方については各自で調べよ
   
@@ -583,10 +650,10 @@ git branch -d greeting
 *** 参考：git fetch
 - git fetchはリモートにあるブランチの最新情報を
   ローカルに取ってくるコマンド
-- git pullは次の２つの命令を実行することと同じ意味
+- git pullはmasterブランチで次の２つを実行することと同じ意味
 
 #+BEGIN_SRC bash
-git fetch
+git fetch origin
 git merge origin/master
 #+END_SRC
 
@@ -607,19 +674,19 @@ git merge origin/master
 - new_feature ブランチで作業中であり、最新の更新は commit 済とする
 
 - 解消するための操作は次のとおり
-  - 1行目:一度masterブランチに移動．2行目:手元のmasterを最新版に．
-    3行目:作業中のブランチへ．
-    4行目:ここでmasterを手動でマージ．コンフリクトが発生するので解消する．
-    5行目:このブランチを再度push
+  - 1行目:リモート（origin）から最新版を取得．
+    2行目:リモートのmasterをshizukaにマージ．
+    3行目:コンフリクトを解消する．
+    4〜6行目:このブランチを再度push
 - これにより，プルリクエストがマージ可能になれば成功
 
 #+begin_src bash
-git checkout master
-git pull origin master
-git checkout new_feature
-git merge master
+git fetch origin
+git merge origin/master
 # コンフリクトの起きたファイルを編集
-git push origin new_feature
+git add .
+git commit -m 'Merge'
+git push
 #+end_src
 
 *** （参考）push済みのコミットの取り消し
