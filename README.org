@@ -36,10 +36,8 @@
 * 個人演習の進め方
 ** 個人演習のテキスト
 - 個人演習のテキストは次のリンクから入手
-  - [[./github_practice-handout_person.org][Webページ]]
-  - [[./github_practice-handout_person.pdf][ハンドアウト（PDF）]]
-# - 第1節ではGit初心者（初めてさわる者）を対象に基礎を学ぶ
-# - 第2節では個人によるGitHubの初歩的な使い方を取り扱う
+  - [[./github_practice-person_handout.org][Webページ]]
+  - [[./github_practice-person_handout.pdf][ハンドアウト（PDF）]]
 
 ** 個人演習からチーム演習への流れ
 - この授業では最初に個人演習を行い，その後，チームによる演習に進む
