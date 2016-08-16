@@ -1,4 +1,4 @@
-% Created 2016-08-16 火 10:53
+% Created 2016-08-16 火 12:05
 \documentclass[a4paper,twoside,twocolumn]{bxjsarticle}
 \usepackage{zxjatype}
 \usepackage[ipa]{zxjafont}
@@ -35,45 +35,126 @@
 
 \maketitle
 
-\section{GitHub入門インストラクション}
+\section{GitHub入門}
 \label{sec-1}
-\subsection{この授業について}
+\subsection{この資料の入手先}
 \label{sec-1-1}
-これはGitの初心者が，基礎的なGitコマンドの利用方法から，
-GitHubフローに基づく協同開発の方法までを学ぶ演習である．
+\begin{itemize}
+\item \url{https://github.com/ychubachi/github_practice}
+\end{itemize}
 
-事前に gitコマンドが利用できる環境を用意しておくこと．
-またCUI端末でのshellによる基本的な操作を知っていると
-スムーズに演習ができる．
-
-第1章はGit初心者（初めてさわる者）を対象に基礎を学ぶ．
-第2章は個人によるGitHubの初歩的な使い方を取り扱う．
-第3章ではチームによるGitHubの使い方を知ろう．
-
-\subsection{授業の進め方}
+\subsection{この授業について}
 \label{sec-1-2}
 \begin{itemize}
+\item この授業ではGitの初心者が，基礎的なGitコマンドの利用方法から，
+GitHubフローに基づく協同開発の方法までを学ぶ
+\end{itemize}
+
+\subsection{事前準備}
+\label{sec-1-3}
+\begin{itemize}
+\item 事前に gitコマンドが利用できる環境を用意しておくこと
+\item CUI端末でのshellによる基本的な操作を知っているとスムーズに演習ができる
+\end{itemize}
+
+\subsection{授業の構成}
+\label{sec-1-4}
+\begin{itemize}
+\item 個人演習では，テキストの指示に従い，
+Git/GitHubを利用するにあたり必要となる知識を学ぶ
+\item チーム演習では，GitHubを活用した協同開発の方法を深く学ぼう
+\end{itemize}
+
+\subsection{授業の進め方}
+\label{sec-1-5}
+\begin{enumerate}
 \item 演習の解説
 \begin{itemize}
-\item このインストラクションに従い，授業の進め方を説明する
+\item 講師が授業の進め方を説明する
 \end{itemize}
 \item Git/GitHubを学ぶ個人演習
 \begin{itemize}
-\item テキストの指示に従い，Git/Githubの使い方を学ぶ
-\item テキストを完了したらTAに伝えること
-\item その後，グループ演習に進む
+\item 個人演習を通してGit/GitHubの使い方を学ぶ
 \end{itemize}
-\item 
+\item チーム演習
+\begin{itemize}
+\item チームでの開発演習を実施する
 \end{itemize}
+\end{enumerate}
 
-\subsection{テキスト}
-\label{sec-1-3}
+\section{個人演習の進め方}
+\label{sec-2}
+\subsection{個人演習のテキスト}
+\label{sec-2-1}
+\begin{itemize}
+\item 個人演習のテキストは次のリンクから入手
 \begin{itemize}
 \item \href{./github_practice-handout.org}{Webページ}
 \item \href{./github_practice-handout.pdf}{ハンドアウト（PDF）}
 \end{itemize}
+\end{itemize}
+
+\subsection{個人演習からチーム演習への流れ}
+\label{sec-2-2}
+\begin{itemize}
+\item この授業では最初に個人演習を行い，その後，チームによる演習に進む
+\item その際，チーム編成が既に済んでいるか，または，
+そうでないかで演習の進め方が異なる
+\end{itemize}
+
+\subsection{チーム編成が済んでいる場合}
+\label{sec-2-3}
+\begin{itemize}
+\item 個人演習としてテキストの課題に取り組む
+\item テキストを終えたメンバーは他のメンバーを積極的に助ける
+\item 全員がテキストを終えることを目指す
+\item 全員が完了，もしくは，時間になったらチーム演習に進む
+\end{itemize}
+
+\subsection{チームがまだできていない場合}
+\label{sec-2-4}
+\begin{itemize}
+\item 個人演習としてテキストの課題に取り組む
+\item テキストを完了したら講師・TAに伝えること
+\item その後，チーム編成を経てチーム演習に進む
+\end{itemize}
+
+\subsection{チームがまだできていない場合の編成方法}
+\label{sec-2-5}
+\begin{itemize}
+\item 個人演習が完了した者から順番に2名づつのペアを組んでいく
+\item できたペアはチーム演習を開始する
+\item 受講者の半数がペアになったら，その後にテキストを終えた者は
+既存のペアに追加していく
+\item 最終的に3〜4人のグループにする
+\end{itemize}
+
+\subsection{補足資料}
+\label{sec-2-6}
+issue
 
 \subsection{提出物}
-\label{sec-1-4}
+\label{sec-2-7}
+\subsection{評価方法}
+\label{sec-2-8}
+評価はチーム開発の成果物による
+
+\begin{itemize}
+\item 名前
+\item GitHub ID
+\item 学籍番号
+\item 学内emailアドレス
+\item チーム開発に用いたGitHubのURL
+\item 各自の作業内容
+\item 
+\end{itemize}
+
+全員が自分のGitHubアカウント名.htmtlを作りコミット
+何回か修正を繰り返す
+
+コンフリクトの演習
+だれかがindex.htmlを作成
+各自がindex.htmlに自分のhtmlファイルへのリンクをはる
+マージするとコンフリクトが発生するので
 % Emacs 24.5.1 (Org mode 8.2.10)
 \end{document}
