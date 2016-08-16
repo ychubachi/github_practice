@@ -6,7 +6,7 @@
 
 #+TITLE: GitHub入門（チーム演習）
 #+AUTHOR: 産業技術大学院大学\\ 中鉢 欣秀
-#+DATE: 2016-08-17
+#+DATE: 2016-08-18
 
 * TODO GitHubによるチーム開発
 ** TODO チーム開発
