@@ -1,4 +1,4 @@
-% Created 2016-08-16 火 16:23
+% Created 2016-08-16 火 16:50
 \documentclass[a4paper,twoside,twocolumn]{bxjsarticle}
 \usepackage{zxjatype}
 \usepackage[ipa]{zxjafont}
@@ -702,6 +702,8 @@ git checkout HEAD file.txt
 
 \subsection{（参考）作業の一度中断と再開}
 \label{sec-1-9}
+\subsubsection{やりかけの作業のstash}
+\label{sec-1-9-1}
 \begin{itemize}
 \item あるブランチで作業中に他のブランチに
 一時的に移動したいことがある
@@ -974,7 +976,6 @@ git fetch
 git merge origin/master
 \end{minted}
 
-
 \subsection{コンフリクトについて}
 \label{sec-2-4}
 \subsubsection{GitHub flow におけるコンフリクトについて}
@@ -988,28 +989,32 @@ git merge origin/master
 \begin{itemize}
 \item GitHub に提出した Pull requests が自動的にマージできない
 \end{itemize}
-\item 基本的な対処法
+\end{itemize}
+\subsubsection{コンフリクトへの基本的な対処法}
+\label{sec-2-4-2}
 \begin{itemize}
 \item 初心者は、演習の最初の方では「他人と同じファイルを編集しない」こと
 にして、操作になれる
-（上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ）
-\item コミットはできるだけ細かく作成すると良い
-（その分，他の人とかち合う可能性が減る）
-\item Pull requests でコンフリクトが発生し、自動的にマージできない状態に
-なったら、 その PR を送った人がコンフリクトを自分で解消する
-（あるいは解消方法をメンバーに聞く）
+\begin{itemize}
+\item 上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ
 \end{itemize}
+\item コミットはできるだけ細かく作成すると良い
+\begin{itemize}
+\item その分，他の人とかち合う可能性が減る
+\end{itemize}
+\item どうしても困ったら人に聞く
 \end{itemize}
 \subsubsection{GitHubでのコンフリクトの解消方法}
-\label{sec-2-4-2}
+\label{sec-2-4-3}
 \begin{itemize}
 \item new\_feature ブランチで作業中であり、最新の更新は commit 済とする
 
 \item 解消するための操作は次のとおり
 \begin{itemize}
-\item 1:一度masterブランチに移動．2:手元のmasterを最新版に．3:作業中のブランチへ．
-4:ここでmasterを手動でマージ．コンフリクトが発生するので解消する．
-5:このブランチを再度push
+\item 1行目:一度masterブランチに移動．2行目:手元のmasterを最新版に．
+3行目:作業中のブランチへ．
+4行目:ここでmasterを手動でマージ．コンフリクトが発生するので解消する．
+5行目:このブランチを再度push
 \end{itemize}
 \item これにより，プルリクエストがマージ可能になれば成功
 \end{itemize}
@@ -1019,11 +1024,12 @@ git checkout master
 git pull origin master
 git checkout new_feature
 git merge master
+# ここでコンフリクトを解消させる
 git push origin new_feature
 \end{minted}
 
-\subsubsection{push済みのコミットの取り消し}
-\label{sec-2-4-3}
+\subsubsection{（参考）push済みのコミットの取り消し}
+\label{sec-2-4-4}
 \begin{itemize}
 \item 最後に行ったコミットが理由でコンフリクトが発生したような場合，
 次の操作により，「取り消しコミット」を作成することができる
