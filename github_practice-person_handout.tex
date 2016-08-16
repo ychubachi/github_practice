@@ -1,4 +1,4 @@
-% Created 2016-08-16 火 14:25
+% Created 2016-08-16 火 14:59
 \documentclass[a4paper,twoside,twocolumn]{bxjsarticle}
 \usepackage{zxjatype}
 \usepackage[ipa]{zxjafont}
@@ -39,7 +39,7 @@
 \label{sec-1}
 \subsection{Gitの操作方法と初期設定}
 \label{sec-1-1}
-\subsubsection{はじめに：Gitチートシート（カンニング表）}
+\subsubsection{Gitチートシート（カンニング表）}
 \label{sec-1-1-1}
 \begin{itemize}
 \item 主なGitコマンドの一覧表
@@ -63,7 +63,7 @@ git --version
 \subsubsection{名前とメールアドレスの登録}
 \label{sec-1-1-3}
 \begin{itemize}
-\item 名前とメールアドレスを登録しておく
+\item （まだなら）gitに名前とメールアドレスを登録しておく
 \item 次のコマンドの\$NAMEと\$EMAILを各自の名前とメールアドレスに置き換えて実行せよ
 \begin{itemize}
 \item 名前はローマ字で設定すること
@@ -107,8 +107,11 @@ git config -l
 \begin{itemize}
 \item リポジトリとはプロジェクトでソースコードなどを
 配置するディレクトリ
-\item Gitのリポジトリバージョン管理ができるようになる
-\item GitHubと連携させることで共同作業ができる
+\begin{itemize}
+\item このディレクトリを「ワーキングディレクトリ」とも言う
+\end{itemize}
+\item Gitのリポジトリバージョン管理ができる
+\item 将来的にGitHubと連携させることで共同作業ができるようになる
 \end{itemize}
 
 \subsubsection{Gitリポジトリを利用するには}
@@ -119,7 +122,7 @@ git config -l
 \item git initコマンドで初期化する方法
 \item git cloneコマンドでGitHubから入手する方法
 \end{enumerate}
-\item 本章では1.について解説する（次章からは2.で行う）
+\item ここでは，まず1.について解説する
 \end{itemize}
 
 \subsubsection{Gitリポジトリの初期化方法}
@@ -233,9 +236,16 @@ git status
 \begin{itemize}
 \item コミットの一つ手前にステージングという段階がある
 \begin{itemize}
-\item 変更をコミットするためには，ステージングしなくてはならない
+\item コミットしたい変更はステージングしておく
+\begin{itemize}
+\item 逆に言えば，変更をコミットするためには，
+ステージングしておかなくてはならない
+\end{itemize}
 \item 新しいファイルをステージングすると，これ以降，
-gitがそのファイルの変更を追跡する
+gitがそのファイルの変更を追跡するようになる
+\begin{itemize}
+\item これをトラッキングという
+\end{itemize}
 \end{itemize}
 \end{itemize}
 
@@ -254,7 +264,7 @@ git add .
 \begin{itemize}
 \item ピリオドは，リポジトリにおけるすべての変更を意味する
 \item 複数のファイルを変更した場合には，ファイル名を指定して
-部分的にステージングすることもできる・・・
+部分的にステージングすることもできる…
 \begin{itemize}
 \item が，このやりかたは好ましくない
 \item 一度に複数の変更を行うのではなく，一つの変更を終えたら
@@ -463,6 +473,7 @@ git show $COMMIT_ID
 \item 「ひとまとまりの作業」を行う場所
 \item ソースコードなどの編集作業を始める際には
 必ず新しいブランチを作成する
+\item Gitの内部的にはあるコミットに対するエイリアス（alias）である
 \end{itemize}
 
 \subsubsection{masterは大事なブランチ}
@@ -491,7 +502,7 @@ git checkout -b new_branch
 \end{minted}
 
 \begin{itemize}
-\item 本来，ブランチには「これから行う作業の内容」が分かるような名前を付ける
+\item 本来，ブランチには \uline{「これから行う作業の内容」が分かる名前} を付ける
 \end{itemize}
 
 \subsubsection{ブランチの確認}
@@ -579,10 +590,24 @@ git branch -d new_branch
 \item git branch -vvコマンドで削除を確認
 \end{itemize}
 
-\subsection{{\bfseries\sffamily TODO} 操作を取り消すコマンド}
+\subsection{操作を取り消すコマンド}
 \label{sec-1-7}
-\subsubsection{ステージング/コミットの修正}
+\subsubsection{Gitで行った操作の取り消し}
 \label{sec-1-7-1}
+\begin{itemize}
+\item まちがって
+\begin{itemize}
+\item ファイルをステージングさせた！
+\item ステージングをコミットした！
+\end{itemize}
+\item などの場合，操作を取り消すことができる
+\begin{itemize}
+\item 後で説明するpushまでしてしまった場合については後述
+\end{itemize}
+\end{itemize}
+
+\subsubsection{ステージング/コミットの修正}
+\label{sec-1-7-2}
 ファイルのステージングを取り消す
 
 \begin{minted}[frame=single,linenos=true]{bash}
