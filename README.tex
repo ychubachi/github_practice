@@ -1,4 +1,4 @@
-% Created 2016-08-16 火 12:05
+% Created 2016-08-16 火 13:22
 \documentclass[a4paper,twoside,twocolumn]{bxjsarticle}
 \usepackage{zxjatype}
 \usepackage[ipa]{zxjafont}
@@ -47,7 +47,7 @@
 \label{sec-1-2}
 \begin{itemize}
 \item この授業ではGitの初心者が，基礎的なGitコマンドの利用方法から，
-GitHubフローに基づく協同開発の方法までを学ぶ
+GitHub Flowに基づく協同開発の方法までを学ぶ
 \end{itemize}
 
 \subsection{事前準備}
@@ -82,20 +82,22 @@ Git/GitHubを利用するにあたり必要となる知識を学ぶ
 \end{itemize}
 \end{enumerate}
 
-\section{個人演習の進め方}
+\section{個人演習}
 \label{sec-2}
 \subsection{個人演習のテキスト}
 \label{sec-2-1}
 \begin{itemize}
 \item 個人演習のテキストは次のリンクから入手
 \begin{itemize}
-\item \href{./github_practice-handout.org}{Webページ}
-\item \href{./github_practice-handout.pdf}{ハンドアウト（PDF）}
+\item \href{https://github.com/ychubachi/github_practice/blob/master/github_practice-person_handout.org}{Webページ}
+\item \href{https://github.com/ychubachi/github_practice/raw/master/github_practice-person_handout.pdf}{ハンドアウト（PDF）}
 \end{itemize}
 \end{itemize}
 
+\section{個人演習からチーム演習へ}
+\label{sec-3}
 \subsection{個人演習からチーム演習への流れ}
-\label{sec-2-2}
+\label{sec-3-1}
 \begin{itemize}
 \item この授業では最初に個人演習を行い，その後，チームによる演習に進む
 \item その際，チーム編成が既に済んでいるか，または，
@@ -103,7 +105,7 @@ Git/GitHubを利用するにあたり必要となる知識を学ぶ
 \end{itemize}
 
 \subsection{チーム編成が済んでいる場合}
-\label{sec-2-3}
+\label{sec-3-2}
 \begin{itemize}
 \item 個人演習としてテキストの課題に取り組む
 \item テキストを終えたメンバーは他のメンバーを積極的に助ける
@@ -112,49 +114,89 @@ Git/GitHubを利用するにあたり必要となる知識を学ぶ
 \end{itemize}
 
 \subsection{チームがまだできていない場合}
-\label{sec-2-4}
+\label{sec-3-3}
 \begin{itemize}
+\item 後ほど席の移動をするので荷物をまとめておく
 \item 個人演習としてテキストの課題に取り組む
 \item テキストを完了したら講師・TAに伝えること
 \item その後，チーム編成を経てチーム演習に進む
 \end{itemize}
 
 \subsection{チームがまだできていない場合の編成方法}
-\label{sec-2-5}
+\label{sec-3-4}
 \begin{itemize}
 \item 個人演習が完了した者から順番に2名づつのペアを組んでいく
-\item できたペアはチーム演習を開始する
+\item できたペアは席を移動し，チーム演習を開始する
 \item 受講者の半数がペアになったら，その後にテキストを終えた者は
 既存のペアに追加していく
 \item 最終的に3〜4人のグループにする
 \end{itemize}
 
-\subsection{補足資料}
-\label{sec-2-6}
-issue
-
-\subsection{提出物}
-\label{sec-2-7}
-\subsection{評価方法}
-\label{sec-2-8}
-評価はチーム開発の成果物による
-
+\section{チーム演習}
+\label{sec-4}
+\subsection{チーム演習のテキスト}
+\label{sec-4-1}
 \begin{itemize}
-\item 名前
-\item GitHub ID
-\item 学籍番号
-\item 学内emailアドレス
-\item チーム開発に用いたGitHubのURL
-\item 各自の作業内容
-\item 
+\item チーム演習のテキストは次のリンクから入手
+\begin{itemize}
+\item \href{https://github.com/ychubachi/github_practice/blob/master/github_practice-team_handout.org}{Webページ}
+\item \href{https://github.com/ychubachi/github_practice/raw/master/github_practice-team_handout.pdf}{ハンドアウト（PDF）}
+\end{itemize}
 \end{itemize}
 
-全員が自分のGitHubアカウント名.htmtlを作りコミット
-何回か修正を繰り返す
+\section{成績評価の方法}
+\label{sec-5}
+\subsection{チーム演習の評価}
+\label{sec-5-1}
+\begin{itemize}
+\item 主にこれらの項目について評価する
+\begin{itemize}
+\item コミットの数（一人5以上）
+\item コミットの粒度（意味のある単位でできるだけ細かく）
+\item コミットメッセージの分かりやすさ
+\item プルリクエストの活用
+\item WikiやIssueの活用
+\item コンフリクトの解消ができたか
+\end{itemize}
+\end{itemize}
+\subsection{提出物}
+\label{sec-5-2}
+\begin{itemize}
+\item 次のものを提出する
+\begin{itemize}
+\item 名前
+\item 学籍番号
+\item GitHubのアカウント名
+\item GitHubのリポジトリのWeb URL
+\begin{itemize}
+\item our\_enpitとteam\_enpit
+\end{itemize}
+\item 各自が行った作業の内容
+\item 演習全体の感想
+\item 自己評価
+\begin{itemize}
+\item 5段階：5はとても優れている，4は優れている，3は普通，2は劣っている
+\end{itemize}
+\item 自己評価の理由
+\end{itemize}
+\end{itemize}
 
-コンフリクトの演習
-だれかがindex.htmlを作成
-各自がindex.htmlに自分のhtmlファイルへのリンクをはる
-マージするとコンフリクトが発生するので
+\subsection{成果物の提出方法と補足資料}
+\label{sec-5-3}
+\begin{itemize}
+\item 成果物の提出方法や，その他の補足資料はWikiを参照
+\begin{itemize}
+\item \href{https://github.com/ychubachi/github_practice/wiki}{Home · ychubachi/github\_practice Wiki}
+\end{itemize}
+\end{itemize}
+
+\section{問い合わせ}
+\label{sec-6}
+\begin{itemize}
+\item この授業の内容や資料に関する質問や問い合わせ，改善提案はGitHubのissueに登録してください
+\begin{itemize}
+\item \href{https://github.com/ychubachi/github_practice/issues}{Issues · ychubachi/github\_practice}
+\end{itemize}
+\end{itemize}
 % Emacs 24.5.1 (Org mode 8.2.10)
 \end{document}
