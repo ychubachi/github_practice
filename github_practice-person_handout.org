@@ -54,8 +54,10 @@ git config -l
 *** プロジェクト用のディレクトリ
 - リポジトリとはプロジェクトでソースコードなどを
   配置するディレクトリ
-  - このディレクトリを「ワーキングディレクトリ」とも言う
-- Gitのリポジトリバージョン管理ができる
+  - このディレクトリを「ワーキングディレクトリ
+    （ないしはワーキングツリー）」とも言う
+- Gitによりバージョン管理ができる
+  - ファイルに対する編集作業の内容が追跡され，記録される
 - 将来的にGitHubと連携させることで共同作業ができるようになる
 
 *** Gitリポジトリを利用するには
@@ -94,9 +96,9 @@ git status
 *** 「.git」ディレクトリを壊すべからず
 - ティレクトリにリポジトリを作成すると「.git」という隠しディレクトリが
   できる
-  - ls -aで確認できるが・・・
-- このディレクトリは絶対に， _手動で変更してはならない_
-  - むろん，削除もしてはならない
+  - ls -aで確認できるが…
+- このディレクトリは _絶対に手動で変更してはならない_
+  - もし削除したらGitとは無関係の単なるディレクトリになる
 
 ** コミットの作成方法
 *** コミットについて
@@ -104,7 +106,8 @@ git status
   - 新しい機能を追加した，バグを直した，ドキュメントの内容を更新した，など
 - Gitは作業の履歴を，コミットを単位として管理する
   - コミットは次々にリポジトリに追加されていき，これらを記録することで
-    バーションの管理ができる（古いバージョンに戻る，など）
+    バーションの管理ができる（古いバージョンに戻る，
+    過去の変更内容を確認する，など）
 - コミットには，作業の内容を説明するメッセージをつける
   - 更に，コミットには自動的にIDが振られることも覚えておくと良い
 
@@ -250,7 +253,7 @@ git log
   - AuthorとDate
   - コミットメッセージ
 
-*** 一つのファイルの履歴
+*** （参考）一つのファイルの履歴
 - 将来，複数のファイルを履歴管理するようになったら特定のファイルの
   履歴のみ確認したい
 - その場合，次のとおりにする
@@ -261,18 +264,31 @@ git log --follow README
 
 *** 2つのコミットの比較
 - 異なる２つのコミットの変更差分は次のコマンドで確認できる
-  - コミットのIDはlogで確認できる（概ね先頭4文字でよい）
-  - ブランチごとの比較もできる（後述）
+  - コミットのIDはlogで確認できる
+    （コマンドでIDを指定する場合は，概ね先頭4文字を入力し後は省略してよい）
 
 #+BEGIN_SRC bash
 git diff $COMMIT_ID_1 $COMMIT_ID_2 
 #+END_SRC
+
+- （参考）後で説明するブランチはコミットのエイリアスなので，
+  ブランチごとの比較もできる
 
 *** コミットの情報確認
 - 次のコマンドでコミットで行った変更内容が確認できる
 
 #+BEGIN_SRC bash
 git show $COMMIT_ID
+#+END_SRC
+
+*** （参考）HEADによるコミットの指定
+- 特定のコミットのIDを指定する方法に「HEAD」を使った相対指定があるが，
+  なれないと間違いやすい
+  - showコマンドで確認しながら用いると良い
+
+#+BEGIN_SRC bash
+git show HEAD~1
+git show HEAD~1^2
 #+END_SRC
 
 ** ブランチの使い方
@@ -355,7 +371,7 @@ git branch -d new_branch
 
 - git branch -vvコマンドで削除を確認
 
-** 操作を取り消すコマンド
+** （参考）操作を取り消すコマンド
 *** Gitで行った操作の取り消し
 - まちがって
   - ファイルをステージングさせた！
@@ -382,6 +398,43 @@ $COMMIT_IDより後のコミットの取り消し（ローカルの変更も破�
 git reset --hard $COMMIT_ID
 #+END_SRC
 
+*** 誤って編集や削除や修正したファイルの回復
+- file.txtを誤って編集や削除した場合
+- addする前
+  - ステージング領域（インデックスともいいう）からの取り出し
+
+#+BEGIN_SRC bash
+git checkout file.txt
+#+END_SRC
+
+- addした後
+  - 直近のコミットからの取り出し
+
+#+BEGIN_SRC bash
+git checkout HEAD file.txt
+#+END_SRC
+
+** （参考）ファイルの削除と名前の変更
+*** Gitが追跡するファイルの削除と名前の変更
+- Gitが追跡しているファイルであっても，
+  シェルのrmコマンドやmvコマンドで削除や名前の変更をしてよい
+- 「git add .」コマンドを実行すると，Gitは削除や名前の変更も
+  自動的に検知する
+  - 参考：古いバージョンのgitでは「git rm」や「git mv」コマンドを利用する
+    必要があった
+*** Gitに無視させたいファイル
+- ツールが生成する中間ファイルなど，Gitで管理させたくないファイルは
+  「.gitignore」ファイルに記述しておく
+- そこに記述されたファイルは，Gitは追跡しない（git add .でも追加されない）
+- なお，「.gitignore」ファイル自体はGitがトラッキングするファイルに含める
+- .gitignoreの書き方については各自で調べよ
+  
+** （参考）作業の一度中断と再開
+- あるブランチで作業中に他のブランチに
+  一時的に移動したいことがある
+  - 作業の途中でmasterブランチを最新にする，など
+- このような場合，git stashコマンドが活用できる
+- 詳細については各自で調べよ
 * GitHub入門
 ** GitHubとは
 *** GitHubでソーシャルコーディング
@@ -394,7 +447,7 @@ git reset --hard $COMMIT_ID
   - Issue / Wiki
 
 *** GitHubアカウントの作成
-- まず，次のURLの指示に従いアカウントを作成
+- （まだなら）次のURLの指示に従いGitHubアカウントを作成
   - [[https://help.github.com/articles/signing-up-for-a-new-github-account/][Signing up for a new GitHub account - User Documentation]]
 - アカウントの種類
   - 無料版で作成する場合「Join GitHub for Free」を選択する
@@ -405,7 +458,7 @@ git reset --hard $COMMIT_ID
 *** SSHによるGitHubアクセス
 - GitHubへのアクセスはSSHを用いた公開鍵暗号方式の認証を用いる
   - SSH公開鍵の設定を行えば以降のパスワード認証が不要になる
-- SSHを生成してGitHubに登録しなさい
+- （まだなら）SSHを生成してGitHubに登録しなさい
   - 鍵を生成するとき「passphrases」が聞かれるが，この演習では何も入力しなくてよい
   - [[https://help.github.com/articles/generating-an-ssh-key/][Generating an SSH key - User Documentation]]
 - もしSSHの登録がうまく行かなかったら，HTTPSを用いて接続し，GitHubのユーザ名と
@@ -447,7 +500,7 @@ git reset --hard $COMMIT_ID
   - [[https://help.github.com/articles/cloning-a-repository/][Cloning a repository - User Documentation]]
 - 下記の「$GITHUB_URL」の部分をGitHubにあるour_projectリポジトリのURLにして実行
   - リモートのURLはブラウザで確認する
-  - ssh接続の場合，URLは「git@...」（HTTPSの場合「https:...」
+  - SSH接続の場合，URLは「git@...」（HTTPSの場合「https:...」
 
 #+begin_src bash
 cd ~
@@ -522,8 +575,20 @@ git pull
 git branch -d greeting
 #+end_src
 
-- 練習のため，ここで手順2:に戻り，一連の作業を複数回繰り返すこと
+*** GitHub Flowに習熟するには？
+- ここで手順2:に戻り，一連の作業を複数回（5回以上!）繰り返すこと
   - _体に叩き込む！_
+
+*** 参考：git fetch
+- git fetchはリモートにあるブランチの最新情報を
+  ローカルに取ってくるコマンド
+- git pullは次の２つの命令を実行することと同じ意味
+
+#+BEGIN_SRC bash
+git fetch
+git merge origin/master
+#+END_SRC
+
 
 ** コンフリクトについて
 *** GitHub flow におけるコンフリクトについて
@@ -557,9 +622,14 @@ git merge master
 git push origin new_feature
 #+end_src
 
-*** pushしたコミットの取り消し
+*** push済みのコミットの取り消し
 - 最後に行ったコミットが理由でコンフリクトが発生したような場合，
-*** コンフリクト解消の練習
-TODO
-* COMMENT TODO
-- 行番号の位置
+  次の操作により，「取り消しコミット」を作成することができる
+
+#+BEGIN_SRC bash
+git revert HEAD
+#+END_SRC
+
+- 最後の作業が取り消されていることを確認
+- その後は，この取り消しコミットをpushすると，
+  リモートでの変更内容も取り消される

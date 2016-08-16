@@ -1,4 +1,4 @@
-% Created 2016-08-16 火 14:59
+% Created 2016-08-16 火 16:23
 \documentclass[a4paper,twoside,twocolumn]{bxjsarticle}
 \usepackage{zxjatype}
 \usepackage[ipa]{zxjafont}
@@ -108,9 +108,13 @@ git config -l
 \item リポジトリとはプロジェクトでソースコードなどを
 配置するディレクトリ
 \begin{itemize}
-\item このディレクトリを「ワーキングディレクトリ」とも言う
+\item このディレクトリを「ワーキングディレクトリ
+（ないしはワーキングツリー）」とも言う
 \end{itemize}
-\item Gitのリポジトリバージョン管理ができる
+\item Gitによりバージョン管理ができる
+\begin{itemize}
+\item ファイルに対する編集作業の内容が追跡され，記録される
+\end{itemize}
 \item 将来的にGitHubと連携させることで共同作業ができるようになる
 \end{itemize}
 
@@ -174,11 +178,11 @@ git status
 \item ティレクトリにリポジトリを作成すると「.git」という隠しディレクトリが
 できる
 \begin{itemize}
-\item ls -aで確認できるが・・・
+\item ls -aで確認できるが…
 \end{itemize}
-\item このディレクトリは絶対に， \uline{手動で変更してはならない}
+\item このディレクトリは \uline{絶対に手動で変更してはならない}
 \begin{itemize}
-\item むろん，削除もしてはならない
+\item もし削除したらGitとは無関係の単なるディレクトリになる
 \end{itemize}
 \end{itemize}
 
@@ -194,7 +198,8 @@ git status
 \item Gitは作業の履歴を，コミットを単位として管理する
 \begin{itemize}
 \item コミットは次々にリポジトリに追加されていき，これらを記録することで
-バーションの管理ができる（古いバージョンに戻る，など）
+バーションの管理ができる（古いバージョンに戻る，
+過去の変更内容を確認する，など）
 \end{itemize}
 \item コミットには，作業の内容を説明するメッセージをつける
 \begin{itemize}
@@ -429,7 +434,7 @@ git log
 \end{itemize}
 \end{itemize}
 
-\subsubsection{一つのファイルの履歴}
+\subsubsection{（参考）一つのファイルの履歴}
 \label{sec-1-5-2}
 \begin{itemize}
 \item 将来，複数のファイルを履歴管理するようになったら特定のファイルの
@@ -446,14 +451,19 @@ git log --follow README
 \begin{itemize}
 \item 異なる２つのコミットの変更差分は次のコマンドで確認できる
 \begin{itemize}
-\item コミットのIDはlogで確認できる（概ね先頭4文字でよい）
-\item ブランチごとの比較もできる（後述）
+\item コミットのIDはlogで確認できる
+（コマンドでIDを指定する場合は，概ね先頭4文字を入力し後は省略してよい）
 \end{itemize}
 \end{itemize}
 
 \begin{minted}[frame=single,linenos=true]{bash}
 git diff $COMMIT_ID_1 $COMMIT_ID_2
 \end{minted}
+
+\begin{itemize}
+\item （参考）後で説明するブランチはコミットのエイリアスなので，
+ブランチごとの比較もできる
+\end{itemize}
 
 \subsubsection{コミットの情報確認}
 \label{sec-1-5-4}
@@ -463,6 +473,21 @@ git diff $COMMIT_ID_1 $COMMIT_ID_2
 
 \begin{minted}[frame=single,linenos=true]{bash}
 git show $COMMIT_ID
+\end{minted}
+
+\subsubsection{（参考）HEADによるコミットの指定}
+\label{sec-1-5-5}
+\begin{itemize}
+\item 特定のコミットのIDを指定する方法に「HEAD」を使った相対指定があるが，
+なれないと間違いやすい
+\begin{itemize}
+\item showコマンドで確認しながら用いると良い
+\end{itemize}
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git show HEAD~1
+git show HEAD~1^2
 \end{minted}
 
 \subsection{ブランチの使い方}
@@ -590,7 +615,7 @@ git branch -d new_branch
 \item git branch -vvコマンドで削除を確認
 \end{itemize}
 
-\subsection{操作を取り消すコマンド}
+\subsection{（参考）操作を取り消すコマンド}
 \label{sec-1-7}
 \subsubsection{Gitで行った操作の取り消し}
 \label{sec-1-7-1}
@@ -626,6 +651,66 @@ git reset $COMMIT_ID
 git reset --hard $COMMIT_ID
 \end{minted}
 
+\subsubsection{誤って編集や削除や修正したファイルの回復}
+\label{sec-1-7-3}
+\begin{itemize}
+\item file.txtを誤って編集や削除した場合
+\item addする前
+\begin{itemize}
+\item ステージング領域（インデックスともいいう）からの取り出し
+\end{itemize}
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git checkout file.txt
+\end{minted}
+
+\begin{itemize}
+\item addした後
+\begin{itemize}
+\item 直近のコミットからの取り出し
+\end{itemize}
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git checkout HEAD file.txt
+\end{minted}
+
+\subsection{（参考）ファイルの削除と名前の変更}
+\label{sec-1-8}
+\subsubsection{Gitが追跡するファイルの削除と名前の変更}
+\label{sec-1-8-1}
+\begin{itemize}
+\item Gitが追跡しているファイルであっても，
+シェルのrmコマンドやmvコマンドで削除や名前の変更をしてよい
+\item 「git add .」コマンドを実行すると，Gitは削除や名前の変更も
+自動的に検知する
+\begin{itemize}
+\item 参考：古いバージョンのgitでは「git rm」や「git mv」コマンドを利用する
+必要があった
+\end{itemize}
+\end{itemize}
+\subsubsection{Gitに無視させたいファイル}
+\label{sec-1-8-2}
+\begin{itemize}
+\item ツールが生成する中間ファイルなど，Gitで管理させたくないファイルは
+「.gitignore」ファイルに記述しておく
+\item そこに記述されたファイルは，Gitは追跡しない（git add .でも追加されない）
+\item なお，「.gitignore」ファイル自体はGitがトラッキングするファイルに含める
+\item .gitignoreの書き方については各自で調べよ
+\end{itemize}
+
+\subsection{（参考）作業の一度中断と再開}
+\label{sec-1-9}
+\begin{itemize}
+\item あるブランチで作業中に他のブランチに
+一時的に移動したいことがある
+\begin{itemize}
+\item 作業の途中でmasterブランチを最新にする，など
+\end{itemize}
+\item このような場合，git stashコマンドが活用できる
+\item 詳細については各自で調べよ
+\end{itemize}
 \section{GitHub入門}
 \label{sec-2}
 \subsection{GitHubとは}
@@ -649,7 +734,7 @@ git reset --hard $COMMIT_ID
 \subsubsection{GitHubアカウントの作成}
 \label{sec-2-1-2}
 \begin{itemize}
-\item まず，次のURLの指示に従いアカウントを作成
+\item （まだなら）次のURLの指示に従いGitHubアカウントを作成
 \begin{itemize}
 \item \href{https://help.github.com/articles/signing-up-for-a-new-github-account/}{Signing up for a new GitHub account - User Documentation}
 \end{itemize}
@@ -671,7 +756,7 @@ git reset --hard $COMMIT_ID
 \begin{itemize}
 \item SSH公開鍵の設定を行えば以降のパスワード認証が不要になる
 \end{itemize}
-\item SSHを生成してGitHubに登録しなさい
+\item （まだなら）SSHを生成してGitHubに登録しなさい
 \begin{itemize}
 \item 鍵を生成するとき「passphrases」が聞かれるが，この演習では何も入力しなくてよい
 \item \href{https://help.github.com/articles/generating-an-ssh-key/}{Generating an SSH key - User Documentation}
@@ -744,7 +829,7 @@ git reset --hard $COMMIT_ID
 \item 下記の「\$GITHUB\_URL」の部分をGitHubにあるour\_projectリポジトリのURLにして実行
 \begin{itemize}
 \item リモートのURLはブラウザで確認する
-\item ssh接続の場合，URLは「git@\ldots{}」（HTTPSの場合「https:\ldots{}」
+\item SSH接続の場合，URLは「git@\ldots{}」（HTTPSの場合「https:\ldots{}」
 \end{itemize}
 \end{itemize}
 
@@ -867,12 +952,28 @@ git pull
 git branch -d greeting
 \end{minted}
 
+\subsubsection{GitHub Flowに習熟するには？}
+\label{sec-2-3-11}
 \begin{itemize}
-\item 練習のため，ここで手順2:に戻り，一連の作業を複数回繰り返すこと
+\item ここで手順2:に戻り，一連の作業を複数回（5回以上!）繰り返すこと
 \begin{itemize}
 \item \uline{体に叩き込む！}
 \end{itemize}
 \end{itemize}
+
+\subsubsection{参考：git fetch}
+\label{sec-2-3-12}
+\begin{itemize}
+\item git fetchはリモートにあるブランチの最新情報を
+ローカルに取ってくるコマンド
+\item git pullは次の２つの命令を実行することと同じ意味
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git fetch
+git merge origin/master
+\end{minted}
+
 
 \subsection{コンフリクトについて}
 \label{sec-2-4}
@@ -921,8 +1022,21 @@ git merge master
 git push origin new_feature
 \end{minted}
 
-\subsubsection{コンフリクト解消の練習}
+\subsubsection{push済みのコミットの取り消し}
 \label{sec-2-4-3}
-TODO
+\begin{itemize}
+\item 最後に行ったコミットが理由でコンフリクトが発生したような場合，
+次の操作により，「取り消しコミット」を作成することができる
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git revert HEAD
+\end{minted}
+
+\begin{itemize}
+\item 最後の作業が取り消されていることを確認
+\item その後は，この取り消しコミットをpushすると，
+リモートでの変更内容も取り消される
+\end{itemize}
 % Emacs 24.5.1 (Org mode 8.2.10)
 \end{document}
