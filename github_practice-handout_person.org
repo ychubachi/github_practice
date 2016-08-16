@@ -4,9 +4,9 @@
 #+LaTeX_CLASS_OPTIONS: [a4paper,twoside,twocolumn]
 #+LaTeX_HEADER: \usepackage[normalem]{ulem}
 
-#+TITLE: GitHub入門
+#+TITLE: GitHub入門（個人演習）
 #+AUTHOR: 産業技術大学院大学\\ 中鉢 欣秀
-#+DATE: 2016-08-14
+#+DATE: 2016-08-17
 
 * Git入門
 ** Gitの操作方法と初期設定

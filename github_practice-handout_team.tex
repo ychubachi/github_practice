@@ -1,0 +1,158 @@
+% Created 2016-08-16 火 12:21
+\documentclass[a4paper,twoside,twocolumn]{bxjsarticle}
+\usepackage{zxjatype}
+\usepackage[ipa]{zxjafont}
+\usepackage{xltxtra}
+\usepackage{amsmath}
+\usepackage{newtxtext,newtxmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\ifdefined\kanjiskip
+\usepackage{pxjahyper}
+\hypersetup{colorlinks=true}
+\else
+\ifdefined\XeTeXversion
+\hypersetup{colorlinks=true}
+\else
+\ifdefined\directlua
+\hypersetup{pdfencoding=auto,colorlinks=true}
+\else
+\hypersetup{unicode,colorlinks=true}
+\fi
+\fi
+\fi
+
+\usepackage{minted}
+\usepackage[normalem]{ulem}
+\author{産業技術大学院大学\\ 中鉢 欣秀}
+\date{2016-08-17}
+\title{GitHub入門（チーム演習）}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 24.5.1 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+
+\section{{\bfseries\sffamily TODO} GitHubによるチーム開発}
+\label{sec-1}
+\subsection{{\bfseries\sffamily TODO} チーム開発}
+\label{sec-1-1}
+\subsubsection{チーム編成}
+\label{sec-1-1-1}
+\begin{itemize}
+\item ここまでの演習内容が終わったものは教員かTAに教えること
+\item 終わったものから順番にチームを編成する
+\item チームができたら代表者1名がGitHubでリポジトリを作成する
+\begin{itemize}
+\item 名前は「team\_project」とする
+\end{itemize}
+\end{itemize}
+
+\subsubsection{コラボレーターの追加}
+\label{sec-1-1-2}
+\begin{itemize}
+\item 代表者は残りのメンバーを協同作業者（コラボレータ）として追加する
+\begin{itemize}
+\item GitHubのリポジトリをブラウザで開く．
+\item Settings -> Collaborators を選ぶ
+\item メンバーを招待する
+\item 招待されたメンバーには確認のメールが届くので，リンクをクリックする
+\end{itemize}
+\end{itemize}
+
+\section{{\bfseries\sffamily TODO} 演習課題}
+\label{sec-2}
+\subsection{ペアで行う GitHub}
+\label{sec-2-1}
+\subsubsection{課題1：ペアで GitHub を使ってみよう}
+\label{sec-2-1-1}
+\begin{enumerate}
+\item 隣同士でペアを組む
+\item レポジトリを作成する（どちらか一方）
+\begin{itemize}
+\item \texttt{bundle gem} でひな形を作る（初心者は Gem でなくても良い）
+\end{itemize}
+\item レポジトリの Collaborators に登録する
+\item レポジトリに対して、次のことを行う
+\begin{itemize}
+\item Pull requests を利用してみる
+\item Issue を利用してみる
+\item Wiki を利用してみる
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{課題1の続き}
+\label{sec-2-1-2}
+\begin{enumerate}
+\item Pull request \& merge の作業を各自5回以上行う
+\begin{itemize}
+\item ディスカッションやコードレビューもやってみる
+\end{itemize}
+\item Issue を5個以上登録する
+\begin{itemize}
+\item Pull request による Issue の close なども試す
+\end{itemize}
+\item Wiki でページを作成する
+\begin{itemize}
+\item ページを5つ程度作成して、リンクも貼る
+\end{itemize}
+\end{enumerate}
+
+\subsection{グループで行う GitHub}
+\label{sec-2-2}
+\subsubsection{課題：グループで GitHub (1)}
+\label{sec-2-2-1}
+\begin{enumerate}
+\item ペアを2つ組み合わせて4人グループを作成する
+\begin{itemize}
+\item 課題1が終わったペアから順番にグループ編成
+\end{itemize}
+\item 作りたい Gem について相談して仕様を決める
+\begin{itemize}
+\item テーマはなんでも良い
+\begin{itemize}
+\item Web API を利用したコマンドラインツールなど
+\end{itemize}
+\item ある程度の役割分担も決めておく
+\end{itemize}
+\item レポジトリを作成する（代表者1名）
+\begin{itemize}
+\item コラボレーターを追加する
+\end{itemize}
+\item 今まで学んだ知識を活用して Gem を開発する
+\end{enumerate}
+
+\subsubsection{課題：グループで GitHub (2)}
+\label{sec-2-2-2}
+\begin{enumerate}
+\item グルーブメンバーでGemを共同で作成する
+\item GitHub Flow の実践
+\item Travis CI によるテストの自動化
+\item RubyGems.org への自動ディプロイ
+\item その他、GitHub の各種機能の活用
+\end{enumerate}
+
+\section{{\bfseries\sffamily TODO} 演習の成果物の提出}
+\label{sec-3}
+\subsection{{\bfseries\sffamily TODO} アカウントの作成}
+\label{sec-3-1}
+\subsubsection{課題}
+\label{sec-3-1-1}
+\href{https://github.com/}{GitHub} にアカウントを作成せよ
+\subsubsection{提出}
+\label{sec-3-1-2}
+TODO: Google form
+
+チーム演習
+
+全員が自分のGitHubアカウント名.htmtlを作りコミット
+何回か修正を繰り返す
+
+コンフリクトの演習
+だれかがindex.htmlを作成
+各自がindex.htmlに自分のhtmlファイルへのリンクをはる
+マージするとコンフリクトが発生するので
+% Emacs 24.5.1 (Org mode 8.2.10)
+\end{document}
