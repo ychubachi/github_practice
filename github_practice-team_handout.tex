@@ -1,4 +1,4 @@
-% Created 2016-08-16 火 14:23
+% Created 2016-08-16 火 20:22
 \documentclass[a4paper,twoside,twocolumn]{bxjsarticle}
 \usepackage{zxjatype}
 \usepackage[ipa]{zxjafont}
@@ -35,15 +35,21 @@
 
 \maketitle
 
-\section{{\bfseries\sffamily TODO} GitHubによるチーム開発}
+\section{チーム編集の準備}
 \label{sec-1}
-\subsection{{\bfseries\sffamily TODO} チーム開発}
+\subsection{演習のための準備}
 \label{sec-1-1}
-\subsubsection{チーム編成}
+\subsubsection{概要}
 \label{sec-1-1-1}
 \begin{itemize}
-\item ここまでの演習内容が終わったものは教員かTAに教えること
-\item 終わったものから順番にチームを編成する
+\item この演習では，最終的に全員でHTMLによるWebサイトを作ることを目指す
+\item Webサーバは使わず，スタティックなサイトで構わない
+\item 可能ならばCSSやJavaScriptを使っても良いが必須ではない
+\end{itemize}
+
+\subsubsection{リポジトリの作成}
+\label{sec-1-1-2}
+\begin{itemize}
 \item チームができたら代表者1名がGitHubでリポジトリを作成する
 \begin{itemize}
 \item 名前は「team\_project」とする
@@ -51,108 +57,162 @@
 \end{itemize}
 
 \subsubsection{コラボレーターの追加}
-\label{sec-1-1-2}
+\label{sec-1-1-3}
 \begin{itemize}
 \item 代表者は残りのメンバーを協同作業者（コラボレータ）として追加する
 \begin{itemize}
-\item GitHubのリポジトリをブラウザで開く．
-\item Settings -> Collaborators を選ぶ
-\item メンバーを招待する
-\item 招待されたメンバーには確認のメールが届くので，リンクをクリックする
+\item \href{https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/}{Inviting collaborators to a personal repository - User Documentation}
+\end{itemize}
+\item 招待されたメンバーには確認のメールが届く
+\begin{itemize}
+\item これにより，全員がGitHubのリポジトリにpushできるようになる
 \end{itemize}
 \end{itemize}
 
-\section{{\bfseries\sffamily TODO} 演習課題}
+\subsubsection{リポジトリのclone}
+\label{sec-1-1-4}
+\begin{itemize}
+\item 全員，リポジトリをローカルにcloneする
+\begin{itemize}
+\item \href{https://help.github.com/articles/cloning-a-repository/}{Cloning a repository - User Documentation}
+\end{itemize}
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+cd ~
+git clone $GITHUB_URL
+cd team_project
+\end{minted}
+
+\section{チーム演習}
 \label{sec-2}
-\subsection{ペアで行う GitHub}
+\subsection{チーム演習について}
 \label{sec-2-1}
-\subsubsection{課題1：ペアで GitHub を使ってみよう}
+\subsubsection{課題1: GitHubのIssue/Wikiを学ぶ}
 \label{sec-2-1-1}
-\begin{enumerate}
-\item 隣同士でペアを組む
-\item レポジトリを作成する（どちらか一方）
 \begin{itemize}
-\item \texttt{bundle gem} でひな形を作る（初心者は Gem でなくても良い）
-\end{itemize}
-\item レポジトリの Collaborators に登録する
-\item レポジトリに対して、次のことを行う
+\item リポジトリのIssue機能を使ってみよう
 \begin{itemize}
-\item Pull requests を利用してみる
-\item Issue を利用してみる
-\item Wiki を利用してみる
+\item 一人1つIssueを登録する
+\item メンバーのIssueに挨拶する（投稿する）
+\item 終わったらIssueを閉じてみる
 \end{itemize}
-\end{enumerate}
+\item リポジトリのWikiを使ってみよう
+\begin{itemize}
+\item Wikiを使ってチームメンバーの自己紹介をしてみよう
+\end{itemize}
+\item なお，この演習にあまり時間をかけてはならない
+\end{itemize}
 
-\subsubsection{課題1の続き}
+\subsubsection{課題2: まずは全員1回コミットしよう}
 \label{sec-2-1-2}
-\begin{enumerate}
-\item Pull request \& merge の作業を各自5回以上行う
-\begin{itemize}
-\item ディスカッションやコードレビューもやってみる
-\end{itemize}
-\item Issue を5個以上登録する
-\begin{itemize}
-\item Pull request による Issue の close なども試す
-\end{itemize}
-\item Wiki でページを作成する
-\begin{itemize}
-\item ページを5つ程度作成して、リンクも貼る
-\end{itemize}
-\end{enumerate}
+[この課題では練習のためmasterブランチをそのまま使う]
 
-\subsection{グループで行う GitHub}
-\label{sec-2-2}
-\subsubsection{課題：グループで GitHub (1)}
-\label{sec-2-2-1}
-\begin{enumerate}
-\item ペアを2つ組み合わせて4人グループを作成する
 \begin{itemize}
-\item 課題1が終わったペアから順番にグループ編成
+\item 全員，1つファイルをコミットしてプッシュする
+\item まず，コミットするファイルを作る
+\item ファイル名は各自のGitHubのアカウント名＋「.html」とする
+\item 下記の\$MY\_FILEをファイル名に置き換えて実行
+\item コミットメッセージも書く
 \end{itemize}
-\item 作りたい Gem について相談して仕様を決める
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git add $MY_FILE
+git commit -m '＜メッセージ＞'
+git push
+\end{minted}
+
 \begin{itemize}
-\item テーマはなんでも良い
+\item 全員完了したらローカルのmasterブランチを最新にする
+\end{itemize}
+
+\begin{minted}[frame=single,linenos=true]{bash}
+git pull
+\end{minted}
+
 \begin{itemize}
-\item Web API を利用したコマンドラインツールなど
+\item ローカルにファイルができているか確認
 \end{itemize}
-\item ある程度の役割分担も決めておく
-\end{itemize}
-\item レポジトリを作成する（代表者1名）
+
+\subsubsection{課題3: ブランチをpushする}
+\label{sec-2-1-3}
 \begin{itemize}
-\item コラボレーターを追加する
+\item 全員1回，最初のGitHub Flowを成功させよう
+\item まず，masterが最新版であることを確認
+\item 「作業の内容がわかりやすい名前」でブランチを作る
+\item \$MY\_FILEに，中身を追加してみよう（内容は何でも良い）
+\item git add/commit/pushを正確に実行しよう
+\item ブランチが無事pushできたら，GitHubをブラウザで確認する
 \end{itemize}
-\item 今まで学んだ知識を活用して Gem を開発する
-\end{enumerate}
 
-\subsubsection{課題：グループで GitHub (2)}
-\label{sec-2-2-2}
-\begin{enumerate}
-\item グルーブメンバーでGemを共同で作成する
-\item GitHub Flow の実践
-\item Travis CI によるテストの自動化
-\item RubyGems.org への自動ディプロイ
-\item その他、GitHub の各種機能の活用
-\end{enumerate}
+\subsubsection{課題4: いよいよプルリク}
+\label{sec-2-1-4}
+\begin{itemize}
+\item プルリクエストを出してみよう
+\item 他のメンバーのプルリクエストにコメントしてみよう
+\item コメントには顔文字なども利用できるので活用してみよう
+\begin{itemize}
+\item やり方は各自で調べること
+\end{itemize}
+\end{itemize}
 
-\section{{\bfseries\sffamily TODO} 演習の成果物の提出}
-\label{sec-3}
-\subsection{{\bfseries\sffamily TODO} アカウントの作成}
-\label{sec-3-1}
-\subsubsection{課題}
-\label{sec-3-1-1}
-\href{https://github.com/}{GitHub} にアカウントを作成せよ
-\subsubsection{提出}
-\label{sec-3-1-2}
-TODO: Google form
+\subsubsection{課題5: そしてマージ}
+\label{sec-2-1-5}
+\begin{itemize}
+\item マージしてみよう
+\item この段階でコンフリクトが出ることはないはず
+（同じファイルを編集していない）だが，もし
+マージできない場合は，プルリクエストを削除し，
+課題3からやり直す
+\end{itemize}
 
-チーム演習
+\subsubsection{課題6: 何回も繰り返す}
+\label{sec-2-1-6}
+\begin{itemize}
+\item 同じファイルに更なる変更を加え，GitHub Flowを回してみよう
+\item これを最低3回は繰り返したい
+\end{itemize}
 
-全員が自分のGitHubアカウント名.htmtlを作りコミット
-何回か修正を繰り返す
+\subsubsection{課題7: ぼちぼちコンフリクト}
+\label{sec-2-1-7}
+\begin{itemize}
+\item 誰かが空の「index.html」ファイルを作成する
+\item 全員でindex.htmlを編集してみよう
+\begin{itemize}
+\item \$MY\_FILEへのリンクを貼る
+\end{itemize}
+\item pushしてプルリクエストを出してみる
+\item 何人かはコンフリクトになるはずだ
+\end{itemize}
 
-コンフリクトの演習
-だれかがindex.htmlを作成
-各自がindex.htmlに自分のhtmlファイルへのリンクをはる
-マージするとコンフリクトが発生するので
+\subsubsection{課題8: コンフリクトの解消}
+\label{sec-2-1-8}
+\begin{itemize}
+\item コンフリクトが出たメンバーは，それを解消してみよう
+\item コンフリクトが出なかったメンバーは，コンフリクトが出ているメンバーの
+作業を見る
+\begin{itemize}
+\item 困っていたら助けてあげよう
+\end{itemize}
+\end{itemize}
+
+\subsubsection{課題9: Webサイトを作ってみよう}
+\label{sec-2-1-9}
+\begin{itemize}
+\item チームで内容を相談し，Webサイトを作ってみよう
+\item index.htmlや\$MY\_FILE以外にもファイルを追加して
+  素敵なWebサイトを作ろう
+\end{itemize}
+
+\subsubsection{注意事項}
+\label{sec-2-1-10}
+\begin{itemize}
+\item 実は，GitHubでは，gitコマンドを使わなくても，
+ブラウザベースでファイルのアップロードや編集，コミットの作成などが
+できるが，このことに気がついてはならない
+\begin{itemize}
+\item 万が一，気がついてしまったものはしょうがないものとする
+\end{itemize}
+\end{itemize}
 % Emacs 24.5.1 (Org mode 8.2.10)
 \end{document}
