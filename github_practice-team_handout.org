@@ -16,11 +16,13 @@
 - 可能ならばCSSやJavaScriptを使っても良いが必須ではない
 
 *** リモートリポジトリの作成
-- チームができたら代表者1名がGitHubでリポジトリを作成する
+- チームの代表者1名がGitHubでリポジトリを作成する
   - 名前は「team_project」とする
-  - GitHubでリポジトリを作る際，
-    「Initialize this repository with a README」に
-    _チェックを入れる_ こと
+- 次の手順で作成する
+  - [[https://help.github.com/articles/creating-a-new-repository/][Creating a new repository - User Documentation]]
+- READMEとライセンスを追加すること
+  - 「Initialize this repository with a README」にチェックを入れる
+  - 「Add a license:」から「MIT License」を選ぶ
 
 *** コラボレーターの追加
 - 代表者は残りのメンバーを協同作業者（コラボレータ）として追加する

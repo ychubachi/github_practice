@@ -540,10 +540,12 @@ git checkout HEAD file.txt
   - 複数人のチームで協同作業をするときに活用できる
 *** リモートリポジトリの作成
 - リモートリポジトリをGitHubで作成する
-- 名前は「our_project」とする
+  - 名前は「our_project」とする
 - 次の手順で作成する
   - [[https://help.github.com/articles/creating-a-new-repository/][Creating a new repository - User Documentation]]
-  - 「Initialize this repository with a README」に _チェックを入れる_ こと
+- READMEとライセンスを追加すること
+  - 「Initialize this repository with a README」にチェックを入れる
+  - 「Add a license:」から「MIT License」を選ぶ
 
 ** GitHub flow
 *** GitHub flowwによる開発の流れ
