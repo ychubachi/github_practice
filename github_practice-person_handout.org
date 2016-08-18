@@ -529,8 +529,6 @@ git checkout HEAD file.txt
 - （まだなら）SSHを生成してGitHubに登録しなさい
   - 鍵を生成するとき「passphrases」が聞かれるが，この演習では何も入力しなくてよい
   - [[https://help.github.com/articles/generating-an-ssh-key/][Generating an SSH key - User Documentation]]
-- もしSSHの登録がうまく行かなかったら，HTTPSを用いて接続し，GitHubのユーザ名と
-  パスワードでアクセスできる
 
 ** リモートリポジトリ
 *** リモート VS ローカルリポジトリ
@@ -566,9 +564,9 @@ git checkout HEAD file.txt
 *** 1: リモートリポジトリをローカルに複製
 - リモートにあるリポジトリをローカルに複製することをcloneという
   - [[https://help.github.com/articles/cloning-a-repository/][Cloning a repository - User Documentation]]
-- 下記の「$GITHUB_URL」の部分をGitHubにあるour_projectリポジトリのURLにして実行
-  - リモートのURLはブラウザで確認する
-  - SSH接続の場合，URLは「git@...」（HTTPSの場合「https:...」
+- 下記の「$GITHUB_URL」の部分をGitHubのour_projectリポジトリURLにして実行
+  - URLは「git@...」で始まるSSH接続用のものを用いる
+    - リポジトリのURLはブラウザ用のURLとは異なるので注意！
 
 #+begin_src bash
 cd ~
