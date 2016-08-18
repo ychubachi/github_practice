@@ -229,8 +229,6 @@ git add .
 
 - git statusを行い，READMEファイルが「Changed to be commited:」の欄に
   （緑色で）表示されていることを確認する
-- ステージさせるとgit diffの結果が空になる
-  - この場合，「git diff --staged」で確認可能
 
 *** ステージングされた新しい差分のコミット
 - 変更内容を示すメッセージとともにコミットする
