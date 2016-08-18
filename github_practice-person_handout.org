@@ -382,15 +382,15 @@ git branch -d new_branch
   - nobitaブランチを作成する
   - READMEファイルの _一行目_ を「Nobita's README.」に変更する
   - 変更をaddしてcommitする
-- 一度，masterブランチにもどる
-  - READMEは変わってない
+- ここで一度， _masterブランチにもどる_
+  - READMEがもとのままだあることを確認
 - 「しずか」の作業
   - shizukaブランチを作成する
   - READMEファイルの _一行目_ を「Shizuka's file.」に変更する
   - 変更をaddしてcommitする
 
 *** マージとコンフリクト発生
-- masterブランチに移動
+- masterブランチに移動する
 - まず，nobitaブランチをマージ
   - 問題なくマージできる
 - 次に，shizukaブランチをマージ
