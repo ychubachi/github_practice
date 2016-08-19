@@ -251,15 +251,6 @@ git log
   - AuthorとDate
   - コミットメッセージ
 
-*** （参考）一つのファイルの履歴
-- 将来，複数のファイルを履歴管理するようになったら特定のファイルの
-  履歴のみ確認したい
-- その場合，次のとおりにする
-
-#+BEGIN_SRC bash
-git log --follow README
-#+END_SRC
-
 *** 2つのコミットの比較
 - 異なる２つのコミットの変更差分は次のコマンドで確認できる
   - コミットのIDはlogで確認できる
@@ -277,16 +268,6 @@ git diff $COMMIT_ID_1 $COMMIT_ID_2
 
 #+BEGIN_SRC bash
 git show $COMMIT_ID
-#+END_SRC
-
-*** （参考）HEADによるコミットの指定
-- 特定のコミットのIDを指定する方法に「HEAD」を使った相対指定があるが，
-  なれないと間違いやすい
-  - showコマンドで確認しながら用いると良い（下記はサンプル）
-
-#+BEGIN_SRC bash
-git show HEAD~1
-git show HEAD~1^2
 #+END_SRC
 
 ** ブランチの使い方
@@ -437,70 +418,6 @@ Nobita & Shizuka's READMEfile.
 - なお， _テキストエディタを用い，手動で正しくコンフリクトを解消する前でも
   commitできてしまう_ ので，この点には注意する
 
-** （参考）操作を取り消すコマンド
-*** Gitで行った操作の取り消し
-- まちがって
-  - ファイルをステージングさせた！
-  - ステージングをコミットした！
-- などの場合，操作を取り消すことができる
-  - 後で説明するpushまでしてしまった場合については後述
-
-*** ステージング/コミットの修正
-ファイルのステージングを取り消す
-
-#+BEGIN_SRC bash
-git reset $FILE
-#+END_SRC
-
-$COMMIT_IDより後のコミットの取り消し（ローカルは保存）
-
-#+BEGIN_SRC bash
-git reset $COMMIT_ID
-#+END_SRC
-
-$COMMIT_IDより後のコミットの取り消し（ローカルの変更も破棄）
-
-#+BEGIN_SRC bash
-git reset --hard $COMMIT_ID
-#+END_SRC
-
-*** 誤って編集や削除や修正したファイルの回復
-- file.txtを誤って編集や削除した場合
-- addする前
-  - ステージング領域（インデックスともいいう）からの取り出し
-
-#+BEGIN_SRC bash
-git checkout file.txt
-#+END_SRC
-
-- addした後
-  - 直近のコミットからの取り出し
-
-#+BEGIN_SRC bash
-git checkout HEAD file.txt
-#+END_SRC
-
-** （参考）ファイルの削除と名前の変更
-*** Gitが追跡するファイルの削除と名前の変更
-- Gitが追跡しているファイルであっても，
-  シェルのrmコマンドやmvコマンドで削除や名前の変更をしてよい
-- 「git add .」コマンドを実行すると，Gitは削除や名前の変更も
-  自動的に検知する
-  - 参考：古いバージョンのgitでは「git rm」や「git mv」コマンドを利用する
-    必要があった
-*** Gitに無視させたいファイル
-- ツールが生成する中間ファイルなど，Gitで管理させたくないファイルは
-  予め「.gitignore」ファイルに記述しておく
-- なお，「.gitignore」ファイル自体はGitがトラッキングするファイルに含める
-- .gitignoreの書き方については各自で調べよ
-  
-** （参考）作業の一度中断と再開
-*** やりかけの作業のstash
-- あるブランチで作業中に他のブランチに
-  一時的に移動したいことがある
-  - 作業の途中でmasterブランチを最新にする，など
-- このような場合，git stashコマンドが活用できる
-- 詳細については各自で調べよ
 * GitHub入門
 ** GitHubとは
 *** GitHubでソーシャルコーディング
@@ -551,16 +468,6 @@ git checkout HEAD file.txt
 *** GitHub flowwによる開発の流れ
 - GitHub flow
   - [[https://guides.github.com/introduction/flow/][Understanding the GitHub Flow · GitHub Guides]]
-- 言葉による説明
-  1. リモートリポジトリをローカルに複製
-  2. masterから作業用ブランチを作成
-  3. ブランチで編集作業
-  4. ブランチでコミットの作成
-  5. ブランチをリモートに送る
-  6. GitHubでプルリクエストを作成
-  7. GitHubでレビュー（＋自動テスト）
-  8. GitHubでプルリクエストをマージ
-  9. ローカルのmasterを最新にする（2.に戻る）
 
 *** 1: リモートリポジトリをローカルに複製
 - リモートにあるリポジトリをローカルに複製することをcloneという
@@ -605,7 +512,7 @@ git commit -m 'Create hello.txt'
   - が，こまめにpushするのが良いとされる
 
 *** 5: ブランチをリモートに送る
-- ブランチで作成したコミットをリモートに送る（push）
+- ブランチで作成したコミットをリモートに送る
   - 下記のoriginはリポジトリのURLの別名として自動で設定されているもの
   - greetingは作業しているブランチ名
 
@@ -622,8 +529,7 @@ git push -u origin greeting
 *** 7. GitHubでレビュー（＋自動テスト）
 - プルリクエストを用いたレビューの方法は下記参照
   - [[https://help.github.com/articles/using-pull-requests/][Using pull requests - User Documentation]] の後半
-- 人手によるレビューの他，自動的なテストも行うのが望ましい
-  - 説明は省略
+- 人手によるレビューの他，自動的なテストも行うのが望ましい（説明は省略）
 
 *** 8. GitHubでプルリクエストをマージ
 - Pull requestのレビューが済んだらマージする
@@ -643,18 +549,9 @@ git branch -d greeting
 #+end_src
 
 *** GitHub Flowに習熟するには？
-- ここで手順2:に戻り，一連の作業を複数回（5回以上!）繰り返すこと
+- ここで手順2:（[[2: masterから作業用ブランチを作成]]節）に戻り，
+  一連の作業を複数回（5回以上!）繰り返すこと
   - _体に叩き込む！_
-
-*** 参考：git fetch
-- git fetchはリモートにあるブランチの最新情報を
-  ローカルに取ってくるコマンド
-- git pullはmasterブランチで次の２つを実行することと同じ意味
-
-#+BEGIN_SRC bash
-git fetch origin
-git merge origin/master
-#+END_SRC
 
 ** コンフリクトについて
 *** GitHub flow におけるコンフリクトについて
@@ -668,27 +565,93 @@ git merge origin/master
   - 上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ
 - コミットはできるだけ細かく作成すると良い
   - その分，他の人とかち合う可能性が減る
-- どうしても困ったら人に聞く
 *** GitHubでのコンフリクトの解消方法
 - new_feature ブランチで作業中であり、最新の更新は commit 済とする
 
 - 解消するための操作は次のとおり
-  - 1行目:リモート（origin）から最新版を取得．
+  - 1行目〜2行目:masterを最新版にする．
     2行目:リモートのmasterをshizukaにマージ．
     3行目:コンフリクトを解消する．
     4〜6行目:このブランチを再度push
 - これにより，プルリクエストがマージ可能になれば成功
 
 #+begin_src bash
-git fetch origin
-git merge origin/master
+git checkout master
+git pull
 # コンフリクトの起きたファイルを編集
 git add .
 git commit -m 'Merge'
 git push
 #+end_src
 
-*** （参考）push済みのコミットの取り消し
+* （参考)より進んだ使い方
+** ファイルの削除と名前の変更
+*** Gitに無視させたいファイル
+- ツールが生成する中間ファイルなど，Gitで管理させたくないファイルは
+  予め「.gitignore」ファイルに記述しておく
+- なお，「.gitignore」ファイル自体はGitがトラッキングするファイルに含める
+- .gitignoreの書き方については各自で調べよ
+  
+*** Gitが追跡するファイルの削除と名前の変更
+- Gitが追跡しているファイルであっても，
+  シェルのrmコマンドやmvコマンドで削除や名前の変更をしてよい
+- 「git add .」コマンドを実行すると，Gitは削除や名前の変更も
+  自動的に検知する
+  - 「git rm」や「git mv」は使わなくてよい
+** 操作を取り消すコマンド
+*** Gitで行った操作の取り消し
+- まちがって
+  - ファイルをステージングさせた！
+  - ステージングをコミットした！
+- などの場合，操作を取り消すことができる
+  - 特定のファイルの変更の取り消し
+  - 特定のコミットの取り消し
+
+*** HEADによるコミットの指定
+- 特定のコミットのIDを指定する方法に「HEAD」を使った相対指定がある
+  - showコマンドで確認しながら用いると良い（下記はサンプル）
+
+#+BEGIN_SRC bash
+git show HEAD~1
+git show HEAD~1^2
+#+END_SRC
+
+*** ステージング/コミットの修正
+ファイルのステージングを取り消す
+
+#+BEGIN_SRC bash
+git reset $FILE
+#+END_SRC
+
+$COMMIT_IDより後のコミットの取り消し（ローカルは保存）
+
+#+BEGIN_SRC bash
+git reset $COMMIT_ID
+#+END_SRC
+
+$COMMIT_IDより後のコミットの取り消し（ローカルの変更も破棄）
+
+#+BEGIN_SRC bash
+git reset --hard $COMMIT_ID
+#+END_SRC
+
+*** 誤って編集や削除や修正したファイルの回復
+- file.txtを誤って編集や削除した場合
+- addする前
+  - ステージング領域からの取り出し
+
+#+BEGIN_SRC bash
+git checkout file.txt
+#+END_SRC
+
+- addした後
+  - 直近のコミットからの取り出し
+
+#+BEGIN_SRC bash
+git checkout HEAD file.txt
+#+END_SRC
+
+*** push済みのコミットの取り消し
 - 最後に行ったコミットが理由でコンフリクトが発生したような場合，
   次の操作により，「取り消しコミット」を作成することができる
 
@@ -699,3 +662,45 @@ git revert HEAD
 - 最後の作業が取り消されていることを確認
 - その後は，この取り消しコミットをpushすると，
   リモートでの変更内容も取り消される
+
+** 作業の一度中断と再開
+*** やりかけの作業のstash
+- あるブランチで作業中に他のブランチに
+  一時的に移動したいことがある
+  - 作業の途中でmasterブランチを最新にする，など
+- このような場合，git stashコマンドが活用できる
+  ので調べてみよ
+** その他知っておくと良いコマンド
+*** チートシートにある残りのコマンド
+    - 以下，Gitチートシートにあるコマンドで，
+      ここまで取り上げなかったものを取り上げる
+
+*** ステージングしたファイルの差分表示
+- git addでステージングするとgit diffで差分が表示されない
+- この場合，次のコマンドで確認できる
+
+#+BEGIN_SRC bash
+git diff --staged
+#+END_SRC
+
+*** 特定のファイルにのみ関連する履歴確認
+- 将来，複数のファイルを履歴管理するようになったら特定のファイルの
+  履歴のみ確認したい
+- その場合，次のとおりにする
+
+#+BEGIN_SRC bash
+git log --follow README
+#+END_SRC
+
+*** リモートブランチの最新情報を取得
+- git fetchはリモートにあるブランチの最新情報を
+  ローカルに取ってくるコマンド
+- 例えば，git pullはmasterブランチで次の２つを実行することと同じ意味
+
+#+BEGIN_SRC bash
+git fetch origin
+git merge origin/master
+#+END_SRC
+
+*** git ls-files
+- 省略    
