@@ -1,5 +1,7 @@
 ## Use Emacs org-export to obtain tex files
 *.tex
+!**/latex.tex
+!**/beamer.tex
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
@@ -195,4 +197,3 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
-
