@@ -1,7 +1,7 @@
 #+OPTIONS: ^:{}
 #+OPTIONS: toc:nil
 
-#+LaTeX_CLASS_OPTIONS: [a4paper,twoside,twocolumn]
+#+LaTeX_CLASS_OPTIONS: [uplatex,dvipdfmx,twoside,twocolumn]
 #+LaTeX_HEADER: \usepackage[normalem]{ulem}
 
 #+TITLE: GitHub入門（個人演習）
@@ -35,13 +35,15 @@ git config --global user.email $EMAIL
 
 *** その他の設定
 - 次のとおり，設定を行っておく
-  - 1行目：色付きで表示を見やすく
-  - 2行目：pushする方法（詳細省略）
 
 #+BEGIN_SRC bash
 git config --global color.ui auto
 git config --global push.default simple
+git config --global core.editor emacs
 #+END_SRC
+  - 1行目: 色付きで表示を見やすく
+  - 2行目: pushする方法（詳細省略）
+  - 3行目: vimを使いたい場合はemacsではなくvimに
 
 *** 設定の確認方法
 - ここまでの設定を確認する
@@ -85,7 +87,7 @@ git init
 - 現在のリポジトリの状態を確認するコマンドは次のとおり
 
 #+begin_src bash
-git status 
+git status
 #+end_src
 
 - このコマンドは頻繁に使用する
@@ -153,7 +155,7 @@ git add .
     - が，このやりかたは好ましくない
     - 一度に複数の変更を行うのではなく，一つの変更を終えたら
       こまめにコミットする
-      
+
 *** ステージング後のリポジトリへの状態
 - 再度，git statusコマンドで状態を確認しよう
 
@@ -257,7 +259,7 @@ git log
     （コマンドでIDを指定する場合は，概ね先頭4文字を入力し後は省略してよい）
 
 #+BEGIN_SRC bash
-git diff $COMMIT_ID_1 $COMMIT_ID_2 
+git diff $COMMIT_ID_1 $COMMIT_ID_2
 #+END_SRC
 
 - （参考）後で説明するブランチはコミットのエイリアスなので，
@@ -590,7 +592,7 @@ git push
   予め「.gitignore」ファイルに記述しておく
 - なお，「.gitignore」ファイル自体はGitがトラッキングするファイルに含める
 - .gitignoreの書き方については各自で調べよ
-  
+
 *** Gitが追跡するファイルの削除と名前の変更
 - Gitが追跡しているファイルであっても，
   シェルのrmコマンドやmvコマンドで削除や名前の変更をしてよい
@@ -702,4 +704,4 @@ git merge origin/master
 #+END_SRC
 
 *** git ls-files
-- 省略    
+- 省略
