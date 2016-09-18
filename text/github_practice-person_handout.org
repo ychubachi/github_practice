@@ -1,8 +1,11 @@
 #+OPTIONS: ^:{}
 #+OPTIONS: toc:nil
 
+# # LaTeX
+#+LaTeX_CLASS: ujsarticle
 #+LaTeX_CLASS_OPTIONS: [uplatex,dvipdfmx,twoside,twocolumn]
-#+LaTeX_HEADER: \usepackage[normalem]{ulem}
+# # Beamer
+
 
 #+TITLE: GitHub入門（個人演習）
 #+AUTHOR: 産業技術大学院大学\\ 中鉢 欣秀
@@ -43,7 +46,7 @@ git config --global core.editor emacs
 #+END_SRC
   - 1行目: 色付きで表示を見やすく
   - 2行目: pushする方法（詳細省略）
-  - 3行目: vimを使いたい場合はemacsではなくvimに
+  - 3行目: vimを使う場合はemacsではなくvimを
 
 *** 設定の確認方法
 - ここまでの設定を確認する
@@ -294,7 +297,7 @@ git show $COMMIT_ID
 git checkout -b new_branch
 #+END_SRC
 
-- 本来，ブランチには _「これから行う作業の内容」が分かる名前_ を付ける
+- 本来，ブランチには _「これから行う作業の内容」_ が分かる名前を付ける
 
 *** ブランチの確認
 - ブランチの一覧と現在のブランチを確認する
