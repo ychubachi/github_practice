@@ -4,7 +4,7 @@
 # # LaTeX
 #+LaTeX_CLASS: bxjsarticle
 #+LaTeX_CLASS_OPTIONS: [autodetect-engine,10pt,a4paper,ja=standard,twoside,twocolumn]
-#+LaTeX_HEADER: \setpagelayout{margin=1truecm}
+#+LaTeX_HEADER: \setpagelayout{margin=1cm} # 実際には1.5cm…
 # # Beamer
 
 #+TITLE: GitHub入門（個人演習）
