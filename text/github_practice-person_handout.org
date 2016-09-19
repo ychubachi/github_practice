@@ -1,11 +1,18 @@
 #+OPTIONS: ^:{}
-#+OPTIONS: toc:nil
+#+OPTIONS: H:3 toc:nil
 
-# # LaTeX
+# ############################################################
+# Options for LaTeX
+# ############################################################
 # #+LaTeX_CLASS: bxjsarticle
-# #+LaTeX_CLASS_OPTIONS: [autodetect-engine,10pt,a4paper,ja=standard,twoside,twocolumn]
-# #+LaTeX_HEADER: \setpagelayout{margin=1cm} # 実際には1.5cm…
-# # Beamer
+# #+LaTeX_CLASS_OPTIONS: [xelatex,ja=standard,a4paper,10pt,twocolumn]
+# #+LaTeX_HEADER: \setpagelayout{margin=1cm}
+
+# ############################################################
+# Options for Beamer
+# ############################################################
+#+LaTeX_CLASS: beamer
+#+BEAMER_THEME: Presentation
 
 #+TITLE: GitHub入門（個人演習）
 #+AUTHOR: 産業技術大学院大学\\ 中鉢 欣秀
