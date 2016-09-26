@@ -36,8 +36,8 @@
 * 個人演習
 ** 個人演習のテキスト
 - 個人演習のテキストは次のリンクから入手
-  - [[https://github.com/ychubachi/github_practice/blob/master/github_practice-person_handout.org][Webページ]]
-  - [[https://github.com/ychubachi/github_practice/raw/master/github_practice-person_handout.pdf][ハンドアウト（PDF）]]
+  - [[https://github.com/ychubachi/github_practice/blob/master/github_practice-person.handout.org][Webページ]]
+  - [[https://github.com/ychubachi/github_practice/raw/master/github_practice-person.handout.pdf][ハンドアウト（PDF）]]
 
 * 個人演習からチーム演習へ
 ** 個人演習からチーム演習への流れ
@@ -67,8 +67,8 @@
 * チーム演習
 ** チーム演習のテキスト
 - チーム演習のテキストは次のリンクから入手
-  - [[https://github.com/ychubachi/github_practice/blob/master/github_practice-team_handout.org][Webページ]]
-  - [[https://github.com/ychubachi/github_practice/raw/master/github_practice-team_handout.pdf][ハンドアウト（PDF）]]
+  - [[https://github.com/ychubachi/github_practice/blob/master/github_practice-team.handout.org][Webページ]]
+  - [[https://github.com/ychubachi/github_practice/raw/master/github_practice-team.handout.pdf][ハンドアウト（PDF）]]
 
 * 成績評価の方法
 ** チーム演習の評価
