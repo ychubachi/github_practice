@@ -1,0 +1,9 @@
+# ############################################################
+# Options for Beamer
+# ############################################################
+#+OPTIONS: toc:nil
+
+#+LaTeX_CLASS: beamer
+#+BEAMER_THEME: Presentation
+
+#+INCLUDE: "github_practice-person.org"

@@ -1,0 +1,703 @@
+#+TITLE: Git/GitHub演習（個人演習）
+#+AUTHOR: 産業技術大学院大学 \\ 中鉢 欣秀
+#+DATE: 2016年度
+#+OPTIONS: ^:{}
+#+OPTIONS: H:3
+
+* Git入門
+** Gitの操作方法と初期設定
+*** Gitチートシート（カンニング表）
+- 主なGitコマンドの一覧表
+  - [[https://services.github.com/kit/downloads/ja/github-git-cheat-sheet.pdf][Gitチートシート（日本語版）]]
+- 必要に応じて印刷しておくとよい
+
+*** Gitコマンドの実行確認
+- 端末を操作してGitコマンドを起動してみよう．
+- 次のとおり操作することでGitのバージョン番号が確認できる．
+
+#+BEGIN_SRC bash
+git --version
+#+END_SRC
+
+*** 名前とメールアドレスの登録
+- （まだなら）gitに名前とメールアドレスを登録しておく
+- 次のコマンドの$NAMEと$EMAILを各自の名前とメールアドレスに置き換えて実行せよ
+  - 名前はローマ字で設定すること
+
+#+BEGIN_SRC bash
+git config --global user.name $NAME
+git config --global user.email $EMAIL
+#+END_SRC
+
+*** その他の設定
+- 次のとおり，設定を行っておく
+
+#+BEGIN_SRC bash
+git config --global color.ui auto
+git config --global push.default simple
+git config --global core.editor emacs
+#+END_SRC
+  - 1行目: 色付きで表示を見やすく
+  - 2行目: pushする方法（詳細省略）
+  - 3行目: vimを使う場合はemacsではなくvimを
+
+*** 設定の確認方法
+- ここまでの設定を確認する
+
+#+BEGIN_SRC bash
+git config -l
+#+END_SRC
+
+** Gitのリポジトリ
+*** プロジェクト用のディレクトリ
+- リポジトリとはプロジェクトでソースコードなどを
+  配置するディレクトリ
+  - このディレクトリを「ワーキングディレクトリ
+    （ないしはワーキングツリー）」とも言う
+- Gitによりバージョン管理ができる
+  - ファイルに対する編集作業の内容が追跡され，記録される
+- 将来的にGitHubと連携させることで共同作業ができるようになる
+
+*** Gitリポジトリを利用するには
+- リポジトリを利用する方法には主に2種類ある
+  1. git initコマンドで初期化する方法
+  2. git cloneコマンドでGitHubから入手する方法
+- ここでは，まず1.について解説する
+
+*** Gitリポジトリの初期化方法
+- my_projectディレクトリを作成し，
+  Gitリポジトリとして初期化するコマンドは次のとおり
+  - 1〜2行目：ディレクトリを作成して移動
+  - 3行目：ディレクトリをリポジトリとして初期化
+
+#+begin_src bash
+mkdir ~/my_project
+cd ~/my_project
+git init
+#+end_src
+
+- 以降の作業は作成したmy_projectディレクトリで行うこと
+  - 現在のディレクトリは「pwd」コマンドで確認できる
+
+*** リポジトリの状態を確認する方法
+- 現在のリポジトリの状態を確認するコマンドは次のとおり
+
+#+begin_src bash
+git status
+#+end_src
+
+- このコマンドは頻繁に使用する
+- 何かうまく行かないことがあったら，このコマンドで状態を確認する癖を
+  つけるとよい
+  - 表示される内容の意味は徐々に覚えていけば良い
+
+*** 「.git」ディレクトリを壊すべからず
+- ティレクトリにリポジトリを作成すると「.git」という隠しディレクトリが
+  できる
+  - ls -aで確認できるが…
+- このディレクトリは _絶対に手動で変更してはならない_
+  - もし削除したらGitとは無関係の単なるディレクトリになる
+
+** コミットの作成方法
+*** コミットについて
+- Gitの用語における「コミット」とは，「ひとかたまりの作業」をいう
+  - 新しい機能を追加した，バグを直した，ドキュメントの内容を更新した，など
+- Gitは作業の履歴を，コミットを単位として管理する
+  - コミットは次々にリポジトリに追加されていき，これらを記録することで
+    バーションの管理ができる（古いバージョンに戻る，
+    過去の変更内容を確認する，など）
+- コミットには，作業の内容を説明するメッセージをつける
+  - 更に，コミットには自動的にIDが振られることも覚えておくと良い
+
+*** READMEファイルの作成
+- my_projectリポジトリにREADMEファイルを作成してみよう
+
+#+BEGIN_SRC bash
+echo "My README file." > README
+#+END_SRC
+
+- プロジェクトには _必ずREADMEファイルを用意_ しておくこと
+
+*** リポジトリの状態の確認
+- git statusで現在のリポジトリの状態を確認する
+
+#+BEGIN_SRC bash
+git status
+#+END_SRC
+
+- 未追跡のファイル（Untracked files:）の欄に作成したREADMEファイルが
+  （赤色で）表示される
+
+*** 変更内容のステージング
+- コミットの一つ手前にステージングという段階がある
+  - コミットしたい変更はステージングしておく
+    - 逆に言えば，変更をコミットするためには，
+      ステージングしておかなくてはならない
+  - 新しいファイルをステージングすると，これ以降，
+    gitがそのファイルの変更を追跡するようになる
+    - これをトラッキングという
+
+*** ステージングの実行
+- 作成したREADMEファイルをステージングするには，次のコマンドを打つ
+
+#+BEGIN_SRC bash
+git add .
+#+END_SRC
+
+- 「git add」の「.（ピリオド）」を忘れないように
+  - ピリオドは，リポジトリにおけるすべての変更を意味する
+  - 複数のファイルを変更した場合には，ファイル名を指定して
+    部分的にステージングすることもできる…
+    - が，このやりかたは好ましくない
+    - 一度に複数の変更を行うのではなく，一つの変更を終えたら
+      こまめにコミットする
+
+*** ステージング後のリポジトリへの状態
+- 再度，git statusコマンドで状態を確認しよう
+
+#+BEGIN_SRC bash
+git status
+#+END_SRC
+
+- コミットされる変更（Changes to be committed:）の欄に，READMEファイルが
+  （緑色で）表示されれば正しい結果である
+
+*** ステージングされた内容をコミットする
+- ステージング段階にある変更内容をコミットする
+- コミットにはその内容を示すメッセージ文をつける
+- 「First commit」というメッセージをつけて新しいコミットを作成する
+  - 「-m」オプションはそれに続く文字列をメッセージとして付与することを
+    指示するもの
+
+#+BEGIN_SRC bash
+git commit -m 'First commit'
+#+END_SRC
+
+*** コミット後の状態の確認
+- コミットが正常に行われたことを確認する
+  - ここでもgit statusコマンドか活躍する
+
+#+BEGIN_SRC bash
+git status
+#+END_SRC
+
+- 「nothing to commit, ...」との表示から
+  コミットすべきものがない（＝過去の変更はコミットされた）ことが
+  わかる
+- この表示がでたら（無事コミットできたので）一安心してよい
+
+** 変更履歴の作成
+*** 更なるコミットを作成する
+- リポジトリで変更作業を行い，新しいコミットを追加する
+  - READMEファイルに新しい行を追加する
+- 次の$NAMEをあなたの名前に変更して実行しなさい
+
+#+BEGIN_SRC bash
+echo $NAME >> README
+#+END_SRC
+
+- 既存のファイルへの追加なので「>>」を用いていることに注意
+
+*** 変更後の状態の確認
+- リポジトリの状態をここでも確認する
+
+#+BEGIN_SRC bash
+git status
+#+END_SRC
+
+- コミットのためにステージされていない変更（Changes not staged for commit:）の
+  欄に，変更された（modified）ファイルとしてREADMEが表示される
+
+*** 差分の確認
+- トラックされているファイルの変更箇所を確認する
+
+#+BEGIN_SRC bash
+git diff
+#+END_SRC
+
+- 頭に「+」のある（緑色で表示された）行が新たに追加された内容を示す
+  - 削除した場合は「-」がつく
+
+*** 新たな差分をステージングする
+- 作成した差分をコミットできるようにするために，ステージング段階に上げる
+
+#+BEGIN_SRC bash
+git add .
+#+END_SRC
+
+- git statusを行い，READMEファイルが「Changed to be commited:」の欄に
+  （緑色で）表示されていることを確認する
+
+*** ステージングされた新しい差分のコミット
+- 変更内容を示すメッセージとともにコミットする
+
+#+BEGIN_SRC bash
+git commit -m 'Add my name'
+#+END_SRC
+
+** 履歴の確認
+*** バージョン履歴の確認
+- これまでの変更作業の履歴を確認
+  - 2つのコミットが存在する
+
+#+BEGIN_SRC bash
+git log
+#+END_SRC
+
+- 各コミットごとに表示される内容
+  - コミットのID（commit に続く英文字と数字の列）
+  - AuthorとDate
+  - コミットメッセージ
+
+*** 2つのコミットの比較
+- 異なる２つのコミットの変更差分は次のコマンドで確認できる
+  - コミットのIDはlogで確認できる
+    （コマンドでIDを指定する場合は，概ね先頭4文字を入力し後は省略してよい）
+
+#+BEGIN_SRC bash
+git diff $COMMIT_ID_1 $COMMIT_ID_2
+#+END_SRC
+
+- （参考）後で説明するブランチはコミットのエイリアスなので，
+  ブランチごとの比較もできる
+
+*** コミットの情報確認
+- 次のコマンドでコミットで行った変更内容が確認できる
+
+#+BEGIN_SRC bash
+git show $COMMIT_ID
+#+END_SRC
+
+** ブランチの使い方
+*** ブランチとは
+- 「ひとまとまりの作業」を行う場所
+- ソースコードなどの編集作業を始める際には
+  必ず新しいブランチを作成する
+- Gitの内部的にはあるコミットに対するエイリアス（alias）である
+
+*** masterは大事なブランチ
+- Gitリポジトリの初期化後，最初のコミットを行うとmasterブランチができる
+- 非常に重要なブランチであり，
+  ここで _直接編集作業を行ってはならない_
+  - ただし，本演習や，個人でGitを利用する場合はこの限りではない
+
+*** ブランチの作成と移動
+- 新しいブランチ「new_branch」を作成して，なおかつ，そのブランチに移動する
+  - 「-b」オプションで新規作成
+  - オプションがなければ単なる移動（後述）
+
+#+BEGIN_SRC bash
+git checkout -b new_branch
+#+END_SRC
+
+- 本来，ブランチには _「これから行う作業の内容」_ が分かる名前を付ける
+
+*** ブランチの確認
+- ブランチの一覧と現在のブランチを確認する
+  - もともとあるmasterと，新しく作成したnew_branchが表示される
+
+#+BEGIN_SRC bash
+git branch -vv
+#+END_SRC
+
+- ブランチに紐づくコミットのIDが同じことも確認
+- git statusの一行目にも現在のブランチが表示される
+
+*** ブランチでのコミット作成
+- READMEに現在の日時を追加
+
+#+BEGIN_SRC bash
+date >> README
+git add .
+git commit -m 'Add date'
+#+END_SRC
+
+- 新しいコミットが追加できたことをgit logで確認
+- git branch -vvでコミットのIDが変化したことも確認
+
+*** ブランチの移動
+- new_branchブランチでコミットした内容をmasterに反映させる
+  - まずはmasterに移動する
+
+#+BEGIN_SRC bash
+git checkout master
+#+END_SRC
+
+- git status，git branch -vvで現在のブランチを確認すること
+- この段階では，READMEファイルに行った変更が _反映されてない_ ことを
+  確認すること
+
+*** 変更をmasterにマージ
+- new_branchで行ったコミットをmasterに反映させる
+
+#+BEGIN_SRC bash
+git merge new_branch
+#+END_SRC
+
+- READMEに更新が反映されたことを確認
+- git branch -vvにより両ブランチのコミットIDが同じになったことも確認
+- git logも確認しておきたい
+
+*** マージ済みブランチの削除
+
+- マージしたブランチはもはや不要なので削除して良い
+
+#+BEGIN_SRC bash
+git branch -d new_branch
+#+END_SRC
+
+- git branch -vvコマンドで削除を確認
+
+** コンフリクト
+*** コンフリクトとは
+- ファイルの同じ箇所を，異なる内容に編集すると発生する
+- Gitはどちらの内容が正しいのかわからない
+- 次のシナリオに従い，コンフリクトを発生させてみよう
+
+*** コンフリクトのシナリオ
+- 「のび太」の作業
+  - nobitaブランチを作成する
+  - READMEファイルの _一行目_ を「Nobita's README.」に変更する
+  - 変更をaddしてcommitする
+- ここで一度， _masterブランチにもどる_
+  - READMEがもとのままだあることを確認
+- 「しずか」の作業
+  - shizukaブランチを作成する
+  - READMEファイルの _一行目_ を「Shizuka's file.」に変更する
+  - 変更をaddしてcommitする
+
+*** マージとコンフリクト発生
+- masterブランチに移動する
+- まず，nobitaブランチをマージ
+  - 問題なくマージできる
+- 次に，shizukaブランチをマージ
+  - ここでコンフリクトが発生する
+
+*** コンフリクト時のメッセージ
+- mergeに失敗するとようなメッセージが出る（長いので改行を加えた）
+
+#+BEGIN_SRC text
+Auto-merging README
+CONFLICT (content):
+  Merge conflict in README
+Automatic merge failed; fix conflicts
+  and then commit the result.
+#+END_SRC
+
+- また，git statusするとUnmerged pathes:の欄に，「both modified: README」
+  と表示される
+
+*** READMEファイルの内容
+- READMEを開くとコンフリクトが起きた箇所がわかる
+
+#+BEGIN_SRC text
+<<<<<<< HEAD
+Nobita's README.
+=======
+Shizuka's file.
+>>>>>>> shizuka
+（以下略）
+#+END_SRC
+
+- =======の上がマージ前のmasterブランチ，
+  下がマージしようとしたshizukaブランチの内容
+
+*** コンフリクトの解消
+- テキストエディタで修正し，手動でコンフリクトを解消する
+
+#+BEGIN_SRC text
+Nobita & Shizuka's READMEfile.
+（以下略）
+#+END_SRC
+
+*** 解消した結果をコミットする
+- その後はいつもどおり，addしてcommitすれば作業が継続できる
+  - マージ済みのmasterから新しくブランチを作成すること
+- なお， _テキストエディタを用い，手動で正しくコンフリクトを解消する前でも
+  commitできてしまう_ ので，この点には注意する
+
+* GitHub入門
+** GitHubとは
+*** GitHubでソーシャルコーディング
+- ソーシャルコーディングのためのクラウド環境
+  - [[https://github.com/][GitHub]]
+  - [[http://github.co.jp/][GitHub Japan]]
+- GitHubが提供する主な機能
+  - GitHub flowによる協同開発
+  - Pull requests
+  - Issue / Wiki
+
+*** GitHubアカウントの作成
+- （まだなら）次のURLの指示に従いGitHubアカウントを作成
+  - [[https://help.github.com/articles/signing-up-for-a-new-github-account/][Signing up for a new GitHub account - User Documentation]]
+- アカウントの種類
+  - 無料版で作成する場合「Join GitHub for Free」を選択する
+  - 学生の場合「Student Developer Pack」にアップグレードすることもできる
+- その後，確認メールが届くので，必要に応じて残りの手順を実施せよ
+  - [[https://help.github.com/categories/setup/][GitHub Help]]
+
+*** SSHによるGitHubアクセス
+- GitHubへのアクセスはSSHを用いた公開鍵暗号方式の認証を用いる
+  - SSH公開鍵の設定を行えば以降のパスワード認証が不要になる
+- （まだなら）SSHを生成してGitHubに登録しなさい
+  - 鍵を生成するとき「passphrases」が聞かれるが，この演習では何も入力しなくてよい
+  - [[https://help.github.com/articles/generating-an-ssh-key/][Generating an SSH key - User Documentation]]
+
+** リモートリポジトリ
+*** リモート VS ローカルリポジトリ
+- ローカルリポジトリ
+  - git initコマンドを用いて作成したリポジトリを「ローカルリポジトリ」という
+- リモートリポジトリ
+  - 「リモートリポジトリ」とは，サーバ上にあるリポジトリであり，
+    ローカルのリポジトリと連携させることができる
+- リモートリポジトリの利点
+  - ネットワークを経由してどこからでも利用することができる
+  - 複数人のチームで協同作業をするときに活用できる
+*** リモートリポジトリの作成
+- リモートリポジトリをGitHubで作成する
+  - 名前は「our_project」とする
+- 次の手順で作成する
+  - [[https://help.github.com/articles/creating-a-new-repository/][Creating a new repository - User Documentation]]
+- READMEとライセンスを追加すること
+  - 「Initialize this repository with a README」にチェックを入れる
+  - 「Add a license:」から「MIT License」を選ぶ
+
+** GitHub flow
+*** GitHub flowwによる開発の流れ
+- GitHub flow
+  - [[https://guides.github.com/introduction/flow/][Understanding the GitHub Flow · GitHub Guides]]
+
+*** 1: リモートリポジトリをローカルに複製
+- リモートにあるリポジトリをローカルに複製することをcloneという
+  - [[https://help.github.com/articles/cloning-a-repository/][Cloning a repository - User Documentation]]
+- 下記の「$GITHUB_URL」の部分をGitHubのour_projectリポジトリURLにして実行
+  - URLは「git@...」で始まるSSH接続用のものを用いる
+    - リポジトリのURLはブラウザ用のURLとは異なるので注意！
+
+#+begin_src bash
+cd ~
+git clone $GITHUB_URL
+cd our_project
+#+end_src
+
+- この作業は基本的にはプロジェクトに対して一度だけ行うこと
+
+*** 2: masterから作業用ブランチを作成
+- 作業用のブランチを作成して移動する
+  - ブランチの名前は「greeting」とする
+
+#+BEGIN_SRC bash
+git checkout -b greeting
+#+END_SRC
+
+*** 3: ブランチで編集作業を行う
+- ここでは，hello.txtという名前のファイルを作成する
+
+#+BEGIN_SRC bash
+echo 'Hello GitHub' > hello.txt
+#+END_SRC
+
+*** 4: ブランチでコミットを作成
+- 変更した内容をステージングしてからコミットする
+
+#+BEGIN_SRC bash
+git add .
+git commit -m 'Create hello.txt'
+#+END_SRC
+
+- この編集，add，commitの作業は作業が一区切りつくまで何回も繰り返してよい…
+  - が，こまめにpushするのが良いとされる
+
+*** 5: ブランチをリモートに送る
+- ブランチで作成したコミットをリモートに送る
+  - 下記のoriginはリポジトリのURLの別名として自動で設定されているもの
+  - greetingは作業しているブランチ名
+
+#+begin_src bash
+git push -u origin greeting
+#+end_src
+
+*** 6. GitHubでプルリクエストを送る
+- ブランチがGitHubに登録されたことを確認し，Pull requestを作成する
+- 手順は次のとおり
+  - [[https://help.github.com/articles/using-pull-requests/][Using pull requests - User Documentation]] の前半
+  - [[https://help.github.com/articles/creating-a-pull-request/][Creating a pull request - User Documentation]]
+
+*** 7. GitHubでレビュー（＋自動テスト）
+- プルリクエストを用いたレビューの方法は下記参照
+  - [[https://help.github.com/articles/using-pull-requests/][Using pull requests - User Documentation]] の後半
+- 人手によるレビューの他，自動的なテストも行うのが望ましい（説明は省略）
+
+*** 8. GitHubでプルリクエストをマージ
+- Pull requestのレビューが済んだらマージする
+  - [[https://help.github.com/articles/merging-a-pull-request/][Merging a pull request - User Documentation]]
+- マージが完了したら，ローカル・リモート共に，マージ済みのブランチは削除してよい
+
+*** 9. ローカルのmaster を最新版にする
+
+- GitHubで行ったマージをローカルに反映させる
+  - masterブランチに移動してgit pull
+  - 不要になった作業用ブランチは削除
+
+#+begin_src bash
+git checkout master
+git pull
+git branch -d greeting
+#+end_src
+
+*** GitHub Flowに習熟するには？
+- ここで手順2:（[[2: masterから作業用ブランチを作成]]節）に戻り，
+  一連の作業を複数回（5回以上!）繰り返すこと
+  - _体に叩き込む！_
+
+** コンフリクトについて
+*** GitHub flow におけるコンフリクトについて
+- コンフリクトとは？
+  - コンフリクトは、コードの同じ箇所を複数の人が別々に編集すると発生
+- コンフリクトが起きると？
+  - GitHub に提出した Pull requests が自動的にマージできない
+*** コンフリクトへの基本的な対処法
+- 初心者は、演習の最初の方では「他人と同じファイルを編集しない」こと
+  にして、操作になれる
+  - 上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ
+- コミットはできるだけ細かく作成すると良い
+  - その分，他の人とかち合う可能性が減る
+*** GitHubでのコンフリクトの解消方法
+- new_feature ブランチで作業中であり、最新の更新は commit 済とする
+
+- 解消するための操作は次のとおり
+  - 1行目〜2行目:masterを最新版にする．
+    2行目:リモートのmasterをshizukaにマージ．
+    3行目:コンフリクトを解消する．
+    4〜6行目:このブランチを再度push
+- これにより，プルリクエストがマージ可能になれば成功
+
+#+begin_src bash
+git checkout master
+git pull
+# コンフリクトの起きたファイルを編集
+git add .
+git commit -m 'Merge'
+git push
+#+end_src
+
+* （参考)より進んだ使い方
+** ファイルの削除と名前の変更
+*** Gitに無視させたいファイル
+- ツールが生成する中間ファイルなど，Gitで管理させたくないファイルは
+  予め「.gitignore」ファイルに記述しておく
+- なお，「.gitignore」ファイル自体はGitがトラッキングするファイルに含める
+- .gitignoreの書き方については各自で調べよ
+
+*** Gitが追跡するファイルの削除と名前の変更
+- Gitが追跡しているファイルであっても，
+  シェルのrmコマンドやmvコマンドで削除や名前の変更をしてよい
+- 「git add .」コマンドを実行すると，Gitは削除や名前の変更も
+  自動的に検知する
+  - 「git rm」や「git mv」は使わなくてよい
+** 操作を取り消すコマンド
+*** Gitで行った操作の取り消し
+- まちがって
+  - ファイルをステージングさせた！
+  - ステージングをコミットした！
+- などの場合，操作を取り消すことができる
+  - 特定のファイルの変更の取り消し
+  - 特定のコミットの取り消し
+
+*** HEADによるコミットの指定
+- 特定のコミットのIDを指定する方法に「HEAD」を使った相対指定がある
+  - showコマンドで確認しながら用いると良い（下記はサンプル）
+
+#+BEGIN_SRC bash
+git show HEAD~1
+git show HEAD~1^2
+#+END_SRC
+
+*** ステージング/コミットの修正
+ファイルのステージングを取り消す
+
+#+BEGIN_SRC bash
+git reset $FILE
+#+END_SRC
+
+$COMMIT_IDより後のコミットの取り消し（ローカルは保存）
+
+#+BEGIN_SRC bash
+git reset $COMMIT_ID
+#+END_SRC
+
+$COMMIT_IDより後のコミットの取り消し（ローカルの変更も破棄）
+
+#+BEGIN_SRC bash
+git reset --hard $COMMIT_ID
+#+END_SRC
+
+*** 誤って編集や削除や修正したファイルの回復
+- file.txtを誤って編集や削除した場合
+- addする前
+  - ステージング領域からの取り出し
+
+#+BEGIN_SRC bash
+git checkout file.txt
+#+END_SRC
+
+- addした後
+  - 直近のコミットからの取り出し
+
+#+BEGIN_SRC bash
+git checkout HEAD file.txt
+#+END_SRC
+
+*** push済みのコミットの取り消し
+- 最後に行ったコミットが理由でコンフリクトが発生したような場合，
+  次の操作により，「取り消しコミット」を作成することができる
+
+#+BEGIN_SRC bash
+git revert HEAD
+#+END_SRC
+
+- 最後の作業が取り消されていることを確認
+- その後は，この取り消しコミットをpushすると，
+  リモートでの変更内容も取り消される
+
+** 作業の一度中断と再開
+*** やりかけの作業のstash
+- あるブランチで作業中に他のブランチに
+  一時的に移動したいことがある
+  - 作業の途中でmasterブランチを最新にする，など
+- このような場合，git stashコマンドが活用できる
+  ので調べてみよ
+** その他知っておくと良いコマンド
+*** チートシートにある残りのコマンド
+    - 以下，Gitチートシートにあるコマンドで，
+      ここまで取り上げなかったものを取り上げる
+
+*** ステージングしたファイルの差分表示
+- git addでステージングするとgit diffで差分が表示されない
+- この場合，次のコマンドで確認できる
+
+#+BEGIN_SRC bash
+git diff --staged
+#+END_SRC
+
+*** 特定のファイルにのみ関連する履歴確認
+- 将来，複数のファイルを履歴管理するようになったら特定のファイルの
+  履歴のみ確認したい
+- その場合，次のとおりにする
+
+#+BEGIN_SRC bash
+git log --follow README
+#+END_SRC
+
+*** リモートブランチの最新情報を取得
+- git fetchはリモートにあるブランチの最新情報を
+  ローカルに取ってくるコマンド
+- 例えば，git pullはmasterブランチで次の２つを実行することと同じ意味
+
+#+BEGIN_SRC bash
+git fetch origin
+git merge origin/master
+#+END_SRC
+
+*** git ls-files
+- 省略
