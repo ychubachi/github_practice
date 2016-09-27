@@ -8,100 +8,17 @@
 #+AUTHOR: 産業技術大学院大学\\ 中鉢 欣秀
 #+DATE: 2016-08-18
 
-* GitHub入門
-** この資料の入手先
-- https://github.com/ychubachi/github_practice
-
-** この授業について
-- この授業ではGitの初心者が，基礎的なGitコマンドの利用方法から，
-  GitHub Flowに基づく協同開発の方法までを学ぶ
-
-** 事前準備
-- 事前に gitコマンドが利用できる環境を用意しておくこと
-- CUI端末でのshellによる基本的な操作を知っているとスムーズに演習ができる
-
-** 授業の構成
-- 個人演習では，テキストの指示に従い，
-  Git/GitHubを利用するにあたり必要となる知識を学ぶ
-- チーム演習では，GitHubを活用した協同開発の方法を深く学ぼう
-
-** 授業の進め方
-1. 演習の解説
-  - 講師が授業の進め方を説明する
-2. Git/GitHubを学ぶ個人演習
-  - 個人演習を通してGit/GitHubの使い方を学ぶ
-3. チーム演習
-  - チームでの開発演習を実施する
-
+* 問い合わせ
+- この授業の内容や資料に関する質問や問い合わせ，改善提案はGitHubのIssueに登録してください
+  - [[https://github.com/ychubachi/github_practice/issues][Issues · ychubachi/github_practice]]
 * 個人演習
 ** 個人演習のテキスト
 - 個人演習のテキストは次のリンクから入手
   - [[https://github.com/ychubachi/github_practice/blob/master/doc/github_practice-person.handout.org][Webページ]]
   - [[https://github.com/ychubachi/github_practice/raw/master/doc/github_practice-person.handout.pdf][ハンドアウト（PDF）]]
 
-* 個人演習からチーム演習へ
-** 個人演習からチーム演習への流れ
-- この授業では最初に個人演習を行い，その後，チームによる演習に進む
-- その際，チーム編成が既に済んでいるか，または，
-  そうでないかで演習の進め方が異なる
-
-** チーム編成が済んでいる場合
-- 個人演習としてテキストの課題に取り組む
-- テキストを終えたメンバーは他のメンバーを積極的に助ける
-- 全員がテキストを終えることを目指す
-- 全員が完了，もしくは，時間になったらチーム演習に進む
-
-** チームがまだできていない場合
-- 後ほど席の移動をするので荷物をまとめておく
-- 個人演習としてテキストの課題に取り組む
-- テキストを完了したら講師・TAに伝えること
-- その後，チーム編成を経てチーム演習に進む
-
-** チームがまだできていない場合の編成方法
-- 個人演習が完了した者から順番に2名づつのペアを組んでいく
-- できたペアは空いている席に移動して，チーム演習を開始する
-- 受講者の半数がペアになったら，それ以降にテキストを終えた者は
-  既存のペアに追加していく
-- 最終的に3〜4人のグループにする
-
 * チーム演習
 ** チーム演習のテキスト
 - チーム演習のテキストは次のリンクから入手
   - [[https://github.com/ychubachi/github_practice/blob/master/doc/github_practice-team.handout.org][Webページ]]
   - [[https://github.com/ychubachi/github_practice/raw/master/doc/github_practice-team.handout.pdf][ハンドアウト（PDF）]]
-
-* 成績評価の方法
-** チーム演習の評価
-- チーム演習でのGitHubのリポジトリを対象に，主に以下の項目について評価する
-  - コミットの数（一人5個以上）
-  - コミットの粒度（意味のある単位でできるだけ細かく）
-  - コミットメッセージの分かりやすさ
-  - ブランチの名前が作業内容を表しているか
-  - プルリクエストの活用
-  - WikiやIssueの活用
-  - コンフリクトの解消ができたか
-  - README/LICENCE
-- _ようするに「GitHub Flow」がうまく回せたか？_
-
-** 提出物
-- 提出物は次のとおり
-  - 名前
-  - 学籍番号
-  - GitHubのアカウント名
-  - GitHubのリポジトリのWeb URL
-    - 個人演習「our_enpit」
-    - チーム演習「team_enpit」
-  - 各自が行った作業の内容
-  - 自分が作成したコミット数
-  - 自己評価
-    - 5段階：5はとても優れている，4は優れている，3は普通，2は劣っている
-  - 自己評価の理由
-  - 演習全体の感想
-
-** 成果物の提出方法と補足資料
-- 成果物の提出方法や，その他の補足資料はWikiを参照
-  - [[https://github.com/ychubachi/github_practice/wiki][Home · ychubachi/github_practice Wiki]]
-
-* 問い合わせ
-- この授業の内容や資料に関する質問や問い合わせ，改善提案はGitHubのIssueに登録してください
-  - [[https://github.com/ychubachi/github_practice/issues][Issues · ychubachi/github_practice]]

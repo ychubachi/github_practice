@@ -74,7 +74,7 @@
 
   ;; Beamer用クラスの設定（4階層用）
   (add-to-list 'org-latex-classes
-               '("beamer-part"
+               '("lecture"
 	       "\\ifdefined\\kanjiskip
   \\documentclass[uplatex,14pt,presentation,t,dvipdfmx]{beamer}
   \\usepackage{pxjahyper}

@@ -1,8 +1,8 @@
-source = 'github_practice-person'
+source = 'github_practice'
 
 guard :shell do
   watch(/^#{source}.org$/) do |m|
-#    %x{emacs #{source}.slide.org -batch -l org-init.el -f org-beamer-export-to-pdf}
+    %x{emacs #{source}.slide.org -batch -l org-init.el -f org-beamer-export-to-pdf}
     %x{emacs #{source}.handout.org -batch -l org-init.el -f org-latex-export-to-pdf}
   end
 
