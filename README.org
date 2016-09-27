@@ -1,24 +1,31 @@
-#+OPTIONS: ^:{}
-#+OPTIONS: toc:nil
+* Git/GitHub演習（全2〜4回）
+** この教材について
+   - この教材はGit/GitHubに関する演習です．
+   - この教材の内容や資料に関する質問や問い合わせ，
+     改善提案はGitHubの [[https://github.com/ychubachi/github_practice/issues][Issues]] に登録してください
+** 資料
+   - スライド（[[https://github.com/ychubachi/github_practice/raw/master/docs/github_practice.slide.pdf][Download]]）
+   - ハンドアウト（[[https://github.com/ychubachi/github_practice/raw/master/docs/github_practice.handout.pdf][Download]]）
 
-#+LaTeX_CLASS_OPTIONS: [a4paper,twoside,twocolumn]
-#+LaTeX_HEADER: \usepackage[normalem]{ulem}
+** 授業計画
 
-#+TITLE: GitHub入門（インストラクション）
-#+AUTHOR: 産業技術大学院大学\\ 中鉢 欣秀
-#+DATE: 2016-08-18
+| 日付 | No | 内容                                                                      | 形式 | GitHub Repo.  |
+|------+----+---------------------------------------------------------------------------+------+---------------|
+|      |  1 | *「GitHub演習」 解説(1)*                                                  | 講義 |               |
+|------+----+---------------------------------------------------------------------------+------+---------------|
+|      |    | ・インストラクション，個人演習資料の解説（branchのmergeまで）             |      |               |
+|------+----+---------------------------------------------------------------------------+------+---------------|
+|      |  2 | *「GitHub演習」 解説(2)*                                                  | 講義 |               |
+|------+----+---------------------------------------------------------------------------+------+---------------|
+|      |    | ・個人演習資料の解説（conflictから最後まで）                              |      |               |
+|------+----+---------------------------------------------------------------------------+------+---------------|
+|      |  3 | *「GitHub演習」 個人演習*                                                 | 演習 |               |
+|------+----+---------------------------------------------------------------------------+------+---------------|
+|      |    | 「GitHub演習」の個人演習を通してGitHubをマスターする                      |      | our_project   |
+|------+----+---------------------------------------------------------------------------+------+---------------|
+|      |  4 | *「GitHub演習」 チーム演習*                                               | 演習 |               |
+|------+----+---------------------------------------------------------------------------+------+---------------|
+|      |    | 「GitHub演習」のチーム演習を通してGitHubをマスターする                    |      | team_project  |
+|------+----+---------------------------------------------------------------------------+------+---------------|
 
-* 問い合わせ
-- この授業の内容や資料に関する質問や問い合わせ，改善提案はGitHubのIssueに登録してください
-  - [[https://github.com/ychubachi/github_practice/issues][Issues · ychubachi/github_practice]]
-* 個人演習
-** 個人演習のテキスト
-- 個人演習のテキストは次のリンクから入手
-  - [[https://github.com/ychubachi/github_practice/blob/master/doc/github_practice-person.handout.org][Webページ]]
-  - [[https://github.com/ychubachi/github_practice/raw/master/doc/github_practice-person.handout.pdf][ハンドアウト（PDF）]]
-
-* チーム演習
-** チーム演習のテキスト
-- チーム演習のテキストは次のリンクから入手
-  - [[https://github.com/ychubachi/github_practice/blob/master/doc/github_practice-team.handout.org][Webページ]]
-  - [[https://github.com/ychubachi/github_practice/raw/master/doc/github_practice-team.handout.pdf][ハンドアウト（PDF）]]
+※No.1〜2の解説は省略することがあるのでその場合は事前に予習しておくこと
