@@ -1,3 +1,9 @@
+#+TITLE: Git/GitHub演習
+#+AUTHOR: 産業技術大学院大学 \\ 中鉢 欣秀
+#+DATE: 2016年度
+#+OPTIONS: ^:{}
+#+OPTIONS: H:4
+
 # ############################################################
 # Options for Beamer
 # ############################################################
@@ -6,4 +12,4 @@
 #+LaTeX_CLASS: lecture
 #+BEAMER_THEME: Lecture
 
-#+INCLUDE: "github_practice-person.org"
+#+INCLUDE: "github_practice.org"

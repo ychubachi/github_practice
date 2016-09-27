@@ -1,10 +1,14 @@
+#+TITLE: Git/GitHub演習
+#+AUTHOR: 産業技術大学院大学 \\ 中鉢 欣秀
+#+DATE: 2016年度
+#+OPTIONS: H:4 toc:t ^:{}
+
 # ############################################################
 # Options for LaTeX
 # ############################################################
-#+OPTIONS: toc:t
 
 #+LaTeX_CLASS: handout
 #+LaTeX_HEADER: \setpagelayout{margin=1cm}
 #+LaTeX_HEADER: \usepackage{uline--}
 
-#+INCLUDE: "github_practice-person.org"
+#+INCLUDE: "github_practice.org"

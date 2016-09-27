@@ -1,16 +1,10 @@
-#+TITLE: Git/GitHub演習
-#+AUTHOR: 産業技術大学院大学 \\ 中鉢欣秀
-#+DATE: 2016年度
-#+OPTIONS: ^:{}
-#+OPTIONS: H:4
-
 * Git/GitHub演習
 ** Git/GitHub演習について
 *** 授業の概要
 **** この資料の入手先
 - https://github.com/ychubachi/github_practice
 
-**** この授業について
+**** この演習について
 - この授業ではGitの初心者が，基礎的なGitコマンドの利用方法から，
   GitHub Flowに基づく協同開発の方法までを学ぶ
 
