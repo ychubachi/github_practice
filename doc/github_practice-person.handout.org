@@ -4,7 +4,7 @@
 #+OPTIONS: toc:t
 
 #+LaTeX_CLASS: handout
-#+LaTeX_CLASS_OPTIONS: [autodetect-engine,ja=standard,a4paper,10pt,twocolumn]
 #+LaTeX_HEADER: \setpagelayout{margin=1cm}
+#+LaTeX_HEADER: \usepackage{uline--}
 
 #+INCLUDE: "github_practice-person.org"

@@ -3,7 +3,7 @@
 # ############################################################
 #+OPTIONS: toc:nil
 
-#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS: slide
 #+BEAMER_THEME: Presentation
 
 #+INCLUDE: "github_practice-person.org"
