@@ -1,6 +1,6 @@
 * Git/GitHub演習（全2〜4回）
 ** この教材について
-   - この教材はGit/GitHubに関する演習です．
+   - この教材はGit/GitHubを徹底的に学ぶ演習です．
    - この教材の内容や資料に関する質問や問い合わせ，
      改善提案はGitHubの [[https://github.com/ychubachi/github_practice/issues][Issues]] に登録してください
 ** 資料
