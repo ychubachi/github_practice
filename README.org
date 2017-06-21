@@ -6,6 +6,7 @@
 ** 資料
    - スライド（[[https://github.com/ychubachi/github_practice/raw/master/docs/github_practice.slide.pdf][Download]]）
    - ハンドアウト（[[https://github.com/ychubachi/github_practice/raw/master/docs/github_practice.handout.pdf][Download]]）
+   - [[https://github.com/ychubachi/github_practice/blob/master/docs/github_practice.org][Web版]]
 
 ** 授業計画
 
