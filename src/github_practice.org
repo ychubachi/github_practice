@@ -1,11 +1,11 @@
 #+STARTUP: overview indent align logdone hidestars hideblocks
-# #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-bigblow.setup
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+# #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-bigblow.setup
 #+EXPORT_FILE_NAME: ../docs/index.html
 
 #+begin_comment
-HTMLとしてこの文書全体をエキスポートする方法
-- C-c C-e h h
++ HTMLとしてこの文書全体をエキスポートする方法
+  * C-c C-e h h
 #+end_comment
 
 * Git/GitHub演習
