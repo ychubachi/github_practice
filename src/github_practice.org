@@ -1,10 +1,14 @@
 #+STARTUP: overview indent align logdone hidestars hideblocks
+#+TITLE: Git/GitHub演習
+#+AUTHOR: 中鉢 欣秀
+#+EXPORT_FILE_NAME: ../docs/index.html
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 # #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-bigblow.setup
-#+EXPORT_FILE_NAME: ../docs/index.html
 
 #+begin_comment
-+ HTMLとしてこの文書全体をエキスポートする方法
++ HTML形式でこの文書全体をエキスポートする方法
+  * スタイルはSETUPFILEで設定
+  * エキスポートするファイル名はEXPORT_FILE_NAMEで設定
   * C-c C-e h h
 #+end_comment
 
