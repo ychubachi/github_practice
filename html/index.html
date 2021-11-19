@@ -1,0 +1,2161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-11-19 Fri 19:36 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="中鉢欣秀" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/hideshow.css"/>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/bigblow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/hideshow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org1b0cb11">1. Git/GitHub演習</a>
+<ul>
+<li><a href="#org3f0cddf">1.1. Git/GitHub演習について</a>
+<ul>
+<li><a href="#orgb8ad9eb">1.1.1. 授業の概要</a></li>
+<li><a href="#org78bc909">1.1.2. 個人演習からチーム演習へ</a></li>
+<li><a href="#org74f51ec">1.1.3. 成績評価の方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org28b0288">2. Git/GitHub演習（個人演習編）</a>
+<ul>
+<li><a href="#org350e79c">2.1. Git入門</a>
+<ul>
+<li><a href="#orga1e4541">2.1.1. Gitの操作方法と初期設定</a></li>
+<li><a href="#orgfad13ee">2.1.2. Gitのリポジトリ</a></li>
+</ul>
+</li>
+<li><a href="#orgbd007e6">2.2. コミットの方法</a>
+<ul>
+<li><a href="#orge02a499">2.2.1. コミットの作成方法</a></li>
+<li><a href="#orgd4d78d4">2.2.2. 変更履歴の作成</a></li>
+<li><a href="#orgecadfa5">2.2.3. 履歴の確認</a></li>
+</ul>
+</li>
+<li><a href="#org7d11855">2.3. ブランチとコンフリクト</a>
+<ul>
+<li><a href="#org5e4c409">2.3.1. ブランチの使い方</a></li>
+<li><a href="#org5d40a90">2.3.2. コンフリクト</a></li>
+</ul>
+</li>
+<li><a href="#org908a590">2.4. GitHub入門</a>
+<ul>
+<li><a href="#org824a376">2.4.1. GitHubとは</a></li>
+<li><a href="#org426b2ae">2.4.2. リモートリポジトリ</a></li>
+<li><a href="#orgaf2ae79">2.4.3. GitHub flow</a></li>
+<li><a href="#org05c5732">2.4.4. コンフリクトについて</a></li>
+</ul>
+</li>
+<li><a href="#org26d8f4a">2.5. （参考)より進んだ使い方</a>
+<ul>
+<li><a href="#org9c74d05">2.5.1. ファイルの削除と名前の変更</a></li>
+<li><a href="#org8980b0d">2.5.2. 操作を取り消すコマンド</a></li>
+<li><a href="#orgc7dc781">2.5.3. 作業の一度中断と再開</a></li>
+<li><a href="#org577d52e">2.5.4. その他知っておくと良いコマンド</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgde4ee33">3. GitHub演習（チーム演習編）</a>
+<ul>
+<li><a href="#org457f207">3.1. チーム演習</a>
+<ul>
+<li><a href="#org6021058">3.1.1. 演習のための準備</a></li>
+<li><a href="#org5551247">3.1.2. チーム演習</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1b0cb11" class="outline-2">
+<h2 id="org1b0cb11"><span class="section-number-2">1.</span> Git/GitHub演習</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org3f0cddf" class="outline-3">
+<h3 id="org3f0cddf"><span class="section-number-3">1.1.</span> Git/GitHub演習について</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orgb8ad9eb" class="outline-4">
+<h4 id="orgb8ad9eb"><span class="section-number-4">1.1.1.</span> 授業の概要</h4>
+<div class="outline-text-4" id="text-1-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgc587b80"></a>この資料の入手先<br />
+<div class="outline-text-5" id="text-1-1-1-1">
+<ul class="org-ul">
+<li><a href="https://github.com/ychubachi/github_practice">https://github.com/ychubachi/github_practice</a></li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgc66b1c7"></a>この演習について<br />
+<div class="outline-text-5" id="text-1-1-1-2">
+<ul class="org-ul">
+<li>この授業ではGitの初心者が，基礎的なGitコマンドの利用方法から，
+GitHub Flowに基づく協同開発の方法までを学ぶ</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org42dcf3d"></a>事前準備<br />
+<div class="outline-text-5" id="text-1-1-1-3">
+<ul class="org-ul">
+<li>事前に gitコマンドが利用できる環境を用意しておくこと</li>
+<li>CUI端末でのshellによる基本的な操作を知っていると
+スムーズに演習ができる</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org23e217d"></a>授業の構成<br />
+<div class="outline-text-5" id="text-1-1-1-4">
+<ul class="org-ul">
+<li>個人演習では，テキストの指示に従い，
+Git/GitHubを利用するにあたり必要となる知識を学ぶ</li>
+<li>チーム演習では，GitHubを活用した協同開発の方法を深く学ぼう</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgf5fd57a"></a>授業の進め方<br />
+<div class="outline-text-5" id="text-1-1-1-5">
+<ol class="org-ol">
+<li>演習の解説
+<ul class="org-ul">
+<li>講師が授業の進め方を説明する</li>
+</ul></li>
+<li>Git/GitHubを学ぶ個人演習
+<ul class="org-ul">
+<li>個人演習を通してGit/GitHubの使い方を学ぶ</li>
+</ul></li>
+<li>チーム演習
+<ul class="org-ul">
+<li>チームでの開発演習を実施する</li>
+</ul></li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org78bc909" class="outline-4">
+<h4 id="org78bc909"><span class="section-number-4">1.1.2.</span> 個人演習からチーム演習へ</h4>
+<div class="outline-text-4" id="text-1-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="org038ab1f"></a>個人演習からチーム演習への流れ<br />
+<div class="outline-text-5" id="text-1-1-2-1">
+<ul class="org-ul">
+<li>この授業では最初に個人演習を行い，その後，チームによる演習に進む</li>
+<li>その際，チーム編成が既に済んでいるか，または，
+そうでないかで演習の進め方が異なる</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org0f13f10"></a>チーム編成が済んでいる場合<br />
+<div class="outline-text-5" id="text-1-1-2-2">
+<ul class="org-ul">
+<li>個人演習としてテキストの課題に取り組む</li>
+<li>テキストを終えたメンバーは他のメンバーを積極的に助ける</li>
+<li>全員がテキストを終えることを目指す</li>
+<li>全員が完了，もしくは，時間になったらチーム演習に進む</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org4a8ad28"></a>チームがまだできていない場合<br />
+<div class="outline-text-5" id="text-1-1-2-3">
+<ul class="org-ul">
+<li>後ほど席の移動をするので荷物をまとめておく</li>
+<li>個人演習としてテキストの課題に取り組む</li>
+<li>テキストを完了したら講師・TAに伝えること</li>
+<li>その後，チーム編成を経てチーム演習に進む</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org42209f6"></a>チームがまだできていない場合の編成方法<br />
+<div class="outline-text-5" id="text-1-1-2-4">
+<ul class="org-ul">
+<li>個人演習が完了した者から順番に2名づつのペアを組んでいく</li>
+<li>できたペアは空いている席に移動して，チーム演習を開始する</li>
+<li>受講者の半数がペアになったら，それ以降にテキストを終えた者は
+既存のペアに追加していく</li>
+<li>最終的に3〜4人のグループにする</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org74f51ec" class="outline-4">
+<h4 id="org74f51ec"><span class="section-number-4">1.1.3.</span> 成績評価の方法</h4>
+<div class="outline-text-4" id="text-1-1-3">
+</div>
+<ol class="org-ol">
+<li><a id="orgcde83b6"></a>チーム演習の評価<br />
+<div class="outline-text-5" id="text-1-1-3-1">
+<ul class="org-ul">
+<li>チーム演習でのGitHubのリポジトリを対象に，主に以下の項目について評価する
+<ul class="org-ul">
+<li>コミットの数</li>
+<li>コミットの粒度（意味のある単位でできるだけ細かく）</li>
+<li>コミットメッセージの分かりやすさ</li>
+<li>ブランチの名前が作業内容を表しているか</li>
+<li>プルリクエストの活用</li>
+<li>コンフリクトの解消ができたか</li>
+<li>WikiやIssueの活用</li>
+<li>README/LICENCE</li>
+</ul></li>
+<li><span class="underline">ようするに「GitHub Flow」がうまく回せたか？</span></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org7e8e21e"></a>提出物(1)<br />
+<div class="outline-text-5" id="text-1-1-3-2">
+<ul class="org-ul">
+<li>名前</li>
+<li>学籍番号</li>
+<li>GitHubのアカウント名</li>
+<li>GitHubのリポジトリのWeb URL
+<ul class="org-ul">
+<li>個人演習「our<sub>enpit</sub>」</li>
+<li>チーム演習「team<sub>enpit</sub>」</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgf295ed8"></a>提出物(2)<br />
+<div class="outline-text-5" id="text-1-1-3-3">
+<ul class="org-ul">
+<li>各自が行った作業の内容</li>
+<li>自分が作成したコミット数</li>
+<li>自己評価
+<ul class="org-ul">
+<li>5段階：5はとても優れている，4は優れている，3は普通，2は劣っている</li>
+</ul></li>
+<li>自己評価の理由</li>
+<li>演習全体の感想</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgff52861"></a>成果物の提出方法と補足資料<br />
+<div class="outline-text-5" id="text-1-1-3-4">
+<ul class="org-ul">
+<li>成果物の提出方法や，その他の補足資料はWikiを参照
+<ul class="org-ul">
+<li><a href="https://github.com/ychubachi/github_practice/wiki">Home · ychubachi/github<sub>practice</sub> Wiki</a></li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org28b0288" class="outline-2">
+<h2 id="org28b0288"><span class="section-number-2">2.</span> Git/GitHub演習（個人演習編）</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org350e79c" class="outline-3">
+<h3 id="org350e79c"><span class="section-number-3">2.1.</span> Git入門</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-orga1e4541" class="outline-4">
+<h4 id="orga1e4541"><span class="section-number-4">2.1.1.</span> Gitの操作方法と初期設定</h4>
+<div class="outline-text-4" id="text-2-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="org1a6975c"></a>Gitチートシート（カンニング表）<br />
+<div class="outline-text-5" id="text-2-1-1-1">
+<ul class="org-ul">
+<li>主なGitコマンドの一覧表
+<ul class="org-ul">
+<li><a href="https://services.github.com/kit/downloads/ja/github-git-cheat-sheet.pdf">Gitチートシート（日本語版）</a></li>
+</ul></li>
+<li>必要に応じて印刷しておくとよい</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgc1221a0"></a>Gitコマンドの実行確認<br />
+<div class="outline-text-5" id="text-2-1-1-2">
+<ul class="org-ul">
+<li>端末を操作してGitコマンドを起動してみよう．</li>
+<li>次のとおり操作することでGitのバージョン番号が確認できる．</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git --version
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org0df5bcf"></a>名前とメールアドレスの登録<br />
+<div class="outline-text-5" id="text-2-1-1-3">
+<ul class="org-ul">
+<li>（まだなら）gitに名前とメールアドレスを登録しておく</li>
+<li>次のコマンドの$NAMEと$EMAILを各自の名前とメールアドレスに置き換えて実行せよ
+<ul class="org-ul">
+<li>名前はローマ字で設定すること</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git config --global user.name $<span style="color: #00538b;">NAME</span>
+git config --global user.email $<span style="color: #00538b;">EMAIL</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org69c6071"></a>その他の設定<br />
+<div class="outline-text-5" id="text-2-1-1-4">
+<ul class="org-ul">
+<li>次のとおり，設定を行っておく</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git config --global color.ui auto
+git config --global push.default simple
+git config --global core.editor emacs
+</pre>
+</div>
+<ul class="org-ul">
+<li>1行目: 色付きで表示を見やすく</li>
+<li>2行目: pushする方法（詳細省略）</li>
+<li>3行目: vimを使う場合はemacsではなくvimを</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org8a41f29"></a>設定の確認方法<br />
+<div class="outline-text-5" id="text-2-1-1-5">
+<ul class="org-ul">
+<li>ここまでの設定を確認する</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git config -l
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orgfad13ee" class="outline-4">
+<h4 id="orgfad13ee"><span class="section-number-4">2.1.2.</span> Gitのリポジトリ</h4>
+<div class="outline-text-4" id="text-2-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="org790abe0"></a>プロジェクト用のディレクトリ<br />
+<div class="outline-text-5" id="text-2-1-2-1">
+<ul class="org-ul">
+<li>リポジトリとはプロジェクトでソースコードなどを
+配置するディレクトリ
+<ul class="org-ul">
+<li>このディレクトリを「ワーキングディレクトリ
+（ないしはワーキングツリー）」とも言う</li>
+</ul></li>
+<li>Gitによりバージョン管理ができる
+<ul class="org-ul">
+<li>ファイルに対する編集作業の内容が追跡され，記録される</li>
+</ul></li>
+<li>将来的にGitHubと連携させることで共同作業ができるようになる</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orge5791ba"></a>Gitリポジトリを利用するには<br />
+<div class="outline-text-5" id="text-2-1-2-2">
+<ul class="org-ul">
+<li>リポジトリを利用する方法には主に2種類ある
+<ol class="org-ol">
+<li>git initコマンドで初期化する方法</li>
+<li>git cloneコマンドでGitHubから入手する方法</li>
+</ol></li>
+<li>ここでは，まず1.について解説する</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgee671dc"></a>Gitリポジトリの初期化方法<br />
+<div class="outline-text-5" id="text-2-1-2-3">
+<ul class="org-ul">
+<li>Gitリポジトリ（my<sub>project</sub>）を作成する
+<ul class="org-ul">
+<li>1〜2行目: ディレクトリを作成して移動</li>
+<li>3行目: Gitリポジトリとして初期化</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">mkdir ~/my_project
+<span style="color: #8f0075;">cd</span> ~/my_project
+git init
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>以降の作業は作成したmy<sub>projectディレクトリで行うこと</sub>
+<ul class="org-ul">
+<li>現在のディレクトリは「pwd」コマンドで確認できる</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org19f3729"></a>リポジトリの状態を確認する方法<br />
+<div class="outline-text-5" id="text-2-1-2-4">
+<ul class="org-ul">
+<li>現在のリポジトリの状態を確認するコマンドは次のとおり</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git status
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>このコマンドは頻繁に使用する</li>
+<li>何かうまく行かないことがあったら，このコマンドで状態を確認する癖を
+つけるとよい
+<ul class="org-ul">
+<li>表示される内容の意味は徐々に覚えていけば良い</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org7d1cd0d"></a>「.git」ディレクトリを壊すべからず<br />
+<div class="outline-text-5" id="text-2-1-2-5">
+<ul class="org-ul">
+<li>ティレクトリにリポジトリを作成すると「.git」という隠しディレクトリが
+できる
+<ul class="org-ul">
+<li>ls -aで確認できるが…</li>
+</ul></li>
+<li>このディレクトリは <b>絶対に</b> 手動で変更してはならない
+<ul class="org-ul">
+<li>もし削除したらGitとは無関係の単なるディレクトリになる</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgbd007e6" class="outline-3">
+<h3 id="orgbd007e6"><span class="section-number-3">2.2.</span> コミットの方法</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orge02a499" class="outline-4">
+<h4 id="orge02a499"><span class="section-number-4">2.2.1.</span> コミットの作成方法</h4>
+<div class="outline-text-4" id="text-2-2-1">
+</div>
+<ol class="org-ol">
+<li><a id="org44ef245"></a>コミットについて(1)<br />
+<div class="outline-text-5" id="text-2-2-1-1">
+<ul class="org-ul">
+<li>Gitの用語における「コミット」とは，「ひとかたまりの作業」をいう
+<ul class="org-ul">
+<li>新しい機能を追加した，バグを直した，ドキュメントの内容を更新した，など</li>
+</ul></li>
+<li>Gitは作業の履歴を，コミットを単位として管理する
+<ul class="org-ul">
+<li>コミットは次々にリポジトリに追加されていく</li>
+<li>これにより古いバージョンに戻る，
+過去の変更内容を確認する，などの操作ができる</li>
+</ul></li>
+</ul>
+</div>
+</li>
+<li><a id="org0d72564"></a>コミットについて(2)<br />
+<div class="outline-text-5" id="text-2-2-1-2">
+<ul class="org-ul">
+<li>コミットには，作業の内容を説明するメッセージをつける</li>
+<li>コミットには自動的にIDが振られることも覚えておくと良い</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgc45541d"></a>READMEファイルの作成<br />
+<div class="outline-text-5" id="text-2-2-1-3">
+<ul class="org-ul">
+<li>my<sub>projectリポジトリにREADMEファイルを作成してみよう</sub></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8f0075;">echo</span> <span style="color: #2544bb;">"My README file."</span> &gt; README
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>プロジェクトには <b>必ずREADMEファイルを用意</b> しておくこと</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org3ee6b11"></a>リポジトリの状態の確認<br />
+<div class="outline-text-5" id="text-2-2-1-4">
+<ul class="org-ul">
+<li>git statusで現在のリポジトリの状態を確認する</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git status
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>未追跡のファイル（Untracked files:）の欄に作成したREADMEファイルが
+（赤色で）表示される</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org6ca2ba1"></a>変更内容のステージング<br />
+<div class="outline-text-5" id="text-2-2-1-5">
+<ul class="org-ul">
+<li>コミットの一つ手前にステージングという段階がある
+<ul class="org-ul">
+<li>コミットしたい変更はステージングしておく</li>
+<li>逆に言えば，変更をコミットするためには，
+ステージングしておかなくてはならない</li>
+</ul></li>
+<li>ファイルのトラッキング
+<ul class="org-ul">
+<li>新しいファイルをステージングすると，これ以降，
+gitがそのファイルの変更を追跡するようになる</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgf29f684"></a>ステージングの実行<br />
+<div class="outline-text-5" id="text-2-2-1-6">
+<ul class="org-ul">
+<li>作成したREADMEファイルをステージングするには，次のコマンドを打つ</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git add .
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>「git add」の「.（ピリオド）」を忘れないように
+<ul class="org-ul">
+<li>ピリオドは，リポジトリにおけるすべての変更を意味する</li>
+<li>複数のファイルを変更した場合には，ファイル名を指定して
+部分的にステージングすることもできる…
+<ul class="org-ul">
+<li>が，このやりかたは好ましくない</li>
+<li>一度に複数の変更を行うのではなく，一つの変更を終えたら
+こまめにコミットする</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="orge087791"></a>ステージング後のリポジトリへの状態<br />
+<div class="outline-text-5" id="text-2-2-1-7">
+<ul class="org-ul">
+<li>再度，git statusコマンドで状態を確認しよう</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git status
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>コミットされる変更（Changes to be committed:）の欄に，READMEファイルが
+（緑色で）表示されれば正しい結果である</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgb772830"></a>ステージングされた内容をコミットする<br />
+<div class="outline-text-5" id="text-2-2-1-8">
+<ul class="org-ul">
+<li>ステージング段階にある変更内容をコミットする</li>
+<li>コミットにはその内容を示すメッセージ文をつける</li>
+<li>「First commit」というメッセージをつけて新しいコミットを作成する
+<ul class="org-ul">
+<li>「-m」オプションはそれに続く文字列をメッセージとして付与することを
+指示するもの</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git commit -m <span style="color: #2544bb;">'First commit'</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orgff8e4b4"></a>コミット後の状態の確認<br />
+<div class="outline-text-5" id="text-2-2-1-9">
+<ul class="org-ul">
+<li>コミットが正常に行われたことを確認する
+<ul class="org-ul">
+<li>ここでもgit statusコマンドか活躍する</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git status
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>「nothing to commit, &#x2026;」との表示から
+コミットすべきものがない（＝過去の変更はコミットされた）ことが
+わかる</li>
+<li>この表示がでたら（無事コミットできたので）一安心してよい</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orgd4d78d4" class="outline-4">
+<h4 id="orgd4d78d4"><span class="section-number-4">2.2.2.</span> 変更履歴の作成</h4>
+<div class="outline-text-4" id="text-2-2-2">
+</div>
+<ol class="org-ol">
+<li><a id="orga2d9f7d"></a>更なるコミットを作成する<br />
+<div class="outline-text-5" id="text-2-2-2-1">
+<ul class="org-ul">
+<li>リポジトリで変更作業を行い，新しいコミットを追加する
+<ul class="org-ul">
+<li>READMEファイルに新しい行を追加する</li>
+</ul></li>
+<li>次の$NAMEをあなたの名前に変更して実行しなさい</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8f0075;">echo</span> $<span style="color: #00538b;">NAME</span> &gt;&gt; README
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>既存のファイルへの追加なので「&gt;&gt;」を用いていることに注意</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgf1502ed"></a>変更後の状態の確認<br />
+<div class="outline-text-5" id="text-2-2-2-2">
+<ul class="org-ul">
+<li>リポジトリの状態をここでも確認する</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git status
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>コミットのためにステージされていない変更（Changes not staged for commit:）の
+欄に，変更された（modified）ファイルとしてREADMEが表示される</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org3a6a6fc"></a>差分の確認<br />
+<div class="outline-text-5" id="text-2-2-2-3">
+<ul class="org-ul">
+<li>トラックされているファイルの変更箇所を確認する</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git diff
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>頭に「+」のある（緑色で表示された）行が新たに追加された内容を示す
+<ul class="org-ul">
+<li>削除した場合は「-」がつく</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org6442ff6"></a>新たな差分をステージングする<br />
+<div class="outline-text-5" id="text-2-2-2-4">
+<ul class="org-ul">
+<li>作成した差分をコミットできるようにするために，ステージング段階に上げる</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git add .
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><code>git status</code> を行い，READMEファイルが「Changed to be commited:」の欄に
+（緑色で）表示されていることを確認する</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgf8171de"></a>ステージングされた新しい差分のコミット<br />
+<div class="outline-text-5" id="text-2-2-2-5">
+<ul class="org-ul">
+<li>変更内容を示すメッセージとともにコミットする</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git commit -m <span style="color: #2544bb;">'Add my name'</span>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orgecadfa5" class="outline-4">
+<h4 id="orgecadfa5"><span class="section-number-4">2.2.3.</span> 履歴の確認</h4>
+<div class="outline-text-4" id="text-2-2-3">
+</div>
+<ol class="org-ol">
+<li><a id="orga326c5f"></a>バージョン履歴の確認<br />
+<div class="outline-text-5" id="text-2-2-3-1">
+<ul class="org-ul">
+<li>これまでの変更作業の履歴を確認
+<ul class="org-ul">
+<li>2つのコミットが存在する</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git log
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>各コミットごとに表示される内容
+<ul class="org-ul">
+<li>コミットのID（commit に続く英文字と数字の列）</li>
+<li>AuthorとDate</li>
+<li>コミットメッセージ</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org4d995fb"></a>2つのコミットの比較<br />
+<div class="outline-text-5" id="text-2-2-3-2">
+<ul class="org-ul">
+<li>異なる２つのコミットの変更差分は次のコマンドで確認できる
+<ul class="org-ul">
+<li>コミットのIDはlogで確認できる
+（コマンドでIDを指定する場合は，概ね先頭4文字を入力し後は省略してよい）</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git diff $<span style="color: #00538b;">COMMIT_ID_1</span> $<span style="color: #00538b;">COMMIT_ID_2</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>（参考）後で説明するブランチはコミットのエイリアスなので，
+ブランチごとの比較もできる</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orge341551"></a>コミットの情報確認<br />
+<div class="outline-text-5" id="text-2-2-3-3">
+<ul class="org-ul">
+<li>次のコマンドでコミットで行った変更内容が確認できる</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git show $<span style="color: #00538b;">COMMIT_ID</span>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org7d11855" class="outline-3">
+<h3 id="org7d11855"><span class="section-number-3">2.3.</span> ブランチとコンフリクト</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-org5e4c409" class="outline-4">
+<h4 id="org5e4c409"><span class="section-number-4">2.3.1.</span> ブランチの使い方</h4>
+<div class="outline-text-4" id="text-2-3-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgb3c3883"></a>ブランチとは<br />
+<div class="outline-text-5" id="text-2-3-1-1">
+<ul class="org-ul">
+<li>「ひとまとまりの作業」を行う場所</li>
+<li>ソースコードなどの編集作業を始める際には
+必ず新しいブランチを作成する</li>
+<li>Gitの内部的にはあるコミットに対するエイリアス（alias）である</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgb250cf5"></a>masterは大事なブランチ<br />
+<div class="outline-text-5" id="text-2-3-1-2">
+<ul class="org-ul">
+<li>Gitリポジトリの初期化後，最初のコミットを行うとmasterブランチができる</li>
+<li>非常に重要なブランチであり，
+ここで <span class="underline">直接編集作業を行ってはならない</span>
+<ul class="org-ul">
+<li>ただし，本演習や，個人でGitを利用する場合はこの限りではない</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org5de1e05"></a>ブランチの作成と移動<br />
+<div class="outline-text-5" id="text-2-3-1-3">
+<ul class="org-ul">
+<li>新しいブランチ「new<sub>branch</sub>」を作成して，なおかつ，そのブランチに移動する
+<ul class="org-ul">
+<li>「-b」オプションで新規作成</li>
+<li>オプションがなければ単なる移動（後述）</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git checkout -b new_branch
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>本来，ブランチには <span class="underline">「これから行う作業の内容」</span> が分かる名前を付ける</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgb3ec3c7"></a>ブランチの確認<br />
+<div class="outline-text-5" id="text-2-3-1-4">
+<ul class="org-ul">
+<li>ブランチの一覧と現在のブランチを確認する
+<ul class="org-ul">
+<li>もともとあるmasterと，新しく作成したnew<sub>branchが表示される</sub></li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git branch -vv
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>ブランチに紐づくコミットのIDが同じことも確認</li>
+<li>git statusの一行目にも現在のブランチが表示される</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org28aa216"></a>ブランチでのコミット作成<br />
+<div class="outline-text-5" id="text-2-3-1-5">
+<ul class="org-ul">
+<li>READMEに現在の日時を追加</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">date &gt;&gt; README
+git add .
+git commit -m <span style="color: #2544bb;">'Add date'</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>新しいコミットが追加できたことをgit logで確認</li>
+<li>git branch -vvでコミットのIDが変化したことも確認</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgebd9dc5"></a>ブランチの移動<br />
+<div class="outline-text-5" id="text-2-3-1-6">
+<ul class="org-ul">
+<li>new<sub>branchブランチでコミットした内容をmasterに反映させる</sub>
+<ul class="org-ul">
+<li>まずはmasterに移動する</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git checkout master
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>git status，git branch -vvで現在のブランチを確認すること</li>
+<li>この段階では，READMEファイルに行った変更が <span class="underline">反映されてない</span> ことを
+確認すること</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgfbc72a3"></a>変更をmasterにマージ<br />
+<div class="outline-text-5" id="text-2-3-1-7">
+<ul class="org-ul">
+<li>new<sub>branchで行ったコミットをmasterに反映させる</sub></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git merge new_branch
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>READMEに更新が反映されたことを確認</li>
+<li>git branch -vvにより両ブランチのコミットIDが同じになったことも確認</li>
+<li>git logも確認しておきたい</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org92573d1"></a>マージ済みブランチの削除<br />
+<div class="outline-text-5" id="text-2-3-1-8">
+<ul class="org-ul">
+<li>マージしたブランチはもはや不要なので削除して良い</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git branch -d new_branch
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>git branch -vvコマンドで削除を確認</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org5d40a90" class="outline-4">
+<h4 id="org5d40a90"><span class="section-number-4">2.3.2.</span> コンフリクト</h4>
+<div class="outline-text-4" id="text-2-3-2">
+</div>
+<ol class="org-ol">
+<li><a id="org0fde018"></a>コンフリクトとは<br />
+<div class="outline-text-5" id="text-2-3-2-1">
+<ul class="org-ul">
+<li>ファイルの同じ箇所を，異なる内容に編集すると発生する</li>
+<li>Gitはどちらの内容が正しいのかわからない</li>
+<li>次のシナリオに従い，コンフリクトを発生させてみよう</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org9e163c9"></a>コンフリクトのシナリオ<br />
+<div class="outline-text-5" id="text-2-3-2-2">
+<ul class="org-ul">
+<li>「のび太」の作業
+<ul class="org-ul">
+<li>nobitaブランチを作成する</li>
+<li>READMEファイルの <b>一行目</b> を「Nobita's README.」に変更する</li>
+<li>変更をaddしてcommitする</li>
+</ul></li>
+<li>ここで一度， <b>masterブランチ</b> にもどる
+<ul class="org-ul">
+<li>READMEがもとのままだあることを確認</li>
+</ul></li>
+<li>「しずか」の作業
+<ul class="org-ul">
+<li>shizukaブランチを作成する</li>
+<li>READMEファイルの <b>一行目</b> を「Shizuka's file.」に変更する</li>
+<li>変更をaddしてcommitする</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org926160e"></a>マージとコンフリクト発生<br />
+<div class="outline-text-5" id="text-2-3-2-3">
+<ul class="org-ul">
+<li>masterブランチに移動する</li>
+<li>まず，nobitaブランチをマージ
+<ul class="org-ul">
+<li>問題なくマージできる</li>
+</ul></li>
+<li>次に，shizukaブランチをマージ
+<ul class="org-ul">
+<li>ここで <b>コンフリクトが発生</b> する</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org3ff2445"></a>コンフリクト時のメッセージ<br />
+<div class="outline-text-5" id="text-2-3-2-4">
+<ul class="org-ul">
+<li>mergeに失敗するとようなメッセージが出る</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-text">Auto-merging README
+CONFLICT (content): Merge conflict in README
+Automatic merge failed; fix conflicts and then commit the result.
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>また，git statusするとUnmerged pathes:の欄に，「both modified: README」
+と表示される</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org02c22cc"></a>READMEファイルの内容<br />
+<div class="outline-text-5" id="text-2-3-2-5">
+<ul class="org-ul">
+<li>READMEを開くとコンフリクトが起きた箇所がわかる</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-text">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Nobita's README.
+=======
+Shizuka's file.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; shizuka
+&#65288;&#20197;&#19979;&#30053;&#65289;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>=======の上がマージ前のmasterブランチ，
+下がマージしようとしたshizukaブランチの内容</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org3b81703"></a>コンフリクトの解消<br />
+<div class="outline-text-5" id="text-2-3-2-6">
+<ul class="org-ul">
+<li>テキストエディタで修正し，手動でコンフリクトを解消する</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-text">Nobita &amp; Shizuka's READMEfile.
+&#65288;&#20197;&#19979;&#30053;&#65289;
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org33fef0b"></a>解消した結果をコミットする<br />
+<div class="outline-text-5" id="text-2-3-2-7">
+<ul class="org-ul">
+<li>その後はいつもどおり，addしてcommitすれば作業が継続できる
+<ul class="org-ul">
+<li>マージ済みのmasterから新しくブランチを作成すること</li>
+</ul></li>
+<li>なお， <span class="underline">テキストエディタを用い，手動で正しくコンフリクトを解消する前でも
+commitできてしまう</span> ので，この点には注意する</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org908a590" class="outline-3">
+<h3 id="org908a590"><span class="section-number-3">2.4.</span> GitHub入門</h3>
+<div class="outline-text-3" id="text-2-4">
+</div>
+<div id="outline-container-org824a376" class="outline-4">
+<h4 id="org824a376"><span class="section-number-4">2.4.1.</span> GitHubとは</h4>
+<div class="outline-text-4" id="text-2-4-1">
+</div>
+<ol class="org-ol">
+<li><a id="org26ce9a8"></a>GitHubでソーシャルコーディング<br />
+<div class="outline-text-5" id="text-2-4-1-1">
+<ul class="org-ul">
+<li>ソーシャルコーディングのためのクラウド環境
+<ul class="org-ul">
+<li><a href="https://github.com/">GitHub</a></li>
+<li><a href="http://github.co.jp/">GitHub Japan</a></li>
+</ul></li>
+<li>GitHubが提供する主な機能
+<ul class="org-ul">
+<li>GitHub flowによる協同開発</li>
+<li>Pull requests</li>
+<li>Issue / Wiki</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgf6f890f"></a>GitHubアカウントの作成<br />
+<div class="outline-text-5" id="text-2-4-1-2">
+<ul class="org-ul">
+<li>（まだなら）次のURLの指示に従いGitHubアカウントを作成
+<ul class="org-ul">
+<li><a href="https://help.github.com/articles/signing-up-for-a-new-github-account/">Signing up for a new GitHub account - User Documentation</a></li>
+</ul></li>
+<li>アカウントの種類
+<ul class="org-ul">
+<li>無料版で作成する場合「Join GitHub for Free」を選択する</li>
+<li>学生の場合「Student Developer Pack」にアップグレードすることもできる</li>
+</ul></li>
+<li>その後，確認メールが届くので，必要に応じて残りの手順を実施せよ
+<ul class="org-ul">
+<li><a href="https://help.github.com/categories/setup/">GitHub Help</a></li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org97914f4"></a>SSHによるGitHubアクセス<br />
+<div class="outline-text-5" id="text-2-4-1-3">
+<ul class="org-ul">
+<li>GitHubへのアクセスはSSHを用いた公開鍵暗号方式の認証を用いる
+<ul class="org-ul">
+<li>SSH公開鍵の設定を行えば以降のパスワード認証が不要になる</li>
+</ul></li>
+<li>（まだなら）SSHを生成してGitHubに登録しなさい
+<ul class="org-ul">
+<li>鍵を生成するとき「passphrases」が聞かれるが，この演習では何も入力しなくてよい</li>
+<li><a href="https://help.github.com/articles/generating-an-ssh-key/">Generating an SSH key - User Documentation</a></li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org426b2ae" class="outline-4">
+<h4 id="org426b2ae"><span class="section-number-4">2.4.2.</span> リモートリポジトリ</h4>
+<div class="outline-text-4" id="text-2-4-2">
+</div>
+<ol class="org-ol">
+<li><a id="org7223ec5"></a>リモート VS ローカルリポジトリ<br />
+<div class="outline-text-5" id="text-2-4-2-1">
+<ul class="org-ul">
+<li>ローカルリポジトリ
+<ul class="org-ul">
+<li>git initコマンドを用いて作成したリポジトリを「ローカルリポジトリ」という</li>
+</ul></li>
+<li>リモートリポジトリ
+<ul class="org-ul">
+<li>「リモートリポジトリ」とは，サーバ上にあるリポジトリであり，
+ローカルのリポジトリと連携させることができる</li>
+</ul></li>
+<li>リモートリポジトリの利点
+<ul class="org-ul">
+<li>ネットワークを経由してどこからでも利用することができる</li>
+<li>複数人のチームで協同作業をするときに活用できる</li>
+</ul></li>
+</ul>
+</div>
+</li>
+<li><a id="orgeb4ca5c"></a>リモートリポジトリの作成<br />
+<div class="outline-text-5" id="text-2-4-2-2">
+<ul class="org-ul">
+<li>リモートリポジトリをGitHubで作成する
+<ul class="org-ul">
+<li>名前は「our<sub>project</sub>」とする</li>
+</ul></li>
+<li>次の手順で作成する
+<ul class="org-ul">
+<li><a href="https://help.github.com/articles/creating-a-new-repository/">Creating a new repository - User Documentation</a></li>
+</ul></li>
+<li>READMEとライセンスを追加すること
+<ul class="org-ul">
+<li>「Initialize this repository with a README」にチェックを入れる</li>
+<li>「Add a license:」から「MIT License」を選ぶ</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orgaf2ae79" class="outline-4">
+<h4 id="orgaf2ae79"><span class="section-number-4">2.4.3.</span> GitHub flow</h4>
+<div class="outline-text-4" id="text-2-4-3">
+</div>
+<ol class="org-ol">
+<li><a id="org6266d24"></a>GitHub flowwによる開発の流れ<br />
+<div class="outline-text-5" id="text-2-4-3-1">
+<ul class="org-ul">
+<li>GitHub flow
+<ul class="org-ul">
+<li><a href="https://guides.github.com/introduction/flow/">Understanding the GitHub Flow · GitHub Guides</a></li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgf056eb8"></a>1: リモートリポジトリをローカルに複製<br />
+<div class="outline-text-5" id="text-2-4-3-2">
+<ul class="org-ul">
+<li>リモートにあるリポジトリをローカルに複製することをcloneという
+<ul class="org-ul">
+<li><a href="https://help.github.com/articles/cloning-a-repository/">Cloning a repository - User Documentation</a></li>
+</ul></li>
+<li>下記の「$GITHUB<sub>URL</sub>」の部分をGitHubのour<sub>projectリポジトリURLにして実行</sub>
+<ul class="org-ul">
+<li>URLは「git@&#x2026;」で始まるSSH接続用のものを用いる
+<ul class="org-ul">
+<li>リポジトリのURLはブラウザ用のURLとは異なるので注意！</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8f0075;">cd</span> ~
+git clone $<span style="color: #00538b;">GITHUB_URL</span>
+<span style="color: #8f0075;">cd</span> our_project
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>この作業は基本的にはプロジェクトに対して一度だけ行うこと</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org81680ee"></a>2: masterから作業用ブランチを作成<br />
+<div class="outline-text-5" id="text-2-4-3-3">
+<ul class="org-ul">
+<li>作業用のブランチを作成して移動する
+<ul class="org-ul">
+<li>ブランチの名前は「greeting」とする</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git checkout -b greeting
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org2aea4d9"></a>3: ブランチで編集作業を行う<br />
+<div class="outline-text-5" id="text-2-4-3-4">
+<ul class="org-ul">
+<li>ここでは，hello.txtという名前のファイルを作成する</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8f0075;">echo</span> <span style="color: #2544bb;">'Hello GitHub'</span> &gt; hello.txt
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org5bab395"></a>4: ブランチでコミットを作成<br />
+<div class="outline-text-5" id="text-2-4-3-5">
+<ul class="org-ul">
+<li>変更した内容をステージングしてからコミットする</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git add .
+git commit -m <span style="color: #2544bb;">'Create hello.txt'</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>この編集，add，commitの作業は作業が一区切りつくまで何回も繰り返してよい…
+<ul class="org-ul">
+<li>が，こまめにpushするのが良いとされる</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org59ec6d0"></a>5: ブランチをリモートに送る<br />
+<div class="outline-text-5" id="text-2-4-3-6">
+<ul class="org-ul">
+<li>ブランチで作成したコミットをリモートに送る
+<ul class="org-ul">
+<li>下記のoriginはリポジトリのURLの別名として自動で設定されているもの</li>
+<li>greetingは作業しているブランチ名</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git push -u origin greeting
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orge818dce"></a>6. GitHubでプルリクエストを送る<br />
+<div class="outline-text-5" id="text-2-4-3-7">
+<ul class="org-ul">
+<li>ブランチがGitHubに登録されたことを確認し，Pull requestを作成する</li>
+<li>手順は次のとおり
+<ul class="org-ul">
+<li><a href="https://help.github.com/articles/using-pull-requests/">Using pull requests - User Documentation</a> の前半</li>
+<li><a href="https://help.github.com/articles/creating-a-pull-request/">Creating a pull request - User Documentation</a></li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org09e4e31"></a>7. GitHubでレビュー（＋自動テスト）<br />
+<div class="outline-text-5" id="text-2-4-3-8">
+<ul class="org-ul">
+<li>プルリクエストを用いたレビューの方法は下記参照
+<ul class="org-ul">
+<li><a href="https://help.github.com/articles/using-pull-requests/">Using pull requests - User Documentation</a> の後半</li>
+</ul></li>
+<li>人手によるレビューの他，自動的なテストも行うのが望ましい（説明は省略）</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org4d53ff3"></a>8. GitHubでプルリクエストをマージ<br />
+<div class="outline-text-5" id="text-2-4-3-9">
+<ul class="org-ul">
+<li>Pull requestのレビューが済んだらマージする
+<ul class="org-ul">
+<li><a href="https://help.github.com/articles/merging-a-pull-request/">Merging a pull request - User Documentation</a></li>
+</ul></li>
+<li>マージが完了したら，ローカル・リモート共に，マージ済みのブランチは削除してよい</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgc1b6aa3"></a>9. ローカルのmaster を最新版にする<br />
+<div class="outline-text-5" id="text-2-4-3-10">
+<ul class="org-ul">
+<li>GitHubで行ったマージをローカルに反映させる
+<ul class="org-ul">
+<li>masterブランチに移動してgit pull</li>
+<li>不要になった作業用ブランチは削除</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git checkout master
+git pull
+git branch -d greeting
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orga6c49fa"></a>GitHub Flowに習熟するには？<br />
+<div class="outline-text-5" id="text-2-4-3-11">
+<ul class="org-ul">
+<li>ここで手順2:（<a href="#org81680ee">2.4.3.3</a>節）に戻り，
+一連の作業を複数回（5回以上!）繰り返すこと
+<ul class="org-ul">
+<li><span class="underline">体に叩き込む！</span></li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org05c5732" class="outline-4">
+<h4 id="org05c5732"><span class="section-number-4">2.4.4.</span> コンフリクトについて</h4>
+<div class="outline-text-4" id="text-2-4-4">
+</div>
+<ol class="org-ol">
+<li><a id="org3d7b1eb"></a>GitHub flow におけるコンフリクトについて<br />
+<div class="outline-text-5" id="text-2-4-4-1">
+<ul class="org-ul">
+<li>コンフリクトとは？
+<ul class="org-ul">
+<li>コンフリクトは、コードの同じ箇所を複数の人が別々に編集すると発生</li>
+</ul></li>
+<li>コンフリクトが起きると？
+<ul class="org-ul">
+<li>GitHub に提出した Pull requests が自動的にマージできない</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org0d856e0"></a>コンフリクトへの基本的な対処法<br />
+<div class="outline-text-5" id="text-2-4-4-2">
+<ul class="org-ul">
+<li>初心者は、演習の最初の方では「他人と同じファイルを編集しない」こと
+にして、操作になれる
+<ul class="org-ul">
+<li>上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ</li>
+</ul></li>
+<li>コミットはできるだけ細かく作成すると良い
+<ul class="org-ul">
+<li>その分，他の人とかち合う可能性が減る</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgc6feb5d"></a>GitHubでのコンフリクトの解消<br />
+<div class="outline-text-5" id="text-2-4-4-3">
+<ul class="org-ul">
+<li>nobitaとshizukaのシナリオで，nobitaの作業がGitHubでマージされたとする
+<ul class="org-ul">
+<li>今，shizukaが作成したPull requestはマージできない</li>
+</ul></li>
+<li>次の手順でプルリクエストがマージ可能になれば成功</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orga438eae"></a>GitHubでのコンフリクトの解消方法<br />
+<div class="outline-text-5" id="text-2-4-4-4">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #505050; font-style: italic;"># </span><span style="color: #505050; font-style: italic;">&#12525;&#12540;&#12459;&#12523;&#12398;master&#12434;&#26368;&#26032;&#12395;</span>
+git checkout master
+git pull
+<span style="color: #505050; font-style: italic;"># </span><span style="color: #505050; font-style: italic;">shizuka&#12395;&#31227;&#21205;&#12375;&#12390;&#12510;&#12540;&#12472;</span>
+git checkout shizuka
+git merge master
+<span style="color: #505050; font-style: italic;"># </span><span style="color: #505050; font-style: italic;">&#12371;&#12371;&#12391;&#12467;&#12531;&#12501;&#12522;&#12463;&#12488;&#12434;&#35299;&#28040;&#12377;&#12427;</span>
+git add .
+git commit -m <span style="color: #2544bb;">'Merge'</span>
+git push -u origin shizuka
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org26d8f4a" class="outline-3">
+<h3 id="org26d8f4a"><span class="section-number-3">2.5.</span> （参考)より進んだ使い方</h3>
+<div class="outline-text-3" id="text-2-5">
+</div>
+<div id="outline-container-org9c74d05" class="outline-4">
+<h4 id="org9c74d05"><span class="section-number-4">2.5.1.</span> ファイルの削除と名前の変更</h4>
+<div class="outline-text-4" id="text-2-5-1">
+</div>
+<ol class="org-ol">
+<li><a id="org9ae7182"></a>Gitに無視させたいファイル<br />
+<div class="outline-text-5" id="text-2-5-1-1">
+<ul class="org-ul">
+<li>ツールが生成する中間ファイルなど，Gitで管理させたくないファイルは
+予め「.gitignore」ファイルに記述しておく</li>
+<li>なお，「.gitignore」ファイル自体はGitがトラッキングするファイルに含める</li>
+<li>.gitignoreの書き方については各自で調べよ</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org0651fde"></a>Gitが追跡するファイルの削除と名前の変更<br />
+<div class="outline-text-5" id="text-2-5-1-2">
+<ul class="org-ul">
+<li>Gitが追跡しているファイルであっても，
+シェルのrmコマンドやmvコマンドで削除や名前の変更をしてよい</li>
+<li>「git add .」コマンドを実行すると，Gitは削除や名前の変更も
+自動的に検知する
+<ul class="org-ul">
+<li>「git rm」や「git mv」は使わなくてよい</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org8980b0d" class="outline-4">
+<h4 id="org8980b0d"><span class="section-number-4">2.5.2.</span> 操作を取り消すコマンド</h4>
+<div class="outline-text-4" id="text-2-5-2">
+</div>
+<ol class="org-ol">
+<li><a id="org1fad1f3"></a>Gitで行った操作の取り消し<br />
+<div class="outline-text-5" id="text-2-5-2-1">
+<ul class="org-ul">
+<li>まちがって
+<ul class="org-ul">
+<li>ファイルをステージングさせた！</li>
+<li>ステージングをコミットした！</li>
+</ul></li>
+<li>などの場合，操作を取り消すことができる
+<ul class="org-ul">
+<li>特定のファイルの変更の取り消し</li>
+<li>特定のコミットの取り消し</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org84ffb8f"></a>HEADによるコミットの指定<br />
+<div class="outline-text-5" id="text-2-5-2-2">
+<ul class="org-ul">
+<li>特定のコミットのIDを指定する方法に「HEAD」を使った相対指定がある
+<ul class="org-ul">
+<li>showコマンドで確認しながら用いると良い（下記はサンプル）</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git show HEAD~1
+git show HEAD~1^2
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org8f1b3d0"></a>ステージング/コミットの修正<br />
+<div class="outline-text-5" id="text-2-5-2-3">
+<p>
+ファイルのステージングを取り消す
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">git reset $<span style="color: #00538b;">FILE</span>
+</pre>
+</div>
+
+<p>
+$COMMIT<sub>IDより後のコミットの取り消し</sub>（ローカルは保存）
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">git reset $<span style="color: #00538b;">COMMIT_ID</span>
+</pre>
+</div>
+
+<p>
+$COMMIT<sub>IDより後のコミットの取り消し</sub>（ローカルの変更も破棄）
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">git reset --hard $<span style="color: #00538b;">COMMIT_ID</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org4aab5ea"></a>誤って編集や削除や修正したファイルの回復<br />
+<div class="outline-text-5" id="text-2-5-2-4">
+<ul class="org-ul">
+<li>file.txtを誤って編集や削除した場合</li>
+<li>addする前
+<ul class="org-ul">
+<li>ステージング領域からの取り出し</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git checkout file.txt
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>addした後
+<ul class="org-ul">
+<li>直近のコミットからの取り出し</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git checkout HEAD file.txt
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orga69a5b4"></a>push済みのコミットの取り消し<br />
+<div class="outline-text-5" id="text-2-5-2-5">
+<ul class="org-ul">
+<li>最後に行ったコミットが理由でコンフリクトが発生したような場合，
+次の操作により，「取り消しコミット」を作成することができる</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git revert HEAD
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>最後の作業が取り消されていることを確認</li>
+<li>その後は，この取り消しコミットをpushすると，
+リモートでの変更内容も取り消される</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orgc7dc781" class="outline-4">
+<h4 id="orgc7dc781"><span class="section-number-4">2.5.3.</span> 作業の一度中断と再開</h4>
+<div class="outline-text-4" id="text-2-5-3">
+</div>
+<ol class="org-ol">
+<li><a id="org8a64e41"></a>やりかけの作業のstash<br />
+<div class="outline-text-5" id="text-2-5-3-1">
+<ul class="org-ul">
+<li>あるブランチで作業中に他のブランチに
+一時的に移動したいことがある
+<ul class="org-ul">
+<li>作業の途中でmasterブランチを最新にする，など</li>
+</ul></li>
+<li>このような場合，git stashコマンドが活用できる
+ので調べてみよ</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org577d52e" class="outline-4">
+<h4 id="org577d52e"><span class="section-number-4">2.5.4.</span> その他知っておくと良いコマンド</h4>
+<div class="outline-text-4" id="text-2-5-4">
+</div>
+<ol class="org-ol">
+<li><a id="orgcf23193"></a>ステージングしたファイルの差分表示<br />
+<div class="outline-text-5" id="text-2-5-4-1">
+<ul class="org-ul">
+<li>git addでステージングするとgit diffで差分が表示されない</li>
+<li>この場合，次のコマンドで確認できる</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git diff --staged
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orgdd430a4"></a>特定のファイルにのみ関連する履歴確認<br />
+<div class="outline-text-5" id="text-2-5-4-2">
+<ul class="org-ul">
+<li>特定のファイルの履歴のみ確認する</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git log --follow README
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orgeb86237"></a>リモートブランチの最新情報を取得<br />
+<div class="outline-text-5" id="text-2-5-4-3">
+<ul class="org-ul">
+<li>git fetchはリモートにあるブランチの最新情報を
+ローカルに取ってくるコマンド</li>
+<li>例えば，git pullはmasterブランチで次の２つを実行することと同じ意味</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git fetch origin
+git merge origin/master
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org01aad37"></a>git ls-files<br />
+<div class="outline-text-5" id="text-2-5-4-4">
+<ul class="org-ul">
+<li>省略</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgde4ee33" class="outline-2">
+<h2 id="orgde4ee33"><span class="section-number-2">3.</span> GitHub演習（チーム演習編）</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org457f207" class="outline-3">
+<h3 id="org457f207"><span class="section-number-3">3.1.</span> チーム演習</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org6021058" class="outline-4">
+<h4 id="org6021058"><span class="section-number-4">3.1.1.</span> 演習のための準備</h4>
+<div class="outline-text-4" id="text-3-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="org00b234b"></a>概要<br />
+<div class="outline-text-5" id="text-3-1-1-1">
+<ul class="org-ul">
+<li>この演習では，最終的に全員でHTMLによるWebサイトを作ることを目指す</li>
+<li>Webサーバは使わず，スタティックなサイトで構わない</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org97cb209"></a>リモートリポジトリの作成<br />
+<div class="outline-text-5" id="text-3-1-1-2">
+<ul class="org-ul">
+<li>チームの代表者1名がGitHubでリポジトリを作成する
+<ul class="org-ul">
+<li>名前は「team<sub>project</sub>」とする</li>
+</ul></li>
+<li>次の手順で作成する
+<ul class="org-ul">
+<li><a href="https://help.github.com/articles/creating-a-new-repository/">Creating a new repository - User Documentation</a></li>
+</ul></li>
+<li>READMEとライセンスを追加すること
+<ul class="org-ul">
+<li>「Initialize this repository with a README」にチェックを入れる</li>
+<li>「Add a license:」から「MIT License」を選ぶ</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org0523593"></a>コラボレーターの追加<br />
+<div class="outline-text-5" id="text-3-1-1-3">
+<ul class="org-ul">
+<li>代表者は残りのメンバーを協同作業者（コラボレータ）として追加する
+<ul class="org-ul">
+<li><a href="https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/">Inviting collaborators to a personal repository - User Documentation</a></li>
+</ul></li>
+<li>招待されたメンバーには確認のメールが届く
+<ul class="org-ul">
+<li>これにより，全員がGitHubのリポジトリにpushできるようになる</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org7d78c27"></a>リポジトリのclone<br />
+<div class="outline-text-5" id="text-3-1-1-4">
+<ul class="org-ul">
+<li>全員，リポジトリをローカルにcloneする
+<ul class="org-ul">
+<li><a href="https://help.github.com/articles/cloning-a-repository/">Cloning a repository - User Documentation</a></li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8f0075;">cd</span> ~
+git clone $<span style="color: #00538b;">GITHUB_URL</span>
+<span style="color: #8f0075;">cd</span> team_project
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org5551247" class="outline-4">
+<h4 id="org5551247"><span class="section-number-4">3.1.2.</span> チーム演習</h4>
+<div class="outline-text-4" id="text-3-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="org36ac00c"></a>課題1: GitHubのIssue/Wikiを学ぶ<br />
+<div class="outline-text-5" id="text-3-1-2-1">
+<ul class="org-ul">
+<li>リポジトリのIssue機能を使ってみよう
+<ul class="org-ul">
+<li>一人1つIssueを登録する</li>
+<li>メンバーのIssueに挨拶する（投稿する）</li>
+<li>終わったらIssueを閉じてみる</li>
+</ul></li>
+<li>リポジトリのWikiを使ってみよう
+<ul class="org-ul">
+<li>Wikiを使ってチームメンバーの自己紹介をしてみよう</li>
+</ul></li>
+<li>なお，この演習にあまり時間をかけてはならない</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org3905582"></a>課題2: まずは全員1回pushしよう<br />
+<div class="outline-text-5" id="text-3-1-2-2">
+<ul class="org-ul">
+<li>全員1回，最初のGitHub Flowを成功させよう</li>
+<li>GitHubのアカウント名（$GITHUB<sub>NAME</sub>）でブランチを切り，コミットするファイルを作る</li>
+<li>ファイル名は各自の＋「.html」とする</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git checkout -b $<span style="color: #00538b;">GITHUB_NAME</span>
+<span style="color: #505050; font-style: italic;"># </span><span style="color: #505050; font-style: italic;">&#12456;&#12487;&#12451;&#12479;&#12391;$GITHUB_NAME.html&#12434;&#20316;&#25104;</span>
+git add $<span style="color: #00538b;">GITHUB_NAME</span>.html
+git commit -m <span style="color: #2544bb;">'&#65308;&#12513;&#12483;&#12475;&#12540;&#12472;&#65310;'</span>
+git push -u origin $<span style="color: #00538b;">GITHUB_NAME</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orge23b709"></a>課題3: プルリクエストの作成<br />
+<div class="outline-text-5" id="text-3-1-2-3">
+<ul class="org-ul">
+<li>pushしたブランチからプルリクエストを出してみよう</li>
+<li>他のメンバーのプルリクエストにコメントしてみよう</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orge2573d2"></a>課題4: マージの練習<br />
+<div class="outline-text-5" id="text-3-1-2-4">
+<ul class="org-ul">
+<li>プルリクエストを出した人が自分でマージしてみよう</li>
+<li>この段階でコンフリクトが出ることはないはず
+（同じファイルを編集していない）だが，もし
+マージできない場合は，プルリクエストを削除し，
+課題2からやり直す</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org19371dc"></a>課題5: 全員のmasterを最新にする<br />
+<div class="outline-text-5" id="text-3-1-2-5">
+<ul class="org-ul">
+<li>全員のローカルのmasterブランチを最新にする</li>
+<li>各自次のコマンドを実行</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">git pull
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>ローカルに他のメンバーが作成したファイルができているか確認</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org581fdd8"></a>課題6: 再びブランチをpushする<br />
+<div class="outline-text-5" id="text-3-1-2-6">
+<ul class="org-ul">
+<li>まず，masterが最新版であることを確認</li>
+<li>作業を決めて， <b>作業の内容がわかりやすい名前</b> でブランチを作る</li>
+<li><code>$GITHUB_NAME.html</code> に，中身を追加してみよう（内容は何でも良い）</li>
+<li><code>git add/commit/push</code> を正確に実行しよう</li>
+<li>ブランチが無事pushできたら，GitHubをブラウザで確認する</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org77940bc"></a>課題7: 再びプルリクエストとマージ<br />
+<div class="outline-text-5" id="text-3-1-2-7">
+<ul class="org-ul">
+<li>再びプルリクエストとマージを行ってみよう</li>
+<li>プルリクエストのコメントには顔文字なども
+利用できるので活用してみよう
+<ul class="org-ul">
+<li>やり方は各自で調べること</li>
+</ul></li>
+<li>今度は他のメンバーにマージを依頼しても良い</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgb8809d7"></a>課題8: 何回も繰り返す<br />
+<div class="outline-text-5" id="text-3-1-2-8">
+<ul class="org-ul">
+<li>同じファイルに更なる変更を加え，GitHub Flowを回してみよう</li>
+<li>これを最低3回は繰り返したい</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgd0424d4"></a>課題9: ぼちぼちコンフリクト<br />
+<div class="outline-text-5" id="text-3-1-2-9">
+<ul class="org-ul">
+<li>誰かが空の「index.html」ファイルを作成する</li>
+<li>全員でindex.htmlを編集してみよう
+<ul class="org-ul">
+<li>$MY<sub>FILEへのリンクを貼る</sub></li>
+</ul></li>
+<li>pushしてプルリクエストを出してみる</li>
+<li>何人かはコンフリクトになるはずだ</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgce3c8c0"></a>課題10: コンフリクトの解消<br />
+<div class="outline-text-5" id="text-3-1-2-10">
+<ul class="org-ul">
+<li>コンフリクトが出たメンバーは，それを解消してみよう</li>
+<li>コンフリクトが出なかったメンバーは，コンフリクトが出ているメンバーの
+作業を見る
+<ul class="org-ul">
+<li>困っていたら助けてあげよう</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org98c58c1"></a>課題11: Webサイトを作ってみよう<br />
+<div class="outline-text-5" id="text-3-1-2-11">
+<ul class="org-ul">
+<li>チームで内容を相談し，Webサイトを作ってみよう</li>
+<li>index.htmlや$MY<sub>FILE以外にもファイルを追加して</sub>
+素敵なWebサイトを作ろう</li>
+<li>可能ならばCSSやJavaScriptを使っても良いが必須ではない</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org9e39858"></a>注意事項<br />
+<div class="outline-text-5" id="text-3-1-2-12">
+<ul class="org-ul">
+<li>実は，GitHubでは，gitコマンドを使わなくても，
+ブラウザベースでファイルのアップロードや編集，コミットの作成などが
+できるが，このことに <b>気がついてはならない</b>
+<ul class="org-ul">
+<li>ただし，万が一，気がついてしまった場合，それはしょうがないものとする</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: 中鉢欣秀</p>
+<p class="date">Created: 2021-11-19 Fri 19:36</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
