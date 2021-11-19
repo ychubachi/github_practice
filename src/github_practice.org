@@ -9,7 +9,8 @@
 + HTML形式でこの文書全体をエキスポートする方法
   * スタイルはSETUPFILEで設定
   * エキスポートするファイル名はEXPORT_FILE_NAMEで設定
-  * C-c C-e h h
+  * C-c C-e h hでエキスポートし、GitHubにコミット
+  * https://blog.chubachi.net/github_practice/
 #+end_comment
 
 * Git/GitHub演習
