@@ -4,7 +4,7 @@
 #+OPTIONS: ^:{}
 #+EXPORT_FILE_NAME: ../docs/index.html
 #+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
-#+HTML_HEAD: <style>font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;</style>
+# #+HTML_HEAD: <style>font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;</style>
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 #+begin_comment
