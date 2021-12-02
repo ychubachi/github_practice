@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-02 Thu 12:10 -->
+<!-- 2021-12-02 Thu 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git/GitHub演習</title>
@@ -193,7 +193,6 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
-<style>pre.src{background:#343131;color:white;} </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -208,60 +207,60 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org9bb30f9">1. Git/GitHub演習</a>
+<li><a href="#org8562679">1. Git/GitHub演習</a>
 <ul>
-<li><a href="#orgced9646">1.1. Git/GitHub演習について</a>
+<li><a href="#org2b0777c">1.1. Git/GitHub演習について</a>
 <ul>
-<li><a href="#orge29f57b">1.1.1. 授業の概要</a></li>
+<li><a href="#org1d97297">1.1.1. 授業の概要</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org11e71c7">2. Git/GitHub演習（個人演習編）</a>
+<li><a href="#org294d2a1">2. Git/GitHub演習（個人演習編）</a>
 <ul>
-<li><a href="#org770cefb">2.1. Git入門</a>
+<li><a href="#org766ea36">2.1. Git入門</a>
 <ul>
-<li><a href="#orgdf42a9a">2.1.1. Gitの操作方法と初期設定</a></li>
-<li><a href="#orgc059fef">2.1.2. Gitのリポジトリ</a></li>
+<li><a href="#org3b7a65f">2.1.1. Gitの操作方法と初期設定</a></li>
+<li><a href="#org0c3da17">2.1.2. Gitのリポジトリ</a></li>
 </ul>
 </li>
-<li><a href="#org4d6ebf8">2.2. コミットの方法</a>
+<li><a href="#orgf8266cf">2.2. コミットの方法</a>
 <ul>
-<li><a href="#org324e61e">2.2.1. コミットの作成方法</a></li>
-<li><a href="#orgc08a20a">2.2.2. 変更履歴の作成</a></li>
-<li><a href="#org616143f">2.2.3. 履歴の確認</a></li>
+<li><a href="#orgd954535">2.2.1. コミットの作成方法</a></li>
+<li><a href="#org5eb8046">2.2.2. 変更履歴の作成</a></li>
+<li><a href="#orgb69a9cf">2.2.3. 履歴の確認</a></li>
 </ul>
 </li>
-<li><a href="#org02ca05c">2.3. ブランチとコンフリクト</a>
+<li><a href="#org98a4451">2.3. ブランチとコンフリクト</a>
 <ul>
-<li><a href="#orga9df0e8">2.3.1. ブランチの使い方</a></li>
-<li><a href="#org1b9083c">2.3.2. コンフリクト</a></li>
+<li><a href="#org4966328">2.3.1. ブランチの使い方</a></li>
+<li><a href="#org5e98fed">2.3.2. コンフリクト</a></li>
 </ul>
 </li>
-<li><a href="#org821cebb">2.4. GitHub入門</a>
+<li><a href="#org6cb2e9b">2.4. GitHub入門</a>
 <ul>
-<li><a href="#org4f08010">2.4.1. GitHubとは</a></li>
-<li><a href="#orgfdd93fa">2.4.2. リモートリポジトリ</a></li>
-<li><a href="#orgb342001">2.4.3. GitHub flow</a></li>
-<li><a href="#org0ce4c81">2.4.4. コンフリクトについて</a></li>
+<li><a href="#org3d9c664">2.4.1. GitHubとは</a></li>
+<li><a href="#org567e6b5">2.4.2. リモートリポジトリ</a></li>
+<li><a href="#org0c5acd0">2.4.3. GitHub flow</a></li>
+<li><a href="#org59199cc">2.4.4. コンフリクトについて</a></li>
 </ul>
 </li>
-<li><a href="#org5963954">2.5. （参考)より進んだ使い方</a>
+<li><a href="#org1b5ae4a">2.5. （参考)より進んだ使い方</a>
 <ul>
-<li><a href="#org359c56a">2.5.1. ファイルの削除と名前の変更</a></li>
-<li><a href="#org6d414ee">2.5.2. 操作を取り消すコマンド</a></li>
-<li><a href="#org7c44f5a">2.5.3. 作業の一度中断と再開</a></li>
-<li><a href="#org5402304">2.5.4. その他知っておくと良いコマンド</a></li>
+<li><a href="#org54471e5">2.5.1. ファイルの削除と名前の変更</a></li>
+<li><a href="#org91b29dd">2.5.2. 操作を取り消すコマンド</a></li>
+<li><a href="#orged66be9">2.5.3. 作業の一度中断と再開</a></li>
+<li><a href="#org980596d">2.5.4. その他知っておくと良いコマンド</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org9b50f20">3. GitHub演習（チーム演習編）</a>
+<li><a href="#orge1444f1">3. GitHub演習（チーム演習編）</a>
 <ul>
-<li><a href="#org7c704a1">3.1. チーム演習</a>
+<li><a href="#org5894b1c">3.1. チーム演習</a>
 <ul>
-<li><a href="#org0d52cdb">3.1.1. 演習のための準備</a></li>
-<li><a href="#orgcbe1a43">3.1.2. チーム演習</a></li>
+<li><a href="#org1fb047b">3.1.1. 演習のための準備</a></li>
+<li><a href="#org48d3621">3.1.2. チーム演習</a></li>
 </ul>
 </li>
 </ul>
@@ -270,20 +269,20 @@
 </div>
 </div>
 
-<div id="outline-container-org9bb30f9" class="outline-2">
-<h2 id="org9bb30f9"><span class="section-number-2">1.</span> Git/GitHub演習</h2>
+<div id="outline-container-org8562679" class="outline-2">
+<h2 id="org8562679"><span class="section-number-2">1.</span> Git/GitHub演習</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgced9646" class="outline-3">
-<h3 id="orgced9646"><span class="section-number-3">1.1.</span> Git/GitHub演習について</h3>
+<div id="outline-container-org2b0777c" class="outline-3">
+<h3 id="org2b0777c"><span class="section-number-3">1.1.</span> Git/GitHub演習について</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orge29f57b" class="outline-4">
-<h4 id="orge29f57b"><span class="section-number-4">1.1.1.</span> 授業の概要</h4>
+<div id="outline-container-org1d97297" class="outline-4">
+<h4 id="org1d97297"><span class="section-number-4">1.1.1.</span> 授業の概要</h4>
 <div class="outline-text-4" id="text-1-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="org341f86c"></a>この資料の入手先<br />
+<li><a id="org514549c"></a>この資料の入手先<br />
 <div class="outline-text-5" id="text-1-1-1-1">
 <ul class="org-ul">
 <li><a href="https://github.com/ychubachi/github_practice">https://github.com/ychubachi/github_practice</a></li>
@@ -291,7 +290,7 @@
 </div>
 </li>
 
-<li><a id="org8d48d45"></a>この演習について<br />
+<li><a id="org299db41"></a>この演習について<br />
 <div class="outline-text-5" id="text-1-1-1-2">
 <ul class="org-ul">
 <li>この授業ではGitの初心者が，基礎的なGitコマンドの利用方法から，
@@ -300,7 +299,7 @@ GitHub Flowに基づく協同開発の方法までを学ぶ</li>
 </div>
 </li>
 
-<li><a id="org8959ad5"></a>事前準備<br />
+<li><a id="org457d0f9"></a>事前準備<br />
 <div class="outline-text-5" id="text-1-1-1-3">
 <ul class="org-ul">
 <li>事前に gitコマンドが利用できる環境を用意しておくこと</li>
@@ -310,7 +309,7 @@ GitHub Flowに基づく協同開発の方法までを学ぶ</li>
 </div>
 </li>
 
-<li><a id="org459ee37"></a>授業の構成<br />
+<li><a id="org925a262"></a>授業の構成<br />
 <div class="outline-text-5" id="text-1-1-1-4">
 <ul class="org-ul">
 <li>個人演習では，テキストの指示に従い，
@@ -320,7 +319,7 @@ Git/GitHubを利用するにあたり必要となる知識を学ぶ</li>
 </div>
 </li>
 
-<li><a id="org0f0a1c5"></a>授業の進め方<br />
+<li><a id="org6112ec8"></a>授業の進め方<br />
 <div class="outline-text-5" id="text-1-1-1-5">
 <ol class="org-ol">
 <li>演習の解説
@@ -343,20 +342,20 @@ Git/GitHubを利用するにあたり必要となる知識を学ぶ</li>
 </div>
 </div>
 
-<div id="outline-container-org11e71c7" class="outline-2">
-<h2 id="org11e71c7"><span class="section-number-2">2.</span> Git/GitHub演習（個人演習編）</h2>
+<div id="outline-container-org294d2a1" class="outline-2">
+<h2 id="org294d2a1"><span class="section-number-2">2.</span> Git/GitHub演習（個人演習編）</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org770cefb" class="outline-3">
-<h3 id="org770cefb"><span class="section-number-3">2.1.</span> Git入門</h3>
+<div id="outline-container-org766ea36" class="outline-3">
+<h3 id="org766ea36"><span class="section-number-3">2.1.</span> Git入門</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-orgdf42a9a" class="outline-4">
-<h4 id="orgdf42a9a"><span class="section-number-4">2.1.1.</span> Gitの操作方法と初期設定</h4>
+<div id="outline-container-org3b7a65f" class="outline-4">
+<h4 id="org3b7a65f"><span class="section-number-4">2.1.1.</span> Gitの操作方法と初期設定</h4>
 <div class="outline-text-4" id="text-2-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgfa0a5fc"></a>Gitチートシート（カンニング表）<br />
+<li><a id="orge38bfbb"></a>Gitチートシート（カンニング表）<br />
 <div class="outline-text-5" id="text-2-1-1-1">
 <ul class="org-ul">
 <li>主なGitコマンドの一覧表
@@ -368,7 +367,7 @@ Git/GitHubを利用するにあたり必要となる知識を学ぶ</li>
 </div>
 </li>
 
-<li><a id="orgf1e5bb1"></a>Gitコマンドの実行確認<br />
+<li><a id="orgd9fe4ae"></a>Gitコマンドの実行確認<br />
 <div class="outline-text-5" id="text-2-1-1-2">
 <ul class="org-ul">
 <li>端末を操作してGitコマンドを起動してみよう．</li>
@@ -382,7 +381,7 @@ Git/GitHubを利用するにあたり必要となる知識を学ぶ</li>
 </div>
 </li>
 
-<li><a id="org4ec3bec"></a>名前とメールアドレスの登録<br />
+<li><a id="org15947b4"></a>名前とメールアドレスの登録<br />
 <div class="outline-text-5" id="text-2-1-1-3">
 <ul class="org-ul">
 <li>（まだなら）gitに名前とメールアドレスを登録しておく</li>
@@ -400,7 +399,7 @@ git config --global user.email $<span style="color: #00538b;">EMAIL</span>
 </div>
 </li>
 
-<li><a id="org6d7b353"></a>設定の確認方法<br />
+<li><a id="orge801c60"></a>設定の確認方法<br />
 <div class="outline-text-5" id="text-2-1-1-4">
 <ul class="org-ul">
 <li>ここまでの設定を確認する</li>
@@ -415,12 +414,12 @@ git config --global user.email $<span style="color: #00538b;">EMAIL</span>
 </ol>
 </div>
 
-<div id="outline-container-orgc059fef" class="outline-4">
-<h4 id="orgc059fef"><span class="section-number-4">2.1.2.</span> Gitのリポジトリ</h4>
+<div id="outline-container-org0c3da17" class="outline-4">
+<h4 id="org0c3da17"><span class="section-number-4">2.1.2.</span> Gitのリポジトリ</h4>
 <div class="outline-text-4" id="text-2-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="org4486a95"></a>プロジェクト用のディレクトリ<br />
+<li><a id="org6a2b5fe"></a>プロジェクト用のディレクトリ<br />
 <div class="outline-text-5" id="text-2-1-2-1">
 <ul class="org-ul">
 <li>リポジトリとはプロジェクトでソースコードなどを
@@ -438,7 +437,7 @@ git config --global user.email $<span style="color: #00538b;">EMAIL</span>
 </div>
 </li>
 
-<li><a id="org6c283fa"></a>Gitリポジトリを利用するには<br />
+<li><a id="orge62a3f7"></a>Gitリポジトリを利用するには<br />
 <div class="outline-text-5" id="text-2-1-2-2">
 <ul class="org-ul">
 <li>リポジトリを利用する方法には主に2種類ある
@@ -451,7 +450,7 @@ git config --global user.email $<span style="color: #00538b;">EMAIL</span>
 </div>
 </li>
 
-<li><a id="org637937f"></a>Gitリポジトリの初期化方法<br />
+<li><a id="org90b641a"></a>Gitリポジトリの初期化方法<br />
 <div class="outline-text-5" id="text-2-1-2-3">
 <ul class="org-ul">
 <li>Gitリポジトリ（my_project）を作成する
@@ -477,7 +476,7 @@ git init
 </div>
 </li>
 
-<li><a id="orgf6d0d9b"></a>リポジトリの状態を確認する方法<br />
+<li><a id="org01e34ba"></a>リポジトリの状態を確認する方法<br />
 <div class="outline-text-5" id="text-2-1-2-4">
 <ul class="org-ul">
 <li>現在のリポジトリの状態を確認するコマンドは次のとおり</li>
@@ -499,7 +498,7 @@ git init
 </div>
 </li>
 
-<li><a id="orgd84f414"></a>「.git」ディレクトリを壊すべからず<br />
+<li><a id="org623fca5"></a>「.git」ディレクトリを壊すべからず<br />
 <div class="outline-text-5" id="text-2-1-2-5">
 <ul class="org-ul">
 <li>ティレクトリにリポジトリを作成すると「.git」という隠しディレクトリが
@@ -518,16 +517,16 @@ git init
 </div>
 </div>
 
-<div id="outline-container-org4d6ebf8" class="outline-3">
-<h3 id="org4d6ebf8"><span class="section-number-3">2.2.</span> コミットの方法</h3>
+<div id="outline-container-orgf8266cf" class="outline-3">
+<h3 id="orgf8266cf"><span class="section-number-3">2.2.</span> コミットの方法</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-org324e61e" class="outline-4">
-<h4 id="org324e61e"><span class="section-number-4">2.2.1.</span> コミットの作成方法</h4>
+<div id="outline-container-orgd954535" class="outline-4">
+<h4 id="orgd954535"><span class="section-number-4">2.2.1.</span> コミットの作成方法</h4>
 <div class="outline-text-4" id="text-2-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="org90ecbee"></a>コミットについて(1)<br />
+<li><a id="orgd9b66eb"></a>コミットについて(1)<br />
 <div class="outline-text-5" id="text-2-2-1-1">
 <ul class="org-ul">
 <li>Gitの用語における「コミット」とは，「ひとかたまりの作業」をいう
@@ -543,7 +542,7 @@ git init
 </ul>
 </div>
 </li>
-<li><a id="orgf1c4385"></a>コミットについて(2)<br />
+<li><a id="orga390e62"></a>コミットについて(2)<br />
 <div class="outline-text-5" id="text-2-2-1-2">
 <ul class="org-ul">
 <li>コミットには，作業の内容を説明するメッセージをつける</li>
@@ -552,7 +551,7 @@ git init
 </div>
 </li>
 
-<li><a id="orge437964"></a>READMEファイルの作成<br />
+<li><a id="org81cee8e"></a>READMEファイルの作成<br />
 <div class="outline-text-5" id="text-2-2-1-3">
 <ul class="org-ul">
 <li>my_projectリポジトリにREADMEファイルを作成してみよう</li>
@@ -569,7 +568,7 @@ git init
 </div>
 </li>
 
-<li><a id="org22a519d"></a>リポジトリの状態の確認<br />
+<li><a id="orgd490e4c"></a>リポジトリの状態の確認<br />
 <div class="outline-text-5" id="text-2-2-1-4">
 <ul class="org-ul">
 <li>git statusで現在のリポジトリの状態を確認する</li>
@@ -587,7 +586,7 @@ git init
 </div>
 </li>
 
-<li><a id="org941c58a"></a>変更内容のステージング<br />
+<li><a id="org0771f33"></a>変更内容のステージング<br />
 <div class="outline-text-5" id="text-2-2-1-5">
 <ul class="org-ul">
 <li>コミットの一つ手前にステージングという段階がある
@@ -605,7 +604,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="orgaa742df"></a>ステージングの実行<br />
+<li><a id="org026ea10"></a>ステージングの実行<br />
 <div class="outline-text-5" id="text-2-2-1-6">
 <ul class="org-ul">
 <li>作成したREADMEファイルをステージングするには，次のコマンドを打つ</li>
@@ -632,7 +631,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="orgde347f6"></a>ステージング後のリポジトリへの状態<br />
+<li><a id="orgd91a4c5"></a>ステージング後のリポジトリへの状態<br />
 <div class="outline-text-5" id="text-2-2-1-7">
 <ul class="org-ul">
 <li>再度，git statusコマンドで状態を確認しよう</li>
@@ -650,7 +649,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="org1d56dc2"></a>ステージングされた内容をコミットする<br />
+<li><a id="org4637829"></a>ステージングされた内容をコミットする<br />
 <div class="outline-text-5" id="text-2-2-1-8">
 <ul class="org-ul">
 <li>ステージング段階にある変更内容をコミットする</li>
@@ -669,7 +668,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="orgecf3e00"></a>コミット後の状態の確認<br />
+<li><a id="org9801a19"></a>コミット後の状態の確認<br />
 <div class="outline-text-5" id="text-2-2-1-9">
 <ul class="org-ul">
 <li>コミットが正常に行われたことを確認する
@@ -694,12 +693,12 @@ gitがそのファイルの変更を追跡するようになる</li>
 </ol>
 </div>
 
-<div id="outline-container-orgc08a20a" class="outline-4">
-<h4 id="orgc08a20a"><span class="section-number-4">2.2.2.</span> 変更履歴の作成</h4>
+<div id="outline-container-org5eb8046" class="outline-4">
+<h4 id="org5eb8046"><span class="section-number-4">2.2.2.</span> 変更履歴の作成</h4>
 <div class="outline-text-4" id="text-2-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgeccdd9e"></a>更なるコミットを作成する<br />
+<li><a id="org7cd43fe"></a>更なるコミットを作成する<br />
 <div class="outline-text-5" id="text-2-2-2-1">
 <ul class="org-ul">
 <li>リポジトリで変更作業を行い，新しいコミットを追加する
@@ -720,7 +719,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="org005f974"></a>変更後の状態の確認<br />
+<li><a id="orgf9c65bd"></a>変更後の状態の確認<br />
 <div class="outline-text-5" id="text-2-2-2-2">
 <ul class="org-ul">
 <li>リポジトリの状態をここでも確認する</li>
@@ -738,7 +737,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="org994c857"></a>差分の確認<br />
+<li><a id="orgd3a871e"></a>差分の確認<br />
 <div class="outline-text-5" id="text-2-2-2-3">
 <ul class="org-ul">
 <li>トラックされているファイルの変更箇所を確認する</li>
@@ -758,7 +757,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="org6debd92"></a>新たな差分をステージングする<br />
+<li><a id="orgc68ecd3"></a>新たな差分をステージングする<br />
 <div class="outline-text-5" id="text-2-2-2-4">
 <ul class="org-ul">
 <li>作成した差分をコミットできるようにするために，ステージング段階に上げる</li>
@@ -776,7 +775,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="org22153cd"></a>ステージングされた新しい差分のコミット<br />
+<li><a id="org7314a13"></a>ステージングされた新しい差分のコミット<br />
 <div class="outline-text-5" id="text-2-2-2-5">
 <ul class="org-ul">
 <li>変更内容を示すメッセージとともにコミットする</li>
@@ -791,12 +790,12 @@ gitがそのファイルの変更を追跡するようになる</li>
 </ol>
 </div>
 
-<div id="outline-container-org616143f" class="outline-4">
-<h4 id="org616143f"><span class="section-number-4">2.2.3.</span> 履歴の確認</h4>
+<div id="outline-container-orgb69a9cf" class="outline-4">
+<h4 id="orgb69a9cf"><span class="section-number-4">2.2.3.</span> 履歴の確認</h4>
 <div class="outline-text-4" id="text-2-2-3">
 </div>
 <ol class="org-ol">
-<li><a id="org0ea72a1"></a>バージョン履歴の確認<br />
+<li><a id="org55a8d1e"></a>バージョン履歴の確認<br />
 <div class="outline-text-5" id="text-2-2-3-1">
 <ul class="org-ul">
 <li>これまでの変更作業の履歴を確認
@@ -821,7 +820,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="org0b004e2"></a>2つのコミットの比較<br />
+<li><a id="orgbecdb65"></a>2つのコミットの比較<br />
 <div class="outline-text-5" id="text-2-2-3-2">
 <ul class="org-ul">
 <li>異なる２つのコミットの変更差分は次のコマンドで確認できる
@@ -843,7 +842,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="org02f9240"></a>コミットの情報確認<br />
+<li><a id="org91c2fac"></a>コミットの情報確認<br />
 <div class="outline-text-5" id="text-2-2-3-3">
 <ul class="org-ul">
 <li>次のコマンドでコミットで行った変更内容が確認できる</li>
@@ -859,16 +858,16 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </div>
 
-<div id="outline-container-org02ca05c" class="outline-3">
-<h3 id="org02ca05c"><span class="section-number-3">2.3.</span> ブランチとコンフリクト</h3>
+<div id="outline-container-org98a4451" class="outline-3">
+<h3 id="org98a4451"><span class="section-number-3">2.3.</span> ブランチとコンフリクト</h3>
 <div class="outline-text-3" id="text-2-3">
 </div>
-<div id="outline-container-orga9df0e8" class="outline-4">
-<h4 id="orga9df0e8"><span class="section-number-4">2.3.1.</span> ブランチの使い方</h4>
+<div id="outline-container-org4966328" class="outline-4">
+<h4 id="org4966328"><span class="section-number-4">2.3.1.</span> ブランチの使い方</h4>
 <div class="outline-text-4" id="text-2-3-1">
 </div>
 <ol class="org-ol">
-<li><a id="org5999fa7"></a>ブランチとは<br />
+<li><a id="org26e6e88"></a>ブランチとは<br />
 <div class="outline-text-5" id="text-2-3-1-1">
 <ul class="org-ul">
 <li>「ひとまとまりの作業」を行う場所</li>
@@ -879,7 +878,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="orgd22ef09"></a>masterは大事なブランチ<br />
+<li><a id="org379f639"></a>masterは大事なブランチ<br />
 <div class="outline-text-5" id="text-2-3-1-2">
 <ul class="org-ul">
 <li>Gitリポジトリの初期化後，最初のコミットを行うとmasterブランチができる</li>
@@ -892,7 +891,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="org2b8f469"></a>ブランチの作成と移動<br />
+<li><a id="orgf26fbab"></a>ブランチの作成と移動<br />
 <div class="outline-text-5" id="text-2-3-1-3">
 <ul class="org-ul">
 <li>新しいブランチ「new_branch」を作成して，なおかつ，そのブランチに移動する
@@ -913,7 +912,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="orgc79ca55"></a>ブランチの確認<br />
+<li><a id="org0bfcaaf"></a>ブランチの確認<br />
 <div class="outline-text-5" id="text-2-3-1-4">
 <ul class="org-ul">
 <li>ブランチの一覧と現在のブランチを確認する
@@ -934,7 +933,7 @@ gitがそのファイルの変更を追跡するようになる</li>
 </div>
 </li>
 
-<li><a id="orgb03f5fa"></a>ブランチでのコミット作成<br />
+<li><a id="org0c189c3"></a>ブランチでのコミット作成<br />
 <div class="outline-text-5" id="text-2-3-1-5">
 <ul class="org-ul">
 <li>READMEに現在の日時を追加</li>
@@ -954,7 +953,7 @@ git commit -m <span style="color: #2544bb;">'Add date'</span>
 </div>
 </li>
 
-<li><a id="org1087c16"></a>ブランチの移動<br />
+<li><a id="org59d4f4b"></a>ブランチの移動<br />
 <div class="outline-text-5" id="text-2-3-1-6">
 <ul class="org-ul">
 <li>new_branchブランチでコミットした内容をmasterに反映させる
@@ -976,7 +975,7 @@ git commit -m <span style="color: #2544bb;">'Add date'</span>
 </div>
 </li>
 
-<li><a id="org51ca531"></a>変更をmasterにマージ<br />
+<li><a id="org59b1917"></a>変更をmasterにマージ<br />
 <div class="outline-text-5" id="text-2-3-1-7">
 <ul class="org-ul">
 <li>new_branchで行ったコミットをmasterに反映させる</li>
@@ -995,7 +994,7 @@ git commit -m <span style="color: #2544bb;">'Add date'</span>
 </div>
 </li>
 
-<li><a id="org83d94ba"></a>マージ済みブランチの削除<br />
+<li><a id="orge20b475"></a>マージ済みブランチの削除<br />
 <div class="outline-text-5" id="text-2-3-1-8">
 <ul class="org-ul">
 <li>マージしたブランチはもはや不要なので削除して良い</li>
@@ -1014,12 +1013,12 @@ git commit -m <span style="color: #2544bb;">'Add date'</span>
 </ol>
 </div>
 
-<div id="outline-container-org1b9083c" class="outline-4">
-<h4 id="org1b9083c"><span class="section-number-4">2.3.2.</span> コンフリクト</h4>
+<div id="outline-container-org5e98fed" class="outline-4">
+<h4 id="org5e98fed"><span class="section-number-4">2.3.2.</span> コンフリクト</h4>
 <div class="outline-text-4" id="text-2-3-2">
 </div>
 <ol class="org-ol">
-<li><a id="org2d536c3"></a>コンフリクトとは<br />
+<li><a id="org08b28cf"></a>コンフリクトとは<br />
 <div class="outline-text-5" id="text-2-3-2-1">
 <ul class="org-ul">
 <li>ファイルの同じ箇所を，異なる内容に編集すると発生する</li>
@@ -1029,7 +1028,7 @@ git commit -m <span style="color: #2544bb;">'Add date'</span>
 </div>
 </li>
 
-<li><a id="org67f85e1"></a>コンフリクトのシナリオ<br />
+<li><a id="orgbf0b933"></a>コンフリクトのシナリオ<br />
 <div class="outline-text-5" id="text-2-3-2-2">
 <ul class="org-ul">
 <li>「のび太」の作業
@@ -1052,7 +1051,7 @@ git commit -m <span style="color: #2544bb;">'Add date'</span>
 </div>
 </li>
 
-<li><a id="org976fbb9"></a>マージとコンフリクト発生<br />
+<li><a id="org6381590"></a>マージとコンフリクト発生<br />
 <div class="outline-text-5" id="text-2-3-2-3">
 <ul class="org-ul">
 <li>masterブランチに移動する</li>
@@ -1068,7 +1067,7 @@ git commit -m <span style="color: #2544bb;">'Add date'</span>
 </div>
 </li>
 
-<li><a id="org53c358f"></a>コンフリクト時のメッセージ<br />
+<li><a id="org083521b"></a>コンフリクト時のメッセージ<br />
 <div class="outline-text-5" id="text-2-3-2-4">
 <ul class="org-ul">
 <li>mergeに失敗するとようなメッセージが出る</li>
@@ -1088,7 +1087,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 </div>
 </li>
 
-<li><a id="org6daf9b7"></a>READMEファイルの内容<br />
+<li><a id="org1b04dab"></a>READMEファイルの内容<br />
 <div class="outline-text-5" id="text-2-3-2-5">
 <ul class="org-ul">
 <li>READMEを開くとコンフリクトが起きた箇所がわかる</li>
@@ -1111,7 +1110,7 @@ Shizuka's file.
 </div>
 </li>
 
-<li><a id="org9039dd2"></a>コンフリクトの解消<br />
+<li><a id="org753efc8"></a>コンフリクトの解消<br />
 <div class="outline-text-5" id="text-2-3-2-6">
 <ul class="org-ul">
 <li>テキストエディタで修正し，手動でコンフリクトを解消する</li>
@@ -1125,7 +1124,7 @@ Shizuka's file.
 </div>
 </li>
 
-<li><a id="org4352381"></a>解消した結果をコミットする<br />
+<li><a id="orgd0874e4"></a>解消した結果をコミットする<br />
 <div class="outline-text-5" id="text-2-3-2-7">
 <ul class="org-ul">
 <li>その後はいつもどおり，addしてcommitすれば作業が継続できる
@@ -1141,16 +1140,16 @@ commitできてしまう</span> ので，この点には注意する</li>
 </div>
 </div>
 
-<div id="outline-container-org821cebb" class="outline-3">
-<h3 id="org821cebb"><span class="section-number-3">2.4.</span> GitHub入門</h3>
+<div id="outline-container-org6cb2e9b" class="outline-3">
+<h3 id="org6cb2e9b"><span class="section-number-3">2.4.</span> GitHub入門</h3>
 <div class="outline-text-3" id="text-2-4">
 </div>
-<div id="outline-container-org4f08010" class="outline-4">
-<h4 id="org4f08010"><span class="section-number-4">2.4.1.</span> GitHubとは</h4>
+<div id="outline-container-org3d9c664" class="outline-4">
+<h4 id="org3d9c664"><span class="section-number-4">2.4.1.</span> GitHubとは</h4>
 <div class="outline-text-4" id="text-2-4-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgd947a92"></a>GitHubでソーシャルコーディング<br />
+<li><a id="org203e2bd"></a>GitHubでソーシャルコーディング<br />
 <div class="outline-text-5" id="text-2-4-1-1">
 <ul class="org-ul">
 <li>ソーシャルコーディングのためのクラウド環境
@@ -1168,7 +1167,7 @@ commitできてしまう</span> ので，この点には注意する</li>
 </div>
 </li>
 
-<li><a id="orgfbe0f13"></a>GitHubアカウントの作成<br />
+<li><a id="org52fc7a6"></a>GitHubアカウントの作成<br />
 <div class="outline-text-5" id="text-2-4-1-2">
 <ul class="org-ul">
 <li>（まだなら）次のURLの指示に従いGitHubアカウントを作成
@@ -1188,7 +1187,7 @@ commitできてしまう</span> ので，この点には注意する</li>
 </div>
 </li>
 
-<li><a id="org93c3102"></a>SSHによるGitHubアクセス<br />
+<li><a id="orgd3730e4"></a>SSHによるGitHubアクセス<br />
 <div class="outline-text-5" id="text-2-4-1-3">
 <ul class="org-ul">
 <li>GitHubへのアクセスはSSHを用いた公開鍵暗号方式の認証を用いる
@@ -1206,12 +1205,12 @@ commitできてしまう</span> ので，この点には注意する</li>
 </ol>
 </div>
 
-<div id="outline-container-orgfdd93fa" class="outline-4">
-<h4 id="orgfdd93fa"><span class="section-number-4">2.4.2.</span> リモートリポジトリ</h4>
+<div id="outline-container-org567e6b5" class="outline-4">
+<h4 id="org567e6b5"><span class="section-number-4">2.4.2.</span> リモートリポジトリ</h4>
 <div class="outline-text-4" id="text-2-4-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgafab9a1"></a>リモート VS ローカルリポジトリ<br />
+<li><a id="org3432f63"></a>リモート VS ローカルリポジトリ<br />
 <div class="outline-text-5" id="text-2-4-2-1">
 <ul class="org-ul">
 <li>ローカルリポジトリ
@@ -1231,7 +1230,7 @@ commitできてしまう</span> ので，この点には注意する</li>
 </ul>
 </div>
 </li>
-<li><a id="orga042e06"></a>リモートリポジトリの作成<br />
+<li><a id="org12b33df"></a>リモートリポジトリの作成<br />
 <div class="outline-text-5" id="text-2-4-2-2">
 <ul class="org-ul">
 <li>リモートリポジトリをGitHubで作成する
@@ -1253,12 +1252,12 @@ commitできてしまう</span> ので，この点には注意する</li>
 </ol>
 </div>
 
-<div id="outline-container-orgb342001" class="outline-4">
-<h4 id="orgb342001"><span class="section-number-4">2.4.3.</span> GitHub flow</h4>
+<div id="outline-container-org0c5acd0" class="outline-4">
+<h4 id="org0c5acd0"><span class="section-number-4">2.4.3.</span> GitHub flow</h4>
 <div class="outline-text-4" id="text-2-4-3">
 </div>
 <ol class="org-ol">
-<li><a id="org36d63bf"></a>GitHub flowwによる開発の流れ<br />
+<li><a id="org8842852"></a>GitHub flowwによる開発の流れ<br />
 <div class="outline-text-5" id="text-2-4-3-1">
 <ul class="org-ul">
 <li>GitHub flow
@@ -1269,7 +1268,7 @@ commitできてしまう</span> ので，この点には注意する</li>
 </div>
 </li>
 
-<li><a id="orgbfb3d2d"></a>1: リモートリポジトリをローカルに複製<br />
+<li><a id="orgbe5441d"></a>1: リモートリポジトリをローカルに複製<br />
 <div class="outline-text-5" id="text-2-4-3-2">
 <ul class="org-ul">
 <li>リモートにあるリポジトリをローカルに複製することをcloneという
@@ -1298,7 +1297,7 @@ git clone $<span style="color: #00538b;">GITHUB_URL</span>
 </div>
 </li>
 
-<li><a id="org53bd3ba"></a>2: masterから作業用ブランチを作成<br />
+<li><a id="orgec6316a"></a>2: masterから作業用ブランチを作成<br />
 <div class="outline-text-5" id="text-2-4-3-3">
 <ul class="org-ul">
 <li>作業用のブランチを作成して移動する
@@ -1314,7 +1313,7 @@ git clone $<span style="color: #00538b;">GITHUB_URL</span>
 </div>
 </li>
 
-<li><a id="org7c86059"></a>3: ブランチで編集作業を行う<br />
+<li><a id="org6b1a613"></a>3: ブランチで編集作業を行う<br />
 <div class="outline-text-5" id="text-2-4-3-4">
 <ul class="org-ul">
 <li>ここでは，hello.txtという名前のファイルを作成する</li>
@@ -1327,7 +1326,7 @@ git clone $<span style="color: #00538b;">GITHUB_URL</span>
 </div>
 </li>
 
-<li><a id="org8ba817d"></a>4: ブランチでコミットを作成<br />
+<li><a id="orgcf6df87"></a>4: ブランチでコミットを作成<br />
 <div class="outline-text-5" id="text-2-4-3-5">
 <ul class="org-ul">
 <li>変更した内容をステージングしてからコミットする</li>
@@ -1348,7 +1347,7 @@ git commit -m <span style="color: #2544bb;">'Create hello.txt'</span>
 </div>
 </li>
 
-<li><a id="org5e046a1"></a>5: ブランチをリモートに送る<br />
+<li><a id="org802f5b9"></a>5: ブランチをリモートに送る<br />
 <div class="outline-text-5" id="text-2-4-3-6">
 <ul class="org-ul">
 <li>ブランチで作成したコミットをリモートに送る
@@ -1365,7 +1364,7 @@ git commit -m <span style="color: #2544bb;">'Create hello.txt'</span>
 </div>
 </li>
 
-<li><a id="org862ec3b"></a>6. GitHubでプルリクエストを送る<br />
+<li><a id="org742ee56"></a>6. GitHubでプルリクエストを送る<br />
 <div class="outline-text-5" id="text-2-4-3-7">
 <ul class="org-ul">
 <li>ブランチがGitHubに登録されたことを確認し，Pull requestを作成する</li>
@@ -1378,7 +1377,7 @@ git commit -m <span style="color: #2544bb;">'Create hello.txt'</span>
 </div>
 </li>
 
-<li><a id="org97783e0"></a>7. GitHubでレビュー（＋自動テスト）<br />
+<li><a id="org07182e4"></a>7. GitHubでレビュー（＋自動テスト）<br />
 <div class="outline-text-5" id="text-2-4-3-8">
 <ul class="org-ul">
 <li>プルリクエストを用いたレビューの方法は下記参照
@@ -1390,7 +1389,7 @@ git commit -m <span style="color: #2544bb;">'Create hello.txt'</span>
 </div>
 </li>
 
-<li><a id="orgdac7987"></a>8. GitHubでプルリクエストをマージ<br />
+<li><a id="org383ffa2"></a>8. GitHubでプルリクエストをマージ<br />
 <div class="outline-text-5" id="text-2-4-3-9">
 <ul class="org-ul">
 <li>Pull requestのレビューが済んだらマージする
@@ -1402,7 +1401,7 @@ git commit -m <span style="color: #2544bb;">'Create hello.txt'</span>
 </div>
 </li>
 
-<li><a id="orgd886a5c"></a>9. ローカルのmaster を最新版にする<br />
+<li><a id="org56260d4"></a>9. ローカルのmaster を最新版にする<br />
 <div class="outline-text-5" id="text-2-4-3-10">
 <ul class="org-ul">
 <li>GitHubで行ったマージをローカルに反映させる
@@ -1421,10 +1420,10 @@ git branch -d greeting
 </div>
 </li>
 
-<li><a id="org855294b"></a>GitHub Flowに習熟するには？<br />
+<li><a id="org3aac2e8"></a>GitHub Flowに習熟するには？<br />
 <div class="outline-text-5" id="text-2-4-3-11">
 <ul class="org-ul">
-<li>ここで手順2:（<a href="#org53bd3ba">2.4.3.3</a>節）に戻り，
+<li>ここで手順2:（<a href="#orgec6316a">2.4.3.3</a>節）に戻り，
 一連の作業を複数回（5回以上!）繰り返すこと
 <ul class="org-ul">
 <li><span class="underline">体に叩き込む！</span></li>
@@ -1435,12 +1434,12 @@ git branch -d greeting
 </ol>
 </div>
 
-<div id="outline-container-org0ce4c81" class="outline-4">
-<h4 id="org0ce4c81"><span class="section-number-4">2.4.4.</span> コンフリクトについて</h4>
+<div id="outline-container-org59199cc" class="outline-4">
+<h4 id="org59199cc"><span class="section-number-4">2.4.4.</span> コンフリクトについて</h4>
 <div class="outline-text-4" id="text-2-4-4">
 </div>
 <ol class="org-ol">
-<li><a id="orgac3ae4d"></a>GitHub flow におけるコンフリクトについて<br />
+<li><a id="org8a1cfb5"></a>GitHub flow におけるコンフリクトについて<br />
 <div class="outline-text-5" id="text-2-4-4-1">
 <ul class="org-ul">
 <li>コンフリクトとは？
@@ -1455,7 +1454,7 @@ git branch -d greeting
 </div>
 </li>
 
-<li><a id="org9074ad8"></a>コンフリクトへの基本的な対処法<br />
+<li><a id="org9f43f36"></a>コンフリクトへの基本的な対処法<br />
 <div class="outline-text-5" id="text-2-4-4-2">
 <ul class="org-ul">
 <li>初心者は、演習の最初の方では「他人と同じファイルを編集しない」こと
@@ -1471,7 +1470,7 @@ git branch -d greeting
 </div>
 </li>
 
-<li><a id="orge686979"></a>GitHubでのコンフリクトの解消<br />
+<li><a id="orgb29050a"></a>GitHubでのコンフリクトの解消<br />
 <div class="outline-text-5" id="text-2-4-4-3">
 <ul class="org-ul">
 <li>nobitaとshizukaのシナリオで，nobitaの作業がGitHubでマージされたとする
@@ -1483,7 +1482,7 @@ git branch -d greeting
 </div>
 </li>
 
-<li><a id="orgb60d278"></a>GitHubでのコンフリクトの解消方法<br />
+<li><a id="org54ed0c3"></a>GitHubでのコンフリクトの解消方法<br />
 <div class="outline-text-5" id="text-2-4-4-4">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #505050; font-style: italic;"># </span><span style="color: #505050; font-style: italic;">&#12525;&#12540;&#12459;&#12523;&#12398;master&#12434;&#26368;&#26032;&#12395;</span>
@@ -1504,16 +1503,16 @@ git push -u origin shizuka
 </div>
 </div>
 
-<div id="outline-container-org5963954" class="outline-3">
-<h3 id="org5963954"><span class="section-number-3">2.5.</span> （参考)より進んだ使い方</h3>
+<div id="outline-container-org1b5ae4a" class="outline-3">
+<h3 id="org1b5ae4a"><span class="section-number-3">2.5.</span> （参考)より進んだ使い方</h3>
 <div class="outline-text-3" id="text-2-5">
 </div>
-<div id="outline-container-org359c56a" class="outline-4">
-<h4 id="org359c56a"><span class="section-number-4">2.5.1.</span> ファイルの削除と名前の変更</h4>
+<div id="outline-container-org54471e5" class="outline-4">
+<h4 id="org54471e5"><span class="section-number-4">2.5.1.</span> ファイルの削除と名前の変更</h4>
 <div class="outline-text-4" id="text-2-5-1">
 </div>
 <ol class="org-ol">
-<li><a id="orga976415"></a>Gitに無視させたいファイル<br />
+<li><a id="org6209958"></a>Gitに無視させたいファイル<br />
 <div class="outline-text-5" id="text-2-5-1-1">
 <ul class="org-ul">
 <li>ツールが生成する中間ファイルなど，Gitで管理させたくないファイルは
@@ -1524,7 +1523,7 @@ git push -u origin shizuka
 </div>
 </li>
 
-<li><a id="org0ce7b95"></a>Gitが追跡するファイルの削除と名前の変更<br />
+<li><a id="orge77361e"></a>Gitが追跡するファイルの削除と名前の変更<br />
 <div class="outline-text-5" id="text-2-5-1-2">
 <ul class="org-ul">
 <li>Gitが追跡しているファイルであっても，
@@ -1539,12 +1538,12 @@ git push -u origin shizuka
 </li>
 </ol>
 </div>
-<div id="outline-container-org6d414ee" class="outline-4">
-<h4 id="org6d414ee"><span class="section-number-4">2.5.2.</span> 操作を取り消すコマンド</h4>
+<div id="outline-container-org91b29dd" class="outline-4">
+<h4 id="org91b29dd"><span class="section-number-4">2.5.2.</span> 操作を取り消すコマンド</h4>
 <div class="outline-text-4" id="text-2-5-2">
 </div>
 <ol class="org-ol">
-<li><a id="orge338dbd"></a>Gitで行った操作の取り消し<br />
+<li><a id="org021b258"></a>Gitで行った操作の取り消し<br />
 <div class="outline-text-5" id="text-2-5-2-1">
 <ul class="org-ul">
 <li>まちがって
@@ -1561,7 +1560,7 @@ git push -u origin shizuka
 </div>
 </li>
 
-<li><a id="orged73bdd"></a>HEADによるコミットの指定<br />
+<li><a id="org3bf055b"></a>HEADによるコミットの指定<br />
 <div class="outline-text-5" id="text-2-5-2-2">
 <ul class="org-ul">
 <li>特定のコミットのIDを指定する方法に「HEAD」を使った相対指定がある
@@ -1578,7 +1577,7 @@ git show HEAD~1^2
 </div>
 </li>
 
-<li><a id="org651305a"></a>ステージング/コミットの修正<br />
+<li><a id="org95d2585"></a>ステージング/コミットの修正<br />
 <div class="outline-text-5" id="text-2-5-2-3">
 <p>
 ファイルのステージングを取り消す
@@ -1609,7 +1608,7 @@ $COMMIT_IDより後のコミットの取り消し（ローカルの変更も破�
 </div>
 </li>
 
-<li><a id="orge536673"></a>誤って編集や削除や修正したファイルの回復<br />
+<li><a id="org369be4a"></a>誤って編集や削除や修正したファイルの回復<br />
 <div class="outline-text-5" id="text-2-5-2-4">
 <ul class="org-ul">
 <li>file.txtを誤って編集や削除した場合</li>
@@ -1638,7 +1637,7 @@ $COMMIT_IDより後のコミットの取り消し（ローカルの変更も破�
 </div>
 </li>
 
-<li><a id="org595620c"></a>push済みのコミットの取り消し<br />
+<li><a id="orge0cc4a4"></a>push済みのコミットの取り消し<br />
 <div class="outline-text-5" id="text-2-5-2-5">
 <ul class="org-ul">
 <li>最後に行ったコミットが理由でコンフリクトが発生したような場合，
@@ -1660,12 +1659,12 @@ $COMMIT_IDより後のコミットの取り消し（ローカルの変更も破�
 </ol>
 </div>
 
-<div id="outline-container-org7c44f5a" class="outline-4">
-<h4 id="org7c44f5a"><span class="section-number-4">2.5.3.</span> 作業の一度中断と再開</h4>
+<div id="outline-container-orged66be9" class="outline-4">
+<h4 id="orged66be9"><span class="section-number-4">2.5.3.</span> 作業の一度中断と再開</h4>
 <div class="outline-text-4" id="text-2-5-3">
 </div>
 <ol class="org-ol">
-<li><a id="orgadf3053"></a>やりかけの作業のstash<br />
+<li><a id="org06da897"></a>やりかけの作業のstash<br />
 <div class="outline-text-5" id="text-2-5-3-1">
 <ul class="org-ul">
 <li>あるブランチで作業中に他のブランチに
@@ -1680,12 +1679,12 @@ $COMMIT_IDより後のコミットの取り消し（ローカルの変更も破�
 </li>
 </ol>
 </div>
-<div id="outline-container-org5402304" class="outline-4">
-<h4 id="org5402304"><span class="section-number-4">2.5.4.</span> その他知っておくと良いコマンド</h4>
+<div id="outline-container-org980596d" class="outline-4">
+<h4 id="org980596d"><span class="section-number-4">2.5.4.</span> その他知っておくと良いコマンド</h4>
 <div class="outline-text-4" id="text-2-5-4">
 </div>
 <ol class="org-ol">
-<li><a id="org294a4b3"></a>ステージングしたファイルの差分表示<br />
+<li><a id="orgdfd0ead"></a>ステージングしたファイルの差分表示<br />
 <div class="outline-text-5" id="text-2-5-4-1">
 <ul class="org-ul">
 <li>git addでステージングするとgit diffで差分が表示されない</li>
@@ -1699,7 +1698,7 @@ $COMMIT_IDより後のコミットの取り消し（ローカルの変更も破�
 </div>
 </li>
 
-<li><a id="orgfdd08cd"></a>特定のファイルにのみ関連する履歴確認<br />
+<li><a id="org88e42d6"></a>特定のファイルにのみ関連する履歴確認<br />
 <div class="outline-text-5" id="text-2-5-4-2">
 <ul class="org-ul">
 <li>特定のファイルの履歴のみ確認する</li>
@@ -1712,7 +1711,7 @@ $COMMIT_IDより後のコミットの取り消し（ローカルの変更も破�
 </div>
 </li>
 
-<li><a id="org4ced193"></a>リモートブランチの最新情報を取得<br />
+<li><a id="org8528215"></a>リモートブランチの最新情報を取得<br />
 <div class="outline-text-5" id="text-2-5-4-3">
 <ul class="org-ul">
 <li>git fetchはリモートにあるブランチの最新情報を
@@ -1728,7 +1727,7 @@ git merge origin/master
 </div>
 </li>
 
-<li><a id="org257ce34"></a>git ls-files<br />
+<li><a id="org1223e11"></a>git ls-files<br />
 <div class="outline-text-5" id="text-2-5-4-4">
 <ul class="org-ul">
 <li>省略</li>
@@ -1739,20 +1738,20 @@ git merge origin/master
 </div>
 </div>
 </div>
-<div id="outline-container-org9b50f20" class="outline-2">
-<h2 id="org9b50f20"><span class="section-number-2">3.</span> GitHub演習（チーム演習編）</h2>
+<div id="outline-container-orge1444f1" class="outline-2">
+<h2 id="orge1444f1"><span class="section-number-2">3.</span> GitHub演習（チーム演習編）</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org7c704a1" class="outline-3">
-<h3 id="org7c704a1"><span class="section-number-3">3.1.</span> チーム演習</h3>
+<div id="outline-container-org5894b1c" class="outline-3">
+<h3 id="org5894b1c"><span class="section-number-3">3.1.</span> チーム演習</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-org0d52cdb" class="outline-4">
-<h4 id="org0d52cdb"><span class="section-number-4">3.1.1.</span> 演習のための準備</h4>
+<div id="outline-container-org1fb047b" class="outline-4">
+<h4 id="org1fb047b"><span class="section-number-4">3.1.1.</span> 演習のための準備</h4>
 <div class="outline-text-4" id="text-3-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="org8b3ce78"></a>概要<br />
+<li><a id="org8702ee7"></a>概要<br />
 <div class="outline-text-5" id="text-3-1-1-1">
 <ul class="org-ul">
 <li>この演習では，最終的に全員でHTMLによるWebサイトを作ることを目指す</li>
@@ -1761,7 +1760,7 @@ git merge origin/master
 </div>
 </li>
 
-<li><a id="org8cbb383"></a>リモートリポジトリの作成<br />
+<li><a id="orgbc70bc3"></a>リモートリポジトリの作成<br />
 <div class="outline-text-5" id="text-3-1-1-2">
 <ul class="org-ul">
 <li>チームの代表者1名がGitHubでリポジトリを作成する
@@ -1781,7 +1780,7 @@ git merge origin/master
 </div>
 </li>
 
-<li><a id="orgf8ef669"></a>コラボレーターの追加<br />
+<li><a id="orgedf8ad9"></a>コラボレーターの追加<br />
 <div class="outline-text-5" id="text-3-1-1-3">
 <ul class="org-ul">
 <li>代表者は残りのメンバーを協同作業者（コラボレータ）として追加する
@@ -1796,7 +1795,7 @@ git merge origin/master
 </div>
 </li>
 
-<li><a id="org3510996"></a>リポジトリのclone<br />
+<li><a id="org2b7885f"></a>リポジトリのclone<br />
 <div class="outline-text-5" id="text-3-1-1-4">
 <ul class="org-ul">
 <li>全員，リポジトリをローカルにcloneする
@@ -1816,12 +1815,12 @@ git clone $<span style="color: #00538b;">GITHUB_URL</span>
 </ol>
 </div>
 
-<div id="outline-container-orgcbe1a43" class="outline-4">
-<h4 id="orgcbe1a43"><span class="section-number-4">3.1.2.</span> チーム演習</h4>
+<div id="outline-container-org48d3621" class="outline-4">
+<h4 id="org48d3621"><span class="section-number-4">3.1.2.</span> チーム演習</h4>
 <div class="outline-text-4" id="text-3-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="org5fcb5f2"></a>課題1: GitHubのIssue/Wikiを学ぶ<br />
+<li><a id="orgfe9155d"></a>課題1: GitHubのIssue/Wikiを学ぶ<br />
 <div class="outline-text-5" id="text-3-1-2-1">
 <ul class="org-ul">
 <li>リポジトリのIssue機能を使ってみよう
@@ -1839,7 +1838,7 @@ git clone $<span style="color: #00538b;">GITHUB_URL</span>
 </div>
 </li>
 
-<li><a id="org94529f5"></a>課題2: まずは全員1回pushしよう<br />
+<li><a id="orga3be621"></a>課題2: まずは全員1回pushしよう<br />
 <div class="outline-text-5" id="text-3-1-2-2">
 <ul class="org-ul">
 <li>全員1回，最初のGitHub Flowを成功させよう</li>
@@ -1858,7 +1857,7 @@ git push -u origin $<span style="color: #00538b;">GITHUB_NAME</span>
 </div>
 </li>
 
-<li><a id="org4362119"></a>課題3: プルリクエストの作成<br />
+<li><a id="org80ed97b"></a>課題3: プルリクエストの作成<br />
 <div class="outline-text-5" id="text-3-1-2-3">
 <ul class="org-ul">
 <li>pushしたブランチからプルリクエストを出してみよう</li>
@@ -1867,7 +1866,7 @@ git push -u origin $<span style="color: #00538b;">GITHUB_NAME</span>
 </div>
 </li>
 
-<li><a id="orgf0a36af"></a>課題4: マージの練習<br />
+<li><a id="orgce888a7"></a>課題4: マージの練習<br />
 <div class="outline-text-5" id="text-3-1-2-4">
 <ul class="org-ul">
 <li>プルリクエストを出した人が自分でマージしてみよう</li>
@@ -1879,7 +1878,7 @@ git push -u origin $<span style="color: #00538b;">GITHUB_NAME</span>
 </div>
 </li>
 
-<li><a id="org1693cca"></a>課題5: 全員のmasterを最新にする<br />
+<li><a id="org3d85085"></a>課題5: 全員のmasterを最新にする<br />
 <div class="outline-text-5" id="text-3-1-2-5">
 <ul class="org-ul">
 <li>全員のローカルのmasterブランチを最新にする</li>
@@ -1897,7 +1896,7 @@ git push -u origin $<span style="color: #00538b;">GITHUB_NAME</span>
 </div>
 </li>
 
-<li><a id="orge220b42"></a>課題6: 再びブランチをpushする<br />
+<li><a id="org6e54b5d"></a>課題6: 再びブランチをpushする<br />
 <div class="outline-text-5" id="text-3-1-2-6">
 <ul class="org-ul">
 <li>まず，masterが最新版であることを確認</li>
@@ -1909,7 +1908,7 @@ git push -u origin $<span style="color: #00538b;">GITHUB_NAME</span>
 </div>
 </li>
 
-<li><a id="org804c8ef"></a>課題7: 再びプルリクエストとマージ<br />
+<li><a id="org2fbfe19"></a>課題7: 再びプルリクエストとマージ<br />
 <div class="outline-text-5" id="text-3-1-2-7">
 <ul class="org-ul">
 <li>再びプルリクエストとマージを行ってみよう</li>
@@ -1923,7 +1922,7 @@ git push -u origin $<span style="color: #00538b;">GITHUB_NAME</span>
 </div>
 </li>
 
-<li><a id="org9bf686e"></a>課題8: 何回も繰り返す<br />
+<li><a id="org2113ee6"></a>課題8: 何回も繰り返す<br />
 <div class="outline-text-5" id="text-3-1-2-8">
 <ul class="org-ul">
 <li>同じファイルに更なる変更を加え，GitHub Flowを回してみよう</li>
@@ -1932,7 +1931,7 @@ git push -u origin $<span style="color: #00538b;">GITHUB_NAME</span>
 </div>
 </li>
 
-<li><a id="orgfd290cb"></a>課題9: ぼちぼちコンフリクト<br />
+<li><a id="org5b6d317"></a>課題9: ぼちぼちコンフリクト<br />
 <div class="outline-text-5" id="text-3-1-2-9">
 <ul class="org-ul">
 <li>誰かが空の「index.html」ファイルを作成する</li>
@@ -1946,7 +1945,7 @@ git push -u origin $<span style="color: #00538b;">GITHUB_NAME</span>
 </div>
 </li>
 
-<li><a id="orga45fc62"></a>課題10: コンフリクトの解消<br />
+<li><a id="orgf229a91"></a>課題10: コンフリクトの解消<br />
 <div class="outline-text-5" id="text-3-1-2-10">
 <ul class="org-ul">
 <li>コンフリクトが出たメンバーは，それを解消してみよう</li>
@@ -1959,7 +1958,7 @@ git push -u origin $<span style="color: #00538b;">GITHUB_NAME</span>
 </div>
 </li>
 
-<li><a id="org4fe5434"></a>課題11: Webサイトを作ってみよう<br />
+<li><a id="org2c1253f"></a>課題11: Webサイトを作ってみよう<br />
 <div class="outline-text-5" id="text-3-1-2-11">
 <ul class="org-ul">
 <li>チームで内容を相談し，Webサイトを作ってみよう</li>
@@ -1970,7 +1969,7 @@ git push -u origin $<span style="color: #00538b;">GITHUB_NAME</span>
 </div>
 </li>
 
-<li><a id="org1b2cfab"></a>注意事項<br />
+<li><a id="orgbc6d4fb"></a>注意事項<br />
 <div class="outline-text-5" id="text-3-1-2-12">
 <ul class="org-ul">
 <li>実は，GitHubでは，gitコマンドを使わなくても，
@@ -1989,7 +1988,7 @@ git push -u origin $<span style="color: #00538b;">GITHUB_NAME</span>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: 中鉢 欣秀</p>
-<p class="date">Created: 2021-12-02 Thu 12:10</p>
+<p class="date">Created: 2021-12-02 Thu 12:12</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
