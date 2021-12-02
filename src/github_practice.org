@@ -4,10 +4,10 @@
 #+OPTIONS: ^:{}
 #+EXPORT_FILE_NAME: ../docs/index.html
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
-#+HTML_HEAD: <link rel="preconnect" href="https://fonts.googleapis.com">
-#+HTML_HEAD: <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-#+HTML_HEAD: <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
-#+HTML_HEAD: <style>font-family: 'Noto Sans JP', sans-serif;</style>
+# #+HTML_HEAD: <link rel="preconnect" href="https://fonts.googleapis.com">
+# #+HTML_HEAD: <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+# #+HTML_HEAD: <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+# #+HTML_HEAD: <style>font-family: 'Noto Sans JP', sans-serif;</style>
 
 #+begin_comment
 + HTML形式でこの文書全体をエキスポートする方法
