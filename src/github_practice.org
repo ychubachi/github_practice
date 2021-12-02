@@ -5,6 +5,7 @@
 #+EXPORT_FILE_NAME: ../docs/index.html
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 # #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-bigblow.setup
+#+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
 
 #+begin_comment
 + HTML形式でこの文書全体をエキスポートする方法
