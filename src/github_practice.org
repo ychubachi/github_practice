@@ -3,9 +3,11 @@
 #+AUTHOR: 中鉢 欣秀
 #+OPTIONS: ^:{}
 #+EXPORT_FILE_NAME: ../docs/index.html
-# #+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
-# #+HTML_HEAD: <style>font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;</style>
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+HTML_HEAD: <link rel="preconnect" href="https://fonts.googleapis.com">
+#+HTML_HEAD: <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+#+HTML_HEAD: <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+#+HTML_HEAD: <style>font-family: 'Noto Sans JP', sans-serif;</style>
 
 #+begin_comment
 + HTML形式でこの文書全体をエキスポートする方法
@@ -14,6 +16,8 @@
   * C-c C-e h hでエキスポートし、GitHubにコミット
   * https://blog.chubachi.net/github_practice/
 # #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-bigblow.setup
+# #+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
+# #+HTML_HEAD: <style>font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;</style>
 #+end_comment
 
 * Git/GitHub演習
