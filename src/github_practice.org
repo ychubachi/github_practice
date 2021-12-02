@@ -105,7 +105,7 @@
 *** Gitの操作方法と初期設定
 **** Gitチートシート（カンニング表）
 - 主なGitコマンドの一覧表
-  - [[https://services.github.com/kit/downloads/ja/github-git-cheat-sheet.pdf][Gitチートシート（日本語版）]]
+  - [[https://training.github.com/downloads/ja/github-git-cheat-sheet/][GitHub Git チートシート - GitHub Cheatsheets]]
 - 必要に応じて印刷しておくとよい
 
 **** Gitコマンドの実行確認
@@ -126,7 +126,7 @@ git config --global user.name $NAME
 git config --global user.email $EMAIL
 #+END_SRC
 
-**** その他の設定
+**** COMMENT その他の設定
 - 次のとおり，設定を行っておく
 
 #+BEGIN_SRC bash
