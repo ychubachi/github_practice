@@ -3,7 +3,8 @@
 #+AUTHOR: 中鉢 欣秀
 #+OPTIONS: ^:{}
 #+EXPORT_FILE_NAME: ../docs/index.html
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+# #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-bigblow.setup
 
 #+begin_comment
 + HTML形式でこの文書全体をエキスポートする方法
@@ -14,7 +15,6 @@
 #+end_comment
 
 #+begin_comment
-# #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-bigblow.setup
 # #+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
 # #+HTML_HEAD: <style>font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;</style>
 #+HTML_HEAD: <style>body { line-height: 150% }</style>
@@ -23,9 +23,6 @@
 * Git/GitHub演習の概要
 ** Git/GitHub演習について
 *** 演習の概要
-**** この資料の入手先
-- https://github.com/ychubachi/github_practice
-
 **** この演習について
 - この授業ではGitの初心者が，基礎的なGitコマンドの利用方法から，
   GitHub Flowに基づく協同開発の方法までを学ぶ
