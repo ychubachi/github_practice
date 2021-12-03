@@ -714,6 +714,9 @@ git push -u origin shizuka
 - 招待されたメンバーには確認のメールが届く
   - これにより，全員がGitHubのリポジトリにpushできるようになる
 
+**** GitHub Pagesの設定
+- =main= ブランチをGitHub Pageとして見られるようにする
+
 **** リポジトリのclone
 - 全員，リポジトリをローカルにcloneする
   - [[https://help.github.com/articles/cloning-a-repository/][Cloning a repository - User Documentation]]
