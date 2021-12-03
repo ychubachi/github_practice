@@ -20,7 +20,7 @@
 #+HTML_HEAD: <style>body { line-height: 150% }</style>
 #+end_comment
 
-* Part I. Git/GitHub演習の概要
+* Git/GitHub演習の概要
 ** Git/GitHub演習について
 *** 演習の概要
 **** この資料の入手先
@@ -106,7 +106,7 @@
 - 成果物の提出方法や，その他の補足資料はWikiを参照
   - [[https://github.com/ychubachi/github_practice/wiki][Home · ychubachi/github_practice Wiki]]
 
-* Part II. 個人演習編
+* 個人演習編
 ** ローカルリポジトリでGitを使う
 *** Gitの操作方法と初期設定
 **** Gitチートシート（カンニング表）
@@ -193,7 +193,7 @@ git status
   つけるとよい
   - 表示される内容の意味は徐々に覚えていけば良い
 
-**** 「.git」ディレクトリを壊すべからず
+**** COMMENT 「.git」ディレクトリを壊すべからず
 - ティレクトリにリポジトリを作成すると「.git」という隠しディレクトリが
   できる
   - ls -aで確認できるが…
@@ -352,6 +352,13 @@ git log
   - AuthorとDate
   - コミットメッセージ
 
+**** コミットの情報確認
+- 次のコマンドでコミットで行った変更内容が確認できる
+
+#+BEGIN_SRC bash
+git show $COMMIT_ID
+#+END_SRC
+
 **** 2つのコミットの比較
 - 異なる２つのコミットの変更差分は次のコマンドで確認できる
   - コミットのIDはlogで確認できる
@@ -359,16 +366,6 @@ git log
 
 #+BEGIN_SRC bash
 git diff $COMMIT_ID_1 $COMMIT_ID_2
-#+END_SRC
-
-- （参考）後で説明するブランチはコミットのエイリアスなので，
-  ブランチごとの比較もできる
-
-**** コミットの情報確認
-- 次のコマンドでコミットで行った変更内容が確認できる
-
-#+BEGIN_SRC bash
-git show $COMMIT_ID
 #+END_SRC
 
 *** ブランチの使い方
@@ -542,6 +539,8 @@ Nobita & Shizuka's READMEfile.
   - SSH公開鍵の設定を行えば以降のパスワード認証が不要になる
 - （まだなら）SSHを生成してGitHubに登録しなさい
   - 鍵を生成するとき「passphrases」が聞かれるが，この演習では何も入力しなくてよい
+- 参考
+  - [[https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent][Generating a new SSH key and adding it to the ssh-agent - GitHub Docs]]
   - [[https://help.github.com/articles/generating-an-ssh-key/][Generating an SSH key - User Documentation]]
 
 *** リモートリポジトリ
@@ -562,7 +561,11 @@ Nobita & Shizuka's READMEfile.
 - READMEとライセンスを追加すること
   - 「Initialize this repository with a README」にチェックを入れる
   - 「Add a license:」から「MIT License」を選ぶ
-
+**** mainブランチについて
+- git initでは最初にできるブランチは *master* である
+- GitHubでリポジトリを作成した場合は *main* に変更された
+  - [[https://github.blog/changelog/2020-10-01-the-default-branch-for-newly-created-repositories-is-now-main/][The default branch for newly-created repositories is now main | GitHub Changelog]]
+- 以降、masterブランチとの記述は、必要に応じてmainブランチだと読み替えること
 *** GitHub flow
 **** GitHub flowwによる開発の流れ
 - GitHub flow
@@ -635,7 +638,6 @@ git push -u origin greeting
 - マージが完了したら，ローカル・リモート共に，マージ済みのブランチは削除してよい
 
 **** 9. ローカルのmaster を最新版にする
-
 - GitHubで行ったマージをローカルに反映させる
   - masterブランチに移動してgit pull
   - 不要になった作業用ブランチは削除
@@ -646,12 +648,21 @@ git pull
 git branch -d greeting
 #+end_src
 
-**** GitHub Flowに習熟するには？
+**** GitHub Flowに習熟する！                                        :演習:
 - ここで手順2:（[[2: masterから作業用ブランチを作成]]節）に戻り，
   一連の作業を複数回（5回以上!）繰り返すこと
-  - _体に叩き込む！_
+  - *体に叩き込む！*
 
-*** コンフリクトについて
+**** GitHub Pageを作成する                                          :演習:
+- GitHubをWebブラウザで開く
+- プロジェクトの =Settings -> Pages (side menu)= でGitHub Pagesを開く
+- Sourceの項目にある =None= を =main= ブランチに変える
+  - Save ボタンを押すとプロジェクト用のURLが表示されるので、控えておく
+- index.htmlファイルを作成しHTML書く
+- add/commit/pushを適切に行い、GitHubにindex.htmlをアップロードする
+- 先程控えたURLにブラウザでアクセスし、作成したHTMLによるページが表示されることを確認
+
+*** GitHubでのコンフリクトと解消方法
 **** GitHub flow におけるコンフリクトについて
 - コンフリクトとは？
   - コンフリクトは、コードの同じ箇所を複数の人が別々に編集すると発生
@@ -684,7 +695,7 @@ git commit -m 'Merge'
 git push -u origin shizuka
 #+end_src
 
-* Part III. チーム演習編
+* チーム演習編
 ** チーム演習
 *** 演習のための準備
 **** 概要
