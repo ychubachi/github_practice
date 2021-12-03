@@ -4,10 +4,6 @@
 #+OPTIONS: ^:{}
 #+EXPORT_FILE_NAME: ../docs/index.html
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
-# #+HTML_HEAD: <link rel="preconnect" href="https://fonts.googleapis.com">
-# #+HTML_HEAD: <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-# #+HTML_HEAD: <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
-# #+HTML_HEAD: <style>font-family: 'Noto Sans JP', sans-serif;</style>
 
 #+begin_comment
 + HTML形式でこの文書全体をエキスポートする方法
@@ -15,14 +11,18 @@
   * エキスポートするファイル名はEXPORT_FILE_NAMEで設定
   * C-c C-e h hでエキスポートし、GitHubにコミット
   * https://blog.chubachi.net/github_practice/
+#+end_comment
+
+#+begin_comment
 # #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-bigblow.setup
 # #+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
 # #+HTML_HEAD: <style>font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;</style>
+#+HTML_HEAD: <style>body { line-height: 150% }</style>
 #+end_comment
 
-* Git/GitHub演習
+* Part I. Git/GitHub演習の概要
 ** Git/GitHub演習について
-*** 授業の概要
+*** 演習の概要
 **** この資料の入手先
 - https://github.com/ychubachi/github_practice
 
@@ -106,8 +106,8 @@
 - 成果物の提出方法や，その他の補足資料はWikiを参照
   - [[https://github.com/ychubachi/github_practice/wiki][Home · ychubachi/github_practice Wiki]]
 
-* Git/GitHub演習（個人演習編）
-** Git入門
+* Part II. 個人演習編
+** ローカルリポジトリでGitを使う
 *** Gitの操作方法と初期設定
 **** Gitチートシート（カンニング表）
 - 主なGitコマンドの一覧表
@@ -200,7 +200,6 @@ git status
 - このディレクトリは *絶対に* 手動で変更してはならない
   - もし削除したらGitとは無関係の単なるディレクトリになる
 
-** コミットの方法
 *** コミットの作成方法
 **** コミットについて(1)
 - Gitの用語における「コミット」とは，「ひとかたまりの作業」をいう
@@ -372,7 +371,6 @@ git diff $COMMIT_ID_1 $COMMIT_ID_2
 git show $COMMIT_ID
 #+END_SRC
 
-** ブランチとコンフリクト
 *** ブランチの使い方
 **** ブランチとは
 - 「ひとまとまりの作業」を行う場所
@@ -519,7 +517,7 @@ Nobita & Shizuka's READMEfile.
 - なお， _テキストエディタを用い，手動で正しくコンフリクトを解消する前でも
   commitできてしまう_ ので，この点には注意する
 
-** GitHub入門
+** リモートリポジトリを利用する（GitHub）
 *** GitHubとは
 **** GitHubでソーシャルコーディング
 - ソーシャルコーディングのためのクラウド環境
@@ -686,121 +684,7 @@ git commit -m 'Merge'
 git push -u origin shizuka
 #+end_src
 
-** （参考)より進んだ使い方
-*** ファイルの削除と名前の変更
-**** Gitに無視させたいファイル
-- ツールが生成する中間ファイルなど，Gitで管理させたくないファイルは
-  予め「.gitignore」ファイルに記述しておく
-- なお，「.gitignore」ファイル自体はGitがトラッキングするファイルに含める
-- .gitignoreの書き方については各自で調べよ
-
-**** Gitが追跡するファイルの削除と名前の変更
-- Gitが追跡しているファイルであっても，
-  シェルのrmコマンドやmvコマンドで削除や名前の変更をしてよい
-- 「git add .」コマンドを実行すると，Gitは削除や名前の変更も
-  自動的に検知する
-  - 「git rm」や「git mv」は使わなくてよい
-*** 操作を取り消すコマンド
-**** Gitで行った操作の取り消し
-- まちがって
-  - ファイルをステージングさせた！
-  - ステージングをコミットした！
-- などの場合，操作を取り消すことができる
-  - 特定のファイルの変更の取り消し
-  - 特定のコミットの取り消し
-
-**** HEADによるコミットの指定
-- 特定のコミットのIDを指定する方法に「HEAD」を使った相対指定がある
-  - showコマンドで確認しながら用いると良い（下記はサンプル）
-
-#+BEGIN_SRC bash
-git show HEAD~1
-git show HEAD~1^2
-#+END_SRC
-
-**** ステージング/コミットの修正
-ファイルのステージングを取り消す
-
-#+BEGIN_SRC bash
-git reset $FILE
-#+END_SRC
-
-$COMMIT_IDより後のコミットの取り消し（ローカルは保存）
-
-#+BEGIN_SRC bash
-git reset $COMMIT_ID
-#+END_SRC
-
-$COMMIT_IDより後のコミットの取り消し（ローカルの変更も破棄）
-
-#+BEGIN_SRC bash
-git reset --hard $COMMIT_ID
-#+END_SRC
-
-**** 誤って編集や削除や修正したファイルの回復
-- file.txtを誤って編集や削除した場合
-- addする前
-  - ステージング領域からの取り出し
-
-#+BEGIN_SRC bash
-git checkout file.txt
-#+END_SRC
-
-- addした後
-  - 直近のコミットからの取り出し
-
-#+BEGIN_SRC bash
-git checkout HEAD file.txt
-#+END_SRC
-
-**** push済みのコミットの取り消し
-- 最後に行ったコミットが理由でコンフリクトが発生したような場合，
-  次の操作により，「取り消しコミット」を作成することができる
-
-#+BEGIN_SRC bash
-git revert HEAD
-#+END_SRC
-
-- 最後の作業が取り消されていることを確認
-- その後は，この取り消しコミットをpushすると，
-  リモートでの変更内容も取り消される
-
-*** 作業の一度中断と再開
-**** やりかけの作業のstash
-- あるブランチで作業中に他のブランチに
-  一時的に移動したいことがある
-  - 作業の途中でmasterブランチを最新にする，など
-- このような場合，git stashコマンドが活用できる
-  ので調べてみよ
-*** その他知っておくと良いコマンド
-**** ステージングしたファイルの差分表示
-- git addでステージングするとgit diffで差分が表示されない
-- この場合，次のコマンドで確認できる
-
-#+BEGIN_SRC bash
-git diff --staged
-#+END_SRC
-
-**** 特定のファイルにのみ関連する履歴確認
-- 特定のファイルの履歴のみ確認する
-
-#+BEGIN_SRC bash
-git log --follow README
-#+END_SRC
-
-**** リモートブランチの最新情報を取得
-- git fetchはリモートにあるブランチの最新情報を
-  ローカルに取ってくるコマンド
-- 例えば，git pullはmasterブランチで次の２つを実行することと同じ意味
-
-#+BEGIN_SRC bash
-git fetch origin
-git merge origin/master
-#+END_SRC
-
-**** git ls-files
-- 省略
-* GitHub演習（チーム演習編）
+* Part III. チーム演習編
 ** チーム演習
 *** 演習のための準備
 **** 概要
@@ -918,3 +802,119 @@ git pull
   ブラウザベースでファイルのアップロードや編集，コミットの作成などが
   できるが，このことに *気がついてはならない*
   - ただし，万が一，気がついてしまった場合，それはしょうがないものとする
+
+* 参考資料
+** より進んだGitの操作
+*** ファイルの削除と名前の変更
+**** Gitに無視させたいファイル
+- ツールが生成する中間ファイルなど，Gitで管理させたくないファイルは
+  予め「.gitignore」ファイルに記述しておく
+- なお，「.gitignore」ファイル自体はGitがトラッキングするファイルに含める
+- .gitignoreの書き方については各自で調べよ
+
+**** Gitが追跡するファイルの削除と名前の変更
+- Gitが追跡しているファイルであっても，
+  シェルのrmコマンドやmvコマンドで削除や名前の変更をしてよい
+- 「git add .」コマンドを実行すると，Gitは削除や名前の変更も
+  自動的に検知する
+  - 「git rm」や「git mv」は使わなくてよい
+*** 操作を取り消すコマンド
+**** Gitで行った操作の取り消し
+- まちがって
+  - ファイルをステージングさせた！
+  - ステージングをコミットした！
+- などの場合，操作を取り消すことができる
+  - 特定のファイルの変更の取り消し
+  - 特定のコミットの取り消し
+
+**** HEADによるコミットの指定
+- 特定のコミットのIDを指定する方法に「HEAD」を使った相対指定がある
+  - showコマンドで確認しながら用いると良い（下記はサンプル）
+
+#+BEGIN_SRC bash
+git show HEAD~1
+git show HEAD~1^2
+#+END_SRC
+
+**** ステージング/コミットの修正
+ファイルのステージングを取り消す
+
+#+BEGIN_SRC bash
+git reset $FILE
+#+END_SRC
+
+$COMMIT_IDより後のコミットの取り消し（ローカルは保存）
+
+#+BEGIN_SRC bash
+git reset $COMMIT_ID
+#+END_SRC
+
+$COMMIT_IDより後のコミットの取り消し（ローカルの変更も破棄）
+
+#+BEGIN_SRC bash
+git reset --hard $COMMIT_ID
+#+END_SRC
+
+**** 誤って編集や削除や修正したファイルの回復
+- file.txtを誤って編集や削除した場合
+- addする前
+  - ステージング領域からの取り出し
+
+#+BEGIN_SRC bash
+git checkout file.txt
+#+END_SRC
+
+- addした後
+  - 直近のコミットからの取り出し
+
+#+BEGIN_SRC bash
+git checkout HEAD file.txt
+#+END_SRC
+
+**** push済みのコミットの取り消し
+- 最後に行ったコミットが理由でコンフリクトが発生したような場合，
+  次の操作により，「取り消しコミット」を作成することができる
+
+#+BEGIN_SRC bash
+git revert HEAD
+#+END_SRC
+
+- 最後の作業が取り消されていることを確認
+- その後は，この取り消しコミットをpushすると，
+  リモートでの変更内容も取り消される
+
+*** 作業の一度中断と再開
+**** やりかけの作業のstash
+- あるブランチで作業中に他のブランチに
+  一時的に移動したいことがある
+  - 作業の途中でmasterブランチを最新にする，など
+- このような場合，git stashコマンドが活用できる
+  ので調べてみよ
+*** その他知っておくと良いコマンド
+**** ステージングしたファイルの差分表示
+- git addでステージングするとgit diffで差分が表示されない
+- この場合，次のコマンドで確認できる
+
+#+BEGIN_SRC bash
+git diff --staged
+#+END_SRC
+
+**** 特定のファイルにのみ関連する履歴確認
+- 特定のファイルの履歴のみ確認する
+
+#+BEGIN_SRC bash
+git log --follow README
+#+END_SRC
+
+**** リモートブランチの最新情報を取得
+- git fetchはリモートにあるブランチの最新情報を
+  ローカルに取ってくるコマンド
+- 例えば，git pullはmasterブランチで次の２つを実行することと同じ意味
+
+#+BEGIN_SRC bash
+git fetch origin
+git merge origin/master
+#+END_SRC
+
+**** git ls-files
+- 省略
