@@ -558,17 +558,17 @@ Nobita & Shizuka's READMEfile.
 - READMEとライセンスを追加すること
   - 「Initialize this repository with a README」にチェックを入れる
   - 「Add a license:」から「MIT License」を選ぶ
+**** GitHub flowwによる開発の流れ
+- GitHub flow
+  - [[https://guides.github.com/introduction/flow/][Understanding the GitHub Flow · GitHub Guides]]
+
 **** mainブランチについて
 - git initでは最初にできるブランチは *master* である
 - GitHubでリポジトリを作成した場合は *main* に変更された
   - [[https://github.blog/changelog/2020-10-01-the-default-branch-for-newly-created-repositories-is-now-main/][The default branch for newly-created repositories is now main | GitHub Changelog]]
 - 以降、masterブランチとの記述は、必要に応じてmainブランチだと読み替えること
-*** GitHub flow
-**** GitHub flowwによる開発の流れ
-- GitHub flow
-  - [[https://guides.github.com/introduction/flow/][Understanding the GitHub Flow · GitHub Guides]]
-
-**** 1: リモートリポジトリをローカルに複製
+* GitHub flow
+*** リモートリポジトリをローカルに複製
 - リモートにあるリポジトリをローカルに複製することをcloneという
   - [[https://help.github.com/articles/cloning-a-repository/][Cloning a repository - User Documentation]]
 - 下記の「$GITHUB_URL」の部分をGitHubのour_projectリポジトリURLにして実行
@@ -583,7 +583,7 @@ cd our_project
 
 - この作業は基本的にはプロジェクトに対して一度だけ行うこと
 
-**** 2: mainから作業用ブランチを作成
+*** mainから作業用ブランチを作成
 - 作業用のブランチを作成して移動する
   - ブランチの名前は「greeting」とする
 
@@ -591,14 +591,14 @@ cd our_project
 git checkout -b greeting
 #+END_SRC
 
-**** 3: ブランチで編集作業を行う
+*** ブランチで編集作業を行う
 - ここでは，hello.txtという名前のファイルを作成する
 
 #+BEGIN_SRC bash
 echo 'Hello GitHub' > hello.txt
 #+END_SRC
 
-**** 4: ブランチでコミットを作成
+*** ブランチでコミットを作成
 - 変更した内容をステージングしてからコミットする
 
 #+BEGIN_SRC bash
@@ -609,7 +609,7 @@ git commit -m 'Create hello.txt'
 - この編集，add，commitの作業は作業が一区切りつくまで何回も繰り返してよい…
   - が，こまめにpushするのが良いとされる
 
-**** 5: ブランチをリモートに送る
+*** ブランチをリモートに送る
 - ブランチで作成したコミットをリモートに送る
   - 下記のoriginはリポジトリのURLの別名として自動で設定されているもの
   - greetingは作業しているブランチ名
@@ -618,39 +618,39 @@ git commit -m 'Create hello.txt'
 git push -u origin greeting
 #+end_src
 
-**** 6. GitHubでプルリクエストを送る
+*** GitHubでプルリクエストを送る
 - ブランチがGitHubに登録されたことを確認し，Pull requestを作成する
 - 手順は次のとおり
   - [[https://help.github.com/articles/using-pull-requests/][Using pull requests - User Documentation]] の前半
   - [[https://help.github.com/articles/creating-a-pull-request/][Creating a pull request - User Documentation]]
 
-**** 7. GitHubでレビュー（＋自動テスト）
+*** GitHubでレビュー（＋自動テスト）
 - プルリクエストを用いたレビューの方法は下記参照
   - [[https://help.github.com/articles/using-pull-requests/][Using pull requests - User Documentation]] の後半
 - 人手によるレビューの他，自動的なテストも行うのが望ましい（説明は省略）
 
-**** 8. GitHubでプルリクエストをマージ
+*** GitHubでプルリクエストをマージ
 - Pull requestのレビューが済んだらマージする
   - [[https://help.github.com/articles/merging-a-pull-request/][Merging a pull request - User Documentation]]
 - マージが完了したら，ローカル・リモート共に，マージ済みのブランチは削除してよい
 
-**** 9. ローカルのmainを最新版にする
+*** ローカルのmainを最新版にする
 - GitHubで行ったマージをローカルに反映させる
-  - masterブランチに移動してgit pull
+  - mainブランチに移動してgit pull
   - 不要になった作業用ブランチは削除
 
 #+begin_src bash
-git checkout master
+git checkout main
 git pull
 git branch -d greeting
 #+end_src
 
-**** GitHub Flowに習熟する！                                        :演習:
-- ここで手順2:（[[2: mainから作業用ブランチを作成]]節）に戻り，
+*** GitHub Flowに習熟する！                                          :演習:
+- ここで手順2:（[[mainから作業用ブランチを作成]]節）に戻り，
   一連の作業を複数回（5回以上!）繰り返すこと
   - *体に叩き込む！*
 
-**** GitHub Pagesを作成する                                         :演習:
+*** GitHub Pagesを作成する                                           :演習:
 - GitHubをWebブラウザで開く
 - プロジェクトの =Settings -> Pages (side menu)= でGitHub Pagesを開く
 - Sourceの項目にある =None= を =main= ブランチに変える
