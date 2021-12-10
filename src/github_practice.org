@@ -776,11 +776,34 @@ git pull
   素敵なWebサイトを作ろう
 - 可能ならばCSSやJavaScriptを使っても良いが必須ではない
 
-**** 注意事項
-- 実は，GitHubでは，gitコマンドを使わなくても，
-  ブラウザベースでファイルのアップロードや編集，コミットの作成などが
-  できるが，このことに *気がついてはならない*
-  - ただし，万が一，気がついてしまった場合，それはしょうがないものとする
+*** GitHubでのコンフリクトと解消方法
+****  GitHubにおけるコンフリクトについて
+***** 複数人開発で生じやすいコンフリクト
++ コンフリクトは、コードの同じ箇所を複数の人が別々に編集すると発生
++ コンフリクトが起きると？
+  * GitHub に提出した Pull requests が *自動的にマージできない*
+***** コンフリクトへの基本的な対処法
++ 初心者は、演習の最初の方では「他人と同じファイルを編集しない」こと にして、操作になれる
+  * 上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ
++ 最初のうち、コミットはできるだけ細かく作成すると良い
+  * その分、他の人とかち合う可能性が減る
+***** GitHubでのコンフリクトの解消
++ nobitaとshizukaのシナリオで、nobitaの作業がGitHubでマージされたとする
+  * 今、shizukaが作成したPull requestはマージできない
+***** GitHubでのコンフリクトの解消方法（一例）
+
+#+begin_src bash
+# ローカルのmainを最新に
+git checkout main
+git pull
+# shizukaに移動してマージ
+git checkout shizuka
+git merge main
+# ここでコンフリクトを解消する
+git add .
+git commit -m 'Merge'
+git push -u origin shizuka
+#+end_src
 
 * 参考資料
 ** より進んだGitの操作
@@ -913,18 +936,22 @@ git merge origin/master
   - その分，他の人とかち合う可能性が減る
 
 **** GitHubでのコンフリクトの解消
-- nobitaとshizukaのシナリオで，nobitaの作業がGitHubでマージされたとする
-  - 今，shizukaが作成したPull requestはマージできない
-- 次の手順でプルリクエストがマージ可能になれば成功
+- nobitaとshizukaのシナリオでnobitaの作業がGitHubでマージされたとする
+  - shizukaが作成したPull requestはマージできなくなる
+- ローカルのmainブランチを最新版にする
+  - pullを行う
+- shizukaブランチでmainの内容をmergeする
+  - その後、手動でコンフリクトを解消
+- 再度shizukaをpushして、プルリクエストがマージ可能になれば成功
 
-**** GitHubでのコンフリクトの解消方法
+**** GitHubでのコンフリクトの解消方法（一例）
 #+begin_src bash
-# ローカルのmasterを最新に
-git checkout master
+# ローカルのmainを最新に
+git checkout main
 git pull
 # shizukaに移動してマージ
 git checkout shizuka
-git merge master
+git merge main
 # ここでコンフリクトを解消する
 git add .
 git commit -m 'Merge'
