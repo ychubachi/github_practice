@@ -583,7 +583,7 @@ cd our_project
 
 - この作業は基本的にはプロジェクトに対して一度だけ行うこと
 
-**** 2: masterから作業用ブランチを作成
+**** 2: mainから作業用ブランチを作成
 - 作業用のブランチを作成して移動する
   - ブランチの名前は「greeting」とする
 
@@ -634,7 +634,7 @@ git push -u origin greeting
   - [[https://help.github.com/articles/merging-a-pull-request/][Merging a pull request - User Documentation]]
 - マージが完了したら，ローカル・リモート共に，マージ済みのブランチは削除してよい
 
-**** 9. ローカルのmaster を最新版にする
+**** 9. ローカルのmainを最新版にする
 - GitHubで行ったマージをローカルに反映させる
   - masterブランチに移動してgit pull
   - 不要になった作業用ブランチは削除
@@ -646,11 +646,11 @@ git branch -d greeting
 #+end_src
 
 **** GitHub Flowに習熟する！                                        :演習:
-- ここで手順2:（[[2: masterから作業用ブランチを作成]]節）に戻り，
+- ここで手順2:（[[2: mainから作業用ブランチを作成]]節）に戻り，
   一連の作業を複数回（5回以上!）繰り返すこと
   - *体に叩き込む！*
 
-**** GitHub Pageを作成する                                          :演習:
+**** GitHub Pagesを作成する                                         :演習:
 - GitHubをWebブラウザで開く
 - プロジェクトの =Settings -> Pages (side menu)= でGitHub Pagesを開く
 - Sourceの項目にある =None= を =main= ブランチに変える
@@ -659,45 +659,16 @@ git branch -d greeting
 - add/commit/pushを適切に行い、GitHubにindex.htmlをアップロードする
 - 先程控えたURLにブラウザでアクセスし、作成したHTMLによるページが表示されることを確認
 
-*** GitHubでのコンフリクトと解消方法
-**** GitHub flow におけるコンフリクトについて
-- コンフリクトとは？
-  - コンフリクトは、コードの同じ箇所を複数の人が別々に編集すると発生
-- コンフリクトが起きると？
-  - GitHub に提出した Pull requests が自動的にマージできない
-
-**** コンフリクトへの基本的な対処法
-- 初心者は、演習の最初の方では「他人と同じファイルを編集しない」こと
-  にして、操作になれる
-  - 上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ
-- コミットはできるだけ細かく作成すると良い
-  - その分，他の人とかち合う可能性が減る
-
-**** GitHubでのコンフリクトの解消
-- nobitaとshizukaのシナリオで，nobitaの作業がGitHubでマージされたとする
-  - 今，shizukaが作成したPull requestはマージできない
-- 次の手順でプルリクエストがマージ可能になれば成功
-
-**** GitHubでのコンフリクトの解消方法
-#+begin_src bash
-# ローカルのmasterを最新に
-git checkout master
-git pull
-# shizukaに移動してマージ
-git checkout shizuka
-git merge master
-# ここでコンフリクトを解消する
-git add .
-git commit -m 'Merge'
-git push -u origin shizuka
-#+end_src
-
 * チーム演習編
-** チーム演習
+** 準備と演習
 *** 演習のための準備
 **** 概要
-- この演習では，最終的に全員でHTMLによるWebサイトを作ることを目指す
-- Webサーバは使わず，スタティックなサイトで構わない
+- この演習では、最終的に全員でHTMLによるWebサイトを作ることを目指す
+- GitHub Pagesの機能を用いる
+- Webサイトの例
+  - 架空の会社のホームページ
+  - 架空の商品紹介ページ
+  - 架空の…
 
 **** リモートリポジトリの作成
 - チームの代表者1名がGitHubでリポジトリを作成する
@@ -713,9 +684,6 @@ git push -u origin shizuka
   - [[https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/][Inviting collaborators to a personal repository - User Documentation]]
 - 招待されたメンバーには確認のメールが届く
   - これにより，全員がGitHubのリポジトリにpushできるようになる
-
-**** GitHub Pagesの設定
-- =main= ブランチをGitHub Pageとして見られるようにする
 
 **** リポジトリのclone
 - 全員，リポジトリをローカルにcloneする
@@ -929,3 +897,36 @@ git merge origin/master
 
 **** git ls-files
 - 省略
+
+** GitHubでのコンフリクトと解消方法
+**** GitHub flow におけるコンフリクトについて
+- コンフリクトとは？
+  - コンフリクトは、コードの同じ箇所を複数の人が別々に編集すると発生
+- コンフリクトが起きると？
+  - GitHub に提出した Pull requests が自動的にマージできない
+
+**** コンフリクトへの基本的な対処法
+- 初心者は、演習の最初の方では「他人と同じファイルを編集しない」こと
+  にして、操作になれる
+  - 上達したら積極的にコンフリクトを起こしてみて、その解決方法を学ぶ
+- コミットはできるだけ細かく作成すると良い
+  - その分，他の人とかち合う可能性が減る
+
+**** GitHubでのコンフリクトの解消
+- nobitaとshizukaのシナリオで，nobitaの作業がGitHubでマージされたとする
+  - 今，shizukaが作成したPull requestはマージできない
+- 次の手順でプルリクエストがマージ可能になれば成功
+
+**** GitHubでのコンフリクトの解消方法
+#+begin_src bash
+# ローカルのmasterを最新に
+git checkout master
+git pull
+# shizukaに移動してマージ
+git checkout shizuka
+git merge master
+# ここでコンフリクトを解消する
+git add .
+git commit -m 'Merge'
+git push -u origin shizuka
+#+end_src
