@@ -106,7 +106,7 @@
 * 個人演習編
 :PROPERTIES:
 :ID:       2c38d81d-43cd-49cf-abe3-29923d4c5756
-:CUMTOM_ID: 個人演習編
+:CUSTOM_ID: 個人演習編
 :END:
 ** ローカルリポジトリでGitを使う
 *** Gitの操作方法と初期設定
