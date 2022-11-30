@@ -1,5 +1,5 @@
 #+STARTUP: overview indent align logdone hidestars hideblocks
-#+TITLE: Git/GitHub演習
+#+TITLE: Git/GitHub演習2022
 #+AUTHOR: 中鉢 欣秀
 #+OPTIONS: ^:{}
 #+EXPORT_FILE_NAME: ../docs/index.html
