@@ -105,8 +105,8 @@
 
 * 個人演習編
 :PROPERTIES:
-:ID:       2c38d81d-43cd-49cf-abe3-29923d4c5756
-:CUSTOM_ID: 個人演習編
+:ID:       12a59805-4284-4b19-9b8f-95ebdbc03ed1
+:CUSTOM_ID: personal
 :END:
 ** ローカルリポジトリでGitを使う
 *** Gitの操作方法と初期設定
@@ -664,6 +664,10 @@ git branch -d greeting
 - 先程控えたURLにブラウザでアクセスし、作成したHTMLによるページが表示されることを確認
 
 * チーム演習編
+:PROPERTIES:
+:ID:       e7ca6ad2-0c73-4e01-9bef-01fcc4496f50
+:CUSTOM_ID: team
+:END:
 ** 演習のための準備
 *** 概要
 - この演習では、最終的に全員でHTMLによるWebサイトを作ることを目指す
