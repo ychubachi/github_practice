@@ -1,5 +1,5 @@
 #+STARTUP: overview indent align logdone hidestars hideblocks
-#+TITLE: Git/GitHub演習2022
+#+TITLE: Git/GitHub演習
 #+AUTHOR: 中鉢 欣秀
 #+OPTIONS: ^:{}
 #+EXPORT_FILE_NAME: ../docs/index.html
@@ -104,6 +104,10 @@
   - [[https://github.com/ychubachi/github_practice/wiki][Home · ychubachi/github_practice Wiki]]
 
 * 個人演習編
+:PROPERTIES:
+:ID:       2c38d81d-43cd-49cf-abe3-29923d4c5756
+:CUMTOM_ID: 個人演習編
+:END:
 ** ローカルリポジトリでGitを使う
 *** Gitの操作方法と初期設定
 **** Gitチートシート（カンニング表）
