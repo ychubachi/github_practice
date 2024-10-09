@@ -928,7 +928,7 @@ git log --follow README
 
 #+BEGIN_SRC bash
 git fetch origin
-git merge origin/master
+git merge origin/main
 #+END_SRC
 
 **** git ls-files
