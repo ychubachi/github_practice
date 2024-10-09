@@ -376,8 +376,8 @@ git diff $COMMIT_ID_1 $COMMIT_ID_2
   必ず新しいブランチを作成する
 - Gitの内部的にはあるコミットに対するエイリアス（alias）である
 
-**** masterは大事なブランチ
-- Gitリポジトリの初期化後，最初のコミットを行うとmasterブランチができる
+**** mainは大事なブランチ
+- Gitリポジトリの初期化後，最初のコミットを行うとmainブランチができる
 - 非常に重要なブランチであり，
   ここで _直接編集作業を行ってはならない_
   - ただし，本演習や，個人でGitを利用する場合はこの限りではない
@@ -395,7 +395,7 @@ git checkout -b new_branch
 
 **** ブランチの確認
 - ブランチの一覧と現在のブランチを確認する
-  - もともとあるmasterと，新しく作成したnew_branchが表示される
+  - もともとあるmainブランチと，新しく作成したnew_branchが表示される
 
 #+BEGIN_SRC bash
 git branch -vv
@@ -417,19 +417,19 @@ git commit -m 'Add date'
 - git branch -vvでコミットのIDが変化したことも確認
 
 **** ブランチの移動
-- new_branchブランチでコミットした内容をmasterに反映させる
-  - まずはmasterに移動する
+- new_branchブランチでコミットした内容をmainに反映させる
+  - まずはmainに移動する
 
 #+BEGIN_SRC bash
-git checkout master
+git checkout main
 #+END_SRC
 
 - git status，git branch -vvで現在のブランチを確認すること
 - この段階では，READMEファイルに行った変更が _反映されてない_ ことを
   確認すること
 
-**** 変更をmasterにマージ
-- new_branchで行ったコミットをmasterに反映させる
+**** 変更をmainにマージ
+- new_branchで行ったコミットをmainに反映させる
 
 #+BEGIN_SRC bash
 git merge new_branch
@@ -460,7 +460,7 @@ git branch -d new_branch
   - nobitaブランチを作成する
   - READMEファイルの *一行目* を「Nobita's README.」に変更する
   - 変更をaddしてcommitする
-- ここで一度， *masterブランチ* にもどる
+- ここで一度， *mainブランチ* にもどる
   - READMEがもとのままだあることを確認
 - 「しずか」の作業
   - shizukaブランチを作成する
@@ -468,7 +468,7 @@ git branch -d new_branch
   - 変更をaddしてcommitする
 
 **** マージとコンフリクト発生
-- masterブランチに移動する
+- mainブランチに移動する
 - まず，nobitaブランチをマージ
   - 問題なくマージできる
 - 次に，shizukaブランチをマージ
@@ -498,7 +498,7 @@ Shizuka's file.
 （以下略）
 #+END_SRC
 
-- =======の上がマージ前のmasterブランチ，
+- =======の上がマージ前のmainブランチ，
   下がマージしようとしたshizukaブランチの内容
 
 **** コンフリクトの解消
@@ -511,7 +511,7 @@ Nobita & Shizuka's READMEfile.
 
 **** 解消した結果をコミットする
 - その後はいつもどおり，addしてcommitすれば作業が継続できる
-  - マージ済みのmasterから新しくブランチを作成すること
+  - マージ済みのmainから新しくブランチを作成すること
 - なお， _テキストエディタを用い，手動で正しくコンフリクトを解消する前でも
   commitできてしまう_ ので，この点には注意する
 
@@ -566,11 +566,10 @@ Nobita & Shizuka's READMEfile.
 - GitHub flow
   - [[https://guides.github.com/introduction/flow/][Understanding the GitHub Flow · GitHub Guides]]
 
-**** mainブランチについて
-- git initでは最初にできるブランチは *master* である
-- GitHubでリポジトリを作成した場合は *main* に変更された
+**** mainブランチとmasterブランチについて
+- 以前は、git initでは最初にできるブランチは *master* であった
+- 最近、 *main* に変更された
   - [[https://github.blog/changelog/2020-10-01-the-default-branch-for-newly-created-repositories-is-now-main/][The default branch for newly-created repositories is now main | GitHub Changelog]]
-- 以降、masterブランチとの記述は、必要に応じてmainブランチだと読み替えること
 ** GitHub flow
 *** リモートリポジトリをローカルに複製
 - リモートにあるリポジトリをローカルに複製することをcloneという
@@ -925,7 +924,7 @@ git log --follow README
 **** リモートブランチの最新情報を取得
 - git fetchはリモートにあるブランチの最新情報を
   ローカルに取ってくるコマンド
-- 例えば，git pullはmasterブランチで次の２つを実行することと同じ意味
+- 例えば，git pullはmainブランチで次の２つを実行することと同じ意味
 
 #+BEGIN_SRC bash
 git fetch origin
